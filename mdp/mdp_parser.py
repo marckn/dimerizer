@@ -1,7 +1,7 @@
 import re
 def parseandkill(fn_in):
    rexp = r".*(vdw_type|vdw\-type|coulombtype|cutoff\-scheme|energygrps|integrator|\
-               |energygrp_table|rcoulomb\-switch|rvdw\-switch|ntscalcenergy).*"
+               |energygrp_table|rcoulomb\-switch|rvdw\-switch|ntscalcenergy|energygrp\-excl).*"
    reg = re.compile(rexp)
    
    lines=[]

@@ -10,9 +10,11 @@ def writeClassical(mdpclean,outdir,mdpf,allatoms):
    
    str1=""
    str2=""
+   str3=""
    if not allatoms:
       str1="SOL"
       str2="SOL SOL INTF SOL"
+      str3="NONINT SOL"
    
       
    fstr="""
@@ -20,11 +22,12 @@ def writeClassical(mdpclean,outdir,mdpf,allatoms):
    integrator=md-vv
    ntscalcenergy=1
    vdw_type=user
-   coulombtype=user
+   coulombtype=PME-User
    cutoff-scheme=group
    energygrps=NONINT INTF %s
    energygrp_table=INTF INTF %s
-   """ % (str1,str2)
+   energygrp-excl=NONINT NONINT NONINT INTF %s
+   """ % (str1,str2,str3)
    f.write(fstr)
 
 
@@ -40,20 +43,23 @@ def writeDimer(mdpclean,outdir,mdpf,allatoms):
       
    str1=""
    str2=""
+   str3=""
    if not allatoms:
       str1="SOL"
       str2="SOL SOL INT1 SOL INT2 SOL"
+      str3="NONINT SOL"
       
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
    ntscalcenergy=1
    vdw_type=user
-   coulombtype=user
+   coulombtype=PME-User
    cutoff-scheme=group
    energygrps=INT1 INT2 NONINT %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
-   """ % (str1,str2)
+   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 %s
+   """ % (str1,str2,str3)
 
    f.write(fstr)
 
@@ -77,10 +83,11 @@ def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
    integrator=md-vv
    ntscalcenergy=1
    vdw_type=user
-   coulombtype=user
+   coulombtype=PME-User
    cutoff-scheme=group
    energygrps=INT1 INT2 %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
+   energygrp-excl=INT1 INT2"
    """ % (str1,str2)
 
    f.write(fstr)
