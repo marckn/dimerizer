@@ -88,7 +88,7 @@ def writeDimer(mdpclean,outdir,mdpf,allatoms):
    cutoff-scheme=group
    energygrps=INT1 INT2 NONINT %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
-   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 %s
+   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 NONINT NONINT %s
    """ % (str1,str2,str3)
 
    f.write(fstr)
