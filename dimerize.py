@@ -40,11 +40,11 @@ outdir = outdir+"/"
 
 
 # Arguments read. Building dimerized pdb.
-import pdb.pdb_read
-import pdb.pdb_write
+import dtools.pdb.pdb_read
+import dtools.pdb.pdb_write
 pdbout = outdir+"dconfig.pdb"
-ppdb = pdb.pdb_read.parse_pdb(pdbfile)
-pdbf = pdb.pdb_write.dimerizer(ppdb,pdbout,natoms)
+ppdb = dtools.pdb.pdb_read.parse_pdb(pdbfile)
+pdbf = dtools.pdb.pdb_write.dimerizer(ppdb,pdbout,natoms)
 pdbf.buildConfig(vsites)
 totatoms=pdbf.totatoms
 if natoms==totatoms:
@@ -53,11 +53,11 @@ else:
    allatoms=False
    
 # Building topology file(s)
-import topology.topol_read
-import topology.topol_write
+import dtools.topology.topol_read
+import dtools.topology.topol_write
 topout = outdir+"dtopology.top"
-ptop = topology.topol_read.parse_topol(topfile)
-ftop = topology.topol_write.dimerizer(ptop,natoms,topout)
+ptop = dtools.topology.topol_read.parse_topol(topfile)
+ftop = dtools.topology.topol_write.dimerizer(ptop,natoms,topout)
 if vsites:
    ftop.buildClassical()
    ftop.buildDimer(1)
@@ -65,20 +65,20 @@ else:
    ftop.buildDimer(virtualsites=False)
 
 # Building index file(s)
-import index.index_write
+import dtools.index.index_write
 
 if vsites:
-   index.index_write.writeClassical(outdir,natoms,totatoms)
-   index.index_write.writeDimer(outdir,natoms,totatoms)
+   dtools.index.index_write.writeClassical(outdir,natoms,totatoms)
+   dtools.index.index_write.writeDimer(outdir,natoms,totatoms)
 else:
-   index.index_write.writeNoVsites(outdir,natoms,totatoms)
+   dtools.index.index_write.writeNoVsites(outdir,natoms,totatoms)
 
 
 # Building plumed file(s)
 if not dimsigmas is None:
-   import plumed.templates
-   plumed.templates.write(dimsigmas,natoms,outdir,vsites,allatoms,q,temp)
+   import dtools.plumed.templates
+   dtools.plumed.templates.write(dimsigmas,natoms,outdir,vsites,allatoms,q,temp)
    
 if not mdpfile is None:
-   import mdp.editor
-   mdp.editor.editfile(mdpfile,outdir,vsites,allatoms)
+   import dtools.mdp.editor
+   dtools.mdp.editor.editfile(mdpfile,outdir,vsites,allatoms)
