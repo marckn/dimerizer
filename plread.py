@@ -121,9 +121,8 @@ for newval,cf in zip(nvll,ftmod):
    dimlab=labels[ich]
    fo = open(fname,"w+")
    rlineid = ".*("+str(dimlab)+r":|LABEL="+str(dimlab)+r").*"   
-   
-   print rlineid
    rx=re.compile(rlineid)
+   
    for ln in lstf:
       if not rx.match(ln) is None:
          reg=r"\b"+str(key)+r"=\S+ "
