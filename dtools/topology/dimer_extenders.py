@@ -38,7 +38,7 @@ def ExtendedList(interactions, natoms, nadding=2):
    
    
  
-def atomsExtendedList(atoms,natoms,vsites=True):
+def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    """
    From the original [ atoms ] section build the dimerzied one.
    
@@ -48,14 +48,34 @@ def atomsExtendedList(atoms,natoms,vsites=True):
    to their corresponding beads type. 
    """
    atlist = atoms[0][0]   # only one [ atoms ] in a topology
-   extlist=atlist*1
+   
+   extlist=[]
+   for ln in atlist:
+      data = re.findall(r' \S+',ln)
+      if classical:
+         data[6]=str(0.0)
+	 
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
+      
+      extlist.append(nln)
+	 
+      
+   
+   
    
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = int(data[0])+int(natoms)
-      nln=""
-      for v in data:
-         nln= nln+str(v)+"   "
+      data[0] = str(int(data[0])+int(natoms))
+      if classical:
+         data[6]=str(0.0)
+      
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
       
       extlist.append(nln)
    
@@ -64,12 +84,17 @@ def atomsExtendedList(atoms,natoms,vsites=True):
    
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = int(data[0])+int(2*natoms)
+      data[0] = str(int(data[0])+int(2*natoms))
       data[1] = data[1]+"_V"
-      data[7]=0
-      nln=""
-      for v in data:
-         nln= nln+str(v)+"   "
+      if not classical:
+         data[6]=str(0.0)
+	 
+      data[7]=str(0.0)
+      
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
       
       extlist.append(nln)
       

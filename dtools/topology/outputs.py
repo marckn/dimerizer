@@ -54,7 +54,11 @@ def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, 
    """
    
    addHeader(f)
-   ext_atoms = de.atomsExtendedList(atoms, natoms,vsites)
+   if extendlist.__name__ == "ClassicalExtList":
+      ext_atoms = de.atomsExtendedList(atoms, natoms,vsites,True)
+   else:
+      ext_atoms = de.atomsExtendedList(atoms, natoms,vsites,False)
+   
    if vsites:
       addVirtualSites(ext_atoms,natoms)
    
