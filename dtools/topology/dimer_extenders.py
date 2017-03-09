@@ -21,13 +21,14 @@ def ExtendedList(interactions, natoms, nadding=2):
       for el in els:
          extlist.append(el)
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
-         subs=el.split(idxs[nadding-1],1)
+         remlist=idxs[nadding:]
 	 addlist=""
          for idx in idxs[0:nadding]:
             idxp = int(idx) + int(natoms)
 	    addlist= addlist+"  "+str(idxp)+"   "
       
-         addlist = addlist+subs[1]
+         for v in remlist:
+            addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)  
 	 
@@ -118,13 +119,14 @@ def ClassicalExtList(interactions, natoms, nadding=2):
       deltalist=[]
       for el in els:
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
-         subs=el.split(idxs[nadding-1],1)
+         remlist=idxs[nadding:]
 	 addlist=""
          for idx in idxs[0:nadding]:
             idxp = int(idx) + int(2*natoms)
 	    addlist= addlist+"  "+str(idxp)+"   "
       
-         addlist = addlist+subs[1]
+         for v in remlist:
+            addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)  
 	 
