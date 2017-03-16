@@ -1,3 +1,16 @@
+def writeln(f,iterator,ibr=50):
+   """
+   Write a list on a file f on multiple lines.
+   """
+   ibreak=0
+   for i in iterator:
+      f.write(str(i+1)+" ")
+      ibreak=ibreak+1
+      if ibreak == ibr:
+         ibreak=0
+         f.write("\n")
+	 
+
 def writeClassical(basedir,natoms,totatoms):
    """
    Index file for the classical replica.
@@ -9,43 +22,28 @@ def writeClassical(basedir,natoms,totatoms):
    """
    f= open(basedir+"index.0.ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,3*natoms):
-      f.write(str(i+1)+" ")
    
-   ibreak=0
+   writeln(f,xrange(0,3*natoms))
+   
    if natoms != totatoms:
       f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-	 
+      writeln(f,xrange(3*natoms,2*natoms+totatoms))
+      
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   for i in xrange(0,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(0,2*natoms))
    
    f.write("\n\n")   
    f.write("[ INTF ]\n")
-   for i in xrange(2*natoms,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(2*natoms,3*natoms))
    
    f.write("\n")
    
    if natoms != totatoms:
-      ibreak=0
       f.write("\n\n")
       f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-   
+      writeln(f,xrange(3*natoms,2*natoms+totatoms))
  
       f.write("\n")
       
@@ -63,37 +61,28 @@ def writeDimer(basedir,natoms,totatoms,nrep=1):
    """
    f = open(basedir+"index."+str(nrep)+".ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(0,3*natoms))
+   
 
+   
    if natoms != totatoms:
-      ibreak=0
       f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      writeln(f,xrange(3*natoms,2*natoms+totatoms))
 	 
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   for i in xrange(0,natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(0,natoms))
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   for i in xrange(natoms,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms,2*natoms))
       
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   for i in xrange(2*natoms,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(2*natoms,3*natoms))
    
    f.write("\n")
 
@@ -101,13 +90,7 @@ def writeDimer(basedir,natoms,totatoms,nrep=1):
       ibreak=0
       f.write("\n\n")
       f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-       	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      writeln(f,xrange(3*natoms,2*natoms+totatoms))
    
       f.write("\n")
 
@@ -123,44 +106,28 @@ def writeNoVsites(basedir,natoms,totatoms):
    """
    f= open(basedir+"index.ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(0,2*natoms))
 
    if natoms != totatoms:
-      ibreak=0
       f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-       	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
+      writeln(f,xrange(3*natoms,2*natoms+totatoms))
 
 
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   for i in xrange(0,natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(0,natoms))
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   for i in xrange(natoms,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms,2*natoms))
 
    f.write("\n")
    if natoms != totatoms:
-      ibreak=0
       f.write("\n\n")
       f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
- 	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      writeln(f,xrange(3*natoms,2*natoms+totatoms))
 
    f.write("\n")
 

@@ -9,7 +9,7 @@ def write(sigmas,natoms,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atof
    else:
       lst=range(1+atoffset,natoms+atoffset+1)
       satoms = reduce(lambda i,j: str(i)+","+str(j), lst)
-      satoms="ATOMS="+satoms
+      satoms="NATOMS="+str(natoms)+" ATOMS="+satoms
       
    if vsites:
       for i,s in enumerate(sigmas):

@@ -51,12 +51,14 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    atlist = atoms[0][0]   # only one [ atoms ] in a topology
    
    extlist=[]
+   d2last=int(0)
    for ln in atlist:
       data = re.findall(r' \S+',ln)
       if classical:
          data[6]=str(0.0)
 	 
-      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {6:10s} {7:10s}".format(*data[0:8])
+      d2last=int(data[2])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
       
       for rel in data[8:]:
          nln=nln+"  "+str(rel)
@@ -67,13 +69,16 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    
    
    
+   d22last=int(0)
    for ln in atlist:
       data = re.findall(r' \S+',ln)
       data[0] = str(int(data[0])+int(natoms))
       if classical:
          data[6]=str(0.0)
       
-      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {6:10s} {7:10s}".format(*data[0:8])
+      data[2]=str(int(data[2])+d2last)
+      d22last=int(data[2])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
       
       for rel in data[8:]:
          nln=nln+"  "+str(rel)
@@ -90,9 +95,10 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
       if not classical:
          data[6]=str(0.0)
 	 
+      data[2]=str(int(data[2])+d22last)
       data[7]=str(0.0)
       
-      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {6:10s} {7:10s}".format(*data[0:8])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
       
       for rel in data[8:]:
          nln=nln+"  "+str(rel)
