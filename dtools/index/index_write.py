@@ -11,7 +11,7 @@ def writeln(f,iterator,ibr=50):
          f.write("\n")
 	 
 
-def writeClassical(basedir,natoms,totatoms):
+def writeClassical(basedir,natoms,totatoms,atomlist):
    """
    Index file for the classical replica.
    
@@ -23,27 +23,26 @@ def writeClassical(basedir,natoms,totatoms):
    f= open(basedir+"index.0.ndx","w+")
    f.write("[ system ]\n")
    
-   writeln(f,xrange(0,3*natoms))
+   ndimers = len(atomlist)
    
-   if natoms != totatoms:
-      f.write("\n")
-      writeln(f,xrange(3*natoms,2*natoms+totatoms))
+   writeln(f,xrange(0,totatoms+2*ndimers))
       
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   writeln(f,xrange(0,2*natoms))
+   writeln(f,atomlist)
+   writeln(f,range(natoms,natoms+ndimers))
    
    f.write("\n\n")   
    f.write("[ INTF ]\n")
-   writeln(f,xrange(2*natoms,3*natoms))
+   writeln(f,range(natoms+ndimers,natoms+2*ndimers))
    
    f.write("\n")
    
    if natoms != totatoms:
       f.write("\n\n")
       f.write("[ SOL ]\n")
-      writeln(f,xrange(3*natoms,2*natoms+totatoms))
+      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
  
       f.write("\n")
       

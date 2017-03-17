@@ -6,7 +6,7 @@ class dimerizer:
    """
    Takes a standard .pdb file as input and produces a dimerized version.
    """
-   def __init__(self,oread,fout,natoms=None):
+   def __init__(self,oread,fout,atomlist,natoms=None):
       """
       Determines some prerequisites for the editing of the PDB file.
    
@@ -21,6 +21,7 @@ class dimerizer:
       """
       self.fhand = open(fout,'w+')
       self.oread = oread
+      self.atomlist=atomlist
       
       for n,ln in enumerate(oread.rbuff):
          if oread.isatom(ln) is True:
@@ -49,7 +50,7 @@ class dimerizer:
       lines for the second bead with indices shifted by N and X-coordinate by 0.002 and finally, 
       if requested, the virtual sites with indices shifted by 2N and placed at the center of mass of each dimer. 
       """
-      self.fhand.write("REMARK    MODIFIED BY DIMERIZER.\n REMARK    CITE: JCTC...\n")
+      self.fhand.write("REMARK    MODIFIED BY DIMERIZER.\n")
       
       basetocopy=[]
 
@@ -58,8 +59,9 @@ class dimerizer:
       
       for n,ln in enumerate(self.oread.rbuff):
          self.fhand.write(ln+"\n")
-	 if n >= self.entrypoint:
+	 if n >= self.entrypoint and atc in self.atomlist:
 	    basetocopy.append(ln)
+	    
 	 if self.oread.isatom(ln):
 	    atc = atc+1
 	    
@@ -68,22 +70,24 @@ class dimerizer:
 	    break
 	    
       
-      for el in basetocopy:
+      for i,el in enumerate(basetocopy):
          if self.oread.isatom(el) is True:
-	    el=lineformat.editline(el,self.natoms,(0.002,0,0))
+	    el=lineformat.editline(el,self.natoms-self.atomlist[i]+i,(0.002,0,0))
 	    
 	 self.fhand.write(el+"\n")
 	 
       if dovsites:
-         offset=2*self.natoms
-	 for el in basetocopy:
+         offset=self.natoms+len(self.atomlist)
+	 for i,el in enumerate(basetocopy):
             if self.oread.isatom(el) is True:
-	       el=lineformat.editline(el,2*self.natoms,(0.001,0,0))
+	       el=lineformat.editline(el,offset-self.atomlist[i]+i,(0.001,0,0))
       	 
 	    self.fhand.write(el+"\n")
+	    
+	 offset = 2*len(self.atomlist)
       
       else:
-         offset=self.natoms	
+         offset=len(self.atomlist)	
 	
       for n in range(restart,len(self.oread.rbuff)):
          ln = self.oread.rbuff[n]

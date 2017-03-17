@@ -18,6 +18,7 @@ parser.add_argument('-o','--outdir',help='Output directory (default .)', default
 parser.add_argument('-q','--q',help='Dimer spring power law (default 0.5)',type=float,default=0.5)
 parser.add_argument('-t','--temperature',help='Temperature of the simulation (default 300K)',type=float,default=300)
 parser.add_argument('-m','--mdp',help='Gromacs mdp file',type=str)
+parser.add_argument('-d','--dimers',help='List of atoms to dimerize (numbers from 1 to N)',type=str,default="All")
 
 args = parser.parse_args()
 
@@ -37,17 +38,25 @@ else:
 dimsigmas = args.plumed
 outdir    = args.outdir
 outdir = outdir+"/"
+atomlist=args.dimers
+if atomlist == "All":
+   atomlist="1-"+str(natoms)
+   
+from dtools.alparser import atomlist_parser as alp
+atomlist=alp(atomlist)
 
+if len(atomlist)>natoms:
+   raise("Number of elements in atomlist larger than N")
 
 # Arguments read. Building dimerized pdb.
 import dtools.pdb.pdb_read
 import dtools.pdb.pdb_write
 pdbout = outdir+"dconfig.pdb"
 ppdb = dtools.pdb.pdb_read.parse_pdb(pdbfile)
-pdbf = dtools.pdb.pdb_write.dimerizer(ppdb,pdbout,natoms)
+pdbf = dtools.pdb.pdb_write.dimerizer(ppdb,pdbout,atomlist,natoms)
 pdbf.buildConfig(vsites)
 totatoms=pdbf.totatoms
-if natoms==totatoms:
+if len(atomlist)==totatoms:
    allatoms=True
 else:
    allatoms=False
@@ -68,7 +77,7 @@ else:
 import dtools.index.index_write
 
 if vsites:
-   dtools.index.index_write.writeClassical(outdir,natoms,totatoms)
+   dtools.index.index_write.writeClassical(outdir,natoms,totatoms,atomlist)
    dtools.index.index_write.writeDimer(outdir,natoms,totatoms)
 else:
    dtools.index.index_write.writeNoVsites(outdir,natoms,totatoms)
