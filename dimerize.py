@@ -66,7 +66,7 @@ import dtools.topology.topol_read
 import dtools.topology.topol_write
 topout = outdir+"dtopology.top"
 ptop = dtools.topology.topol_read.parse_topol(topfile)
-ftop = dtools.topology.topol_write.dimerizer(ptop,natoms,topout)
+ftop = dtools.topology.topol_write.dimerizer(ptop,natoms,atomlist,topout)
 if vsites:
    ftop.buildClassical()
    ftop.buildDimer(1)
@@ -78,16 +78,17 @@ import dtools.index.index_write
 
 if vsites:
    dtools.index.index_write.writeClassical(outdir,natoms,totatoms,atomlist)
-   dtools.index.index_write.writeDimer(outdir,natoms,totatoms)
+   dtools.index.index_write.writeDimer(outdir,natoms,totatoms,atomlist)
 else:
-   dtools.index.index_write.writeNoVsites(outdir,natoms,totatoms)
+   dtools.index.index_write.writeNoVsites(outdir,natoms,totatoms,atomlist)
 
 
 # Building plumed file(s)
 if not dimsigmas is None:
    import dtools.plumed.templates
-   dtools.plumed.templates.write(dimsigmas,natoms,outdir,vsites,allatoms,q,temp)
+   dtools.plumed.templates.write(dimsigmas,natoms,atomlist,outdir,vsites,allatoms,q,temp)
    
 if not mdpfile is None:
    import dtools.mdp.editor
-   dtools.mdp.editor.editfile(mdpfile,outdir,vsites,allatoms)
+   nondimer = not allatoms or len(atomlist) < natoms
+   dtools.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer)

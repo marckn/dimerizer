@@ -7,7 +7,7 @@ def inject_modtop(f,lns):
    for ln in lns:
       f.write(ln+"\n")
       
-def addVirtualSites(at,nat):
+def addVirtualSites(at,nat, atlist):
    """
    Adds the [ virtual_sites2 ] section to a topology file.
    
@@ -17,10 +17,11 @@ def addVirtualSites(at,nat):
    """
    at.append("; virtual sites for the center of mass of the dimers")
    at.append("[ virtual_sites2 ]")
-   for i in xrange(1,nat+1): 
-      site = i+2*nat
-      a1 = i
-      a2 = i + nat
+   offset=len(atlist)
+   for ii,i in enumerate(atlist): 
+      site = ii+nat+offset+1
+      a1 = i+1
+      a2 = ii + nat+1
       at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.5") 
 
 def addHeader(f):
@@ -35,7 +36,7 @@ def addHeader(f):
    """)
    
 
-def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, extendlist=de.ExtendedList, vsites=True):
+def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ExtendedList, vsites=True):
    f = open(out_file,'w+')
    """
    From a standard Gromacs topology create the dimer .top file
@@ -55,22 +56,22 @@ def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, 
    
    addHeader(f)
    if extendlist.__name__ == "ClassicalExtList":
-      ext_atoms = de.atomsExtendedList(atoms, natoms,vsites,True)
+      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,True)
    else:
-      ext_atoms = de.atomsExtendedList(atoms, natoms,vsites,False)
+      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,False)
    
    if vsites:
-      addVirtualSites(ext_atoms,natoms)
+      addVirtualSites(ext_atoms,natoms, atlist)
    
-   ext_bonds = extendlist(bonds,natoms,2)
-   ext_pairs = extendlist(pairs,natoms,2)
+   ext_bonds = extendlist(bonds,natoms, atlist, 2)
+   ext_pairs = extendlist(pairs,natoms, atlist, 2)
    if extendlist.__name__ == "ClassicalExtList":
       ext_pairs[0] = ext_pairs[0] + ext_pairs[0]   # with VSITES tablep is halved
       
-   ext_angles = extendlist(angles,natoms,3)
-   ext_dihedrals = extendlist(dihedrals,natoms,4)
+   ext_angles = extendlist(angles,natoms, atlist, 3)
+   ext_dihedrals = extendlist(dihedrals,natoms, atlist, 4)
    
-   ext_cmap = extendlist(cmap,natoms,5)
+   ext_cmap = extendlist(cmap,natoms, atlist, 5)
    
    shiftex=[]
    
@@ -112,12 +113,12 @@ def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, 
 
    f.close()	 
    	 
-def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms):
+def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist):
    """
    From a standard Gromacs topology create the dimer .top file for the classical replica.
     
    This is handled by the previous function "dimer" with de.ClassicalExtList passed as argument.
    """
-   dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms,extendlist=de.ClassicalExtList, vsites=True)
+   dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ClassicalExtList, vsites=True)
 	 
 	          

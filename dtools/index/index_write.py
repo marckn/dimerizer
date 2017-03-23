@@ -10,6 +10,7 @@ def writeln(f,iterator,ibr=50):
          ibreak=0
          f.write("\n")
 	 
+   f.write("\n")
 
 def writeClassical(basedir,natoms,totatoms,atomlist):
    """
@@ -30,7 +31,7 @@ def writeClassical(basedir,natoms,totatoms,atomlist):
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   writeln(f,atomlist)
+   writeln(f,atomlist) # atomlist is a list of indices and writeln converts it to serials
    writeln(f,range(natoms,natoms+ndimers))
    
    f.write("\n\n")   
@@ -39,16 +40,19 @@ def writeClassical(basedir,natoms,totatoms,atomlist):
    
    f.write("\n")
    
-   if natoms != totatoms:
+   if natoms != totatoms or ndimers != natoms:
       f.write("\n\n")
-      f.write("[ SOL ]\n")
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
       writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
  
       f.write("\n")
       
    f.close()
    
-def writeDimer(basedir,natoms,totatoms,nrep=1):
+def writeDimer(basedir,natoms,totatoms,atomlist,nrep=1):
    """
    Index file for the delocalized replicas.
    
@@ -60,43 +64,42 @@ def writeDimer(basedir,natoms,totatoms,nrep=1):
    """
    f = open(basedir+"index."+str(nrep)+".ndx","w+")
    f.write("[ system ]\n")
-   writeln(f,xrange(0,3*natoms))
    
-
-   
-   if natoms != totatoms:
-      f.write("\n")
-      writeln(f,xrange(3*natoms,2*natoms+totatoms))
-	 
+   ndimers = len(atomlist)
+   writeln(f,xrange(0,totatoms+2*ndimers))
+    
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   writeln(f,xrange(0,natoms))
+   writeln(f,atomlist)
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   writeln(f,xrange(natoms,2*natoms))
+   writeln(f,xrange(natoms,natoms+ndimers))
       
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   writeln(f,xrange(2*natoms,3*natoms))
+   writeln(f,xrange(natoms+ndimers,natoms+2*ndimers))
    
    f.write("\n")
 
-   if natoms != totatoms:
+   if natoms != totatoms or ndimers != natoms:
       ibreak=0
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      writeln(f,xrange(3*natoms,2*natoms+totatoms))
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
    
       f.write("\n")
 
    f.close()
 
 
-def writeNoVsites(basedir,natoms,totatoms):
+def writeNoVsites(basedir,natoms,totatoms,atomlist):
    """
    Following the consideration that if the dimer is strongly localized 
    the results are indistinguishable from a classical simulation one can build 
@@ -105,28 +108,29 @@ def writeNoVsites(basedir,natoms,totatoms):
    """
    f= open(basedir+"index.ndx","w+")
    f.write("[ system ]\n")
-   writeln(f,xrange(0,2*natoms))
-
-   if natoms != totatoms:
-      f.write("\n")
-      writeln(f,xrange(3*natoms,2*natoms+totatoms))
-
+   
+   ndimers = len(atomlist)
+   
+   writeln(f,xrange(0,totatoms+ndimers))
 
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   writeln(f,xrange(0,natoms))
+   writeln(f,atomlist)
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   writeln(f,xrange(natoms,2*natoms))
+   writeln(f,xrange(natoms,natoms+ndimers))
 
    f.write("\n")
-   if natoms != totatoms:
+   if natoms != totatoms or ndimers != natoms:
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      writeln(f,xrange(3*natoms,2*natoms+totatoms))
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+ndimers,ndimers+totatoms))
 
    f.write("\n")
 

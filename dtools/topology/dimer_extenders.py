@@ -1,6 +1,6 @@
 import re
 
-def ExtendedList(interactions, natoms, nadding=2):
+def ExtendedList(interactions, natoms,atlist, nadding=2):
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -22,9 +22,23 @@ def ExtendedList(interactions, natoms, nadding=2):
          extlist.append(el)
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
          remlist=idxs[nadding:]
+	 
+	 isdimerized=False
+	 for idx in idxs[0:nadding]:
+	    if int(idx)-1 in atlist:
+	       isdimerized=True
+	       break
+	       
+	 if not isdimerized:
+	    continue
+	    
 	 addlist=""
          for idx in idxs[0:nadding]:
-            idxp = int(idx) + int(natoms)
+            idxp=int(idx)
+	    if int(idx)-1 in atlist:
+	       ipos = atlist.index(int(idx)-1)
+	       idxp = int(ipos) + int(natoms)+1
+	       
 	    addlist= addlist+"  "+str(idxp)+"   "
       
          for v in remlist:
@@ -39,7 +53,7 @@ def ExtendedList(interactions, natoms, nadding=2):
    
    
  
-def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
+def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
    """
    From the original [ atoms ] section build the dimerzied one.
    
@@ -54,9 +68,15 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    d2last=int(0)
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      if classical:
-         data[6]=str(0.0)
-	 
+      
+       
+      if int(data[0])-1 in atomlist:
+         data[1]=data[1]+"_B" 
+         if classical:
+            data[6]=str(0.0)
+	
+	
+      
       d2last=int(data[2])
       nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
       
@@ -70,9 +90,15 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    
    
    d22last=int(0)
+   ioffset=int(1)
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = str(int(data[0])+int(natoms))
+      if not int(data[0])-1 in atomlist:
+         continue
+	 
+      data[0] = str(ioffset+int(natoms))
+      ioffset=ioffset+1
+      data[1] = data[1]+"_B"
       if classical:
          data[6]=str(0.0)
       
@@ -90,7 +116,12 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = str(int(data[0])+int(2*natoms))
+      
+      if not int(data[0])-1 in atomlist:
+         continue
+	 
+      data[0] = str(ioffset+int(natoms))
+      ioffset=ioffset+1
       data[1] = data[1]+"_V"
       if not classical:
          data[6]=str(0.0)
@@ -109,7 +140,7 @@ def atomsExtendedList(atoms,natoms,vsites=True, classical=False):
    return extlist   
       
 
-def ClassicalExtList(interactions, natoms, nadding=2):
+def ClassicalExtList(interactions, natoms,atlist, nadding=2):
    """
    Builds a section of the topology file with the interactions pointing to the virtual sites of each dimer. 
    This is used for the classical replica.
@@ -126,9 +157,24 @@ def ClassicalExtList(interactions, natoms, nadding=2):
       for el in els:
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
          remlist=idxs[nadding:]
+	 
+	 isdimerized=False
+	 for idx in idxs[0:nadding]:
+	    if int(idx)-1 in atlist:
+	       isdimerized=True
+	       break
+	 
+	 if not isdimerized:
+	    extlist.append(el)
+	    continue
+	    
 	 addlist=""
          for idx in idxs[0:nadding]:
-            idxp = int(idx) + int(2*natoms)
+            idxp=int(idx)
+	    if int(idx)-1 in atlist:
+	       ipos = atlist.index(int(idx)-1)
+	       idxp = int(ipos) + natoms + len(atlist)+1
+
 	    addlist= addlist+"  "+str(idxp)+"   "
       
          for v in remlist:

@@ -1,4 +1,6 @@
-def write(sigmas,natoms,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atoffset=0):
+from dtools.alparser import atomlist_backparser as backparser
+
+def write(sigmas,natoms,atomlist,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atoffset=0):
    """
    A collection of plumed templates for the two basic ways of running a Dimer simulation.
    
@@ -6,10 +8,19 @@ def write(sigmas,natoms,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atof
    """
    if allatoms:
       satoms="ALLATOMS"
+      grps=""
    else:
       lst=range(1+atoffset,natoms+atoffset+1)
-      satoms = reduce(lambda i,j: str(i)+","+str(j), lst)
-      satoms="NATOMS="+str(natoms)+" ATOMS="+satoms
+      
+      atlist2= range(natoms, natoms+len(atomlist))
+      
+      d1b1=backparser(atomlist)
+      d1b2=backparser(atlist2)
+      grps="""
+GROUP ATOMS=%s LABEL=d1b1
+GROUP ATOMS=%s LABEL=d1b2
+      """ % (d1b1,d1b2)
+      satoms="ATOMS1=d1b1 ATOMS2=d1b2"
       
    if vsites:
       for i,s in enumerate(sigmas):
@@ -26,6 +37,8 @@ def write(sigmas,natoms,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atof
 ##Edit with what you need.
 #############################################
 
+%s
+
 dim: DIMER Q=%.2f TEMP=%.2f %s %s
 
 RESTRAINT ARG=dim AT=0 KAPPA=0 SLOPE=1 LABEL=dimforces
@@ -38,7 +51,7 @@ STRIDE=10
 FILE=colvar.string
 ... PRINT 
 
-         """ % (i,q,temp,sg,satoms)
+         """ % (i,grps,q,temp,sg,satoms)
       
          fh.write(plin)
          fh.close()
@@ -57,6 +70,8 @@ FILE=colvar.string
 ##Edit with what you need.
 #############################################
 
+%s
+
 dim: DIMER Q=%.2f TEMP=%.2f %s %s
 
 en: ENERGY
@@ -71,7 +86,7 @@ STRIDE=10
 FILE=colvar.string
 ... PRINT 
 
-      """ % (q,temp,sgs,satoms)
+      """ % (grps,q,temp,sgs,satoms)
       
       fh.write(plin)
       fh.close()

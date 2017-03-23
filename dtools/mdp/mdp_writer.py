@@ -1,4 +1,4 @@
-def writeClassical(mdpclean,outdir,mdpf,allatoms):
+def writeClassical(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the classical replica.
    
@@ -27,10 +27,10 @@ def writeClassical(mdpclean,outdir,mdpf,allatoms):
    str1=""
    str2=""
    str3=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INTF SOL"
-      str3="NONINT SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INTF NONDIM"
+      str3="NONINT NONDIM"
    
       
    fstr="""
@@ -47,7 +47,7 @@ def writeClassical(mdpclean,outdir,mdpf,allatoms):
    f.write(fstr)
 
 
-def writeDimer(mdpclean,outdir,mdpf,allatoms):
+def writeDimer(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the delocalized replicas.
    
@@ -74,10 +74,10 @@ def writeDimer(mdpclean,outdir,mdpf,allatoms):
    str1=""
    str2=""
    str3=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INT1 SOL INT2 SOL"
-      str3="NONINT SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
+      str3="NONINT NONDIM"
       
    fstr="""
    ; lines added by DIMERIZER
@@ -94,7 +94,7 @@ def writeDimer(mdpclean,outdir,mdpf,allatoms):
    f.write(fstr)
 
 
-def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
+def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the Dimer replicas without virtual sites.
    
@@ -116,9 +116,9 @@ def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
       
    str1=""
    str2=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INT1 SOL INT2 SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
 
 
    fstr="""
