@@ -41,18 +41,15 @@ def append_lines(sec,ndata):
    Appends new lines in a section and returns the new section. 
    
    sec is the usual section tuple, ndata is the list of 
-   elements that compose the new line
+   new lines
    """
-   if isinstance(ndata,list) and not isinstance(ndata[0],list):
+   if not isinstance(ndata,list):
       ndata=[ndata]
    
+   datalist=1*sec[1]
+      
    for ndd in ndata:
-      nline =""
-      for el in ndd:
-         sfr="{0:5s}".format(el)
-         nline = nline+sfr
-   
-      datalist.append(nline)   
+      datalist.append(ndd)   
    
    return (sec[0],datalist)
 

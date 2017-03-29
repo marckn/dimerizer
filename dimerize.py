@@ -9,7 +9,7 @@ parser.add_argument('N',type=int, help='Number of atoms IN THE PROTEIN(S)')
 requiredNamed = parser.add_argument_group('mandatory arguments:')
 requiredNamed.add_argument('-c','--config',type=str, help='PDB file',required=True)
 requiredNamed.add_argument('-p','--topology',type=str,help='Topology file',required=True)
-
+requiredNamed.add_argument('-ff','--forcefield',type=str,help="Forcefield directory",required=True)
 parser.add_argument('-nvs','--novsites',help='Don\'t build the classical replica (and no virtual sites as well)', \
                      nargs='?', default=False)
 		     
@@ -41,6 +41,8 @@ outdir = outdir+"/"
 atomlist=args.dimers
 if atomlist == "All":
    atomlist="1-"+str(natoms)
+
+ffdir=args.forcefield
    
 from dtools.alparser import atomlist_parser as alp
 atomlist=alp(atomlist)
@@ -92,3 +94,8 @@ if not mdpfile is None:
    import dtools.mdp.editor
    nondimer = not allatoms or len(atomlist) < natoms
    dtools.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer)
+
+
+# Editing forcefield
+import dtools.forcefield.ffedit as ffedit
+ffedit.editdir(topfile,atomlist,ffdir,outdir,vsites)
