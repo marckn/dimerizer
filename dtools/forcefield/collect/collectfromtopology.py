@@ -60,14 +60,51 @@ def lines_involved(fname,tags, atlist):
    sec_cmap=parser.get_section(lfile,"cmap")
    
    
+   rval=[]
    l1 = basic.ffentries(sec_bonds,tags,atlist,2)
+   if not l1 is None:
+      rval.append(l1)
+      
    l2 = basic.ffentries(sec_pairs,tags,atlist,2)
-   l3 = basic.ffentries(sec_angles,tags,atlist,3)
-   l4 = basic.ffentries(sec_dihedrals,tags,atlist,4)
-   l5 = basic.ffentries(sec_cmap,tags,atlist,5)
+   if not l2 is None:
+      rval.append(l2)
    
-   return [l1,l2,l3,l4,l5]
+   l3 = basic.ffentries(sec_angles,tags,atlist,3)
+   if not l3 is None:
+      rval.append(l3)
+   
+   l4 = basic.ffentries(sec_dihedrals,tags,atlist,4)
+   if not l4 is None:
+      rval.append(l4)
+   
+   l5 = basic.ffentries(sec_cmap,tags,atlist,5)
+   if not l5 is None:
+      rval.append(l5)
+   
+   return rval
    
 
-      
+def dihedral_lines(fname,tags):
+   """
+   For each dihedral interaction line return the tags.
+   
+   Return a list of tuples, each tuple contains:
+   1 - the kind of interaction (angle, dihedral, ...) - for conformity
+   2 - the list of tag combinations
+   
+   Input:
+   the topology filename
+   the idx - tag correspondance
+   """
+   
+   lfile=parser.filetolist(fname)
+   
+   sec_dihedrals=parser.get_section(lfile,"(dihedrals|impropers)")
+
+   rval=[]
+   l4 = basic.ffentries(sec_dihedrals,tags,range(0,len(tags)),4)
+   if not l4 is None:
+      rval.append(l4)
+   
+   return rval      
       

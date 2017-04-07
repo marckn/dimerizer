@@ -1,24 +1,8 @@
-import dtools.forcefield.collectfromtopology as collect
+import dtools.forcefield.collect.collectfromtopology as collect
+import dtools.forcefield.ffeditor.atomtypes as ffat
+import dtools.forcefield.ffeditor.cmap as ffcmap
+import dtools.forcefield.ffeditor.inter as ffinter
 import dtools.forcefield.ffmodifiers.interactions as ffmod
-
-def editfile(fname,linvolved,outdir, kind,vsites=True):
-   """
-   Modify a forcefield file and write the modified one in outdir.
-   
-   linvolved is a list of involved line for each topology section. 
-   Some arbitrary matching has to be done and that's why 
-   kind is passed. kind is the type of forcefield file. It recognizes:
-   "atomtypes", "cmap", "others", the last one used also as fallback.
-   """   
-   
-   if kind == "atomtypes":
-      pass
-   elif kind == "cmap":
-      pass
-   else:
-      
-   
-
 
 def editdir(topfile,atlist,charmmdir,outdir,vsites):
    """
@@ -30,14 +14,27 @@ def editdir(topfile,atlist,charmmdir,outdir,vsites):
    
    (tags,dtags) = collect.collect_tags(topfile,atlist)
    
-   
-   
    linvolved = collect.lines_involved(topfile,tags,atlist)
+   # linvolved is a list of tuples (type,entry_list)
    
-   editfile(charmm+"atomtypes.atp",linvolved,outdir+"atomtypes.atp","atomtypes",vsites)
-   editfile(charmm+"cmap.itp",linvolved,outdir+"cmap.itp","cmap",vsites)
-   editfile(charmm+"ffbonded.itp",linvolved,outdir+"ffbonded.itp","others",vsites)
-   editfile(charmm+"ffnonbonded.itp",linvolved,outdir+"ffnonbonded.itp","others",vsites)
-   editfile(charmm+"ffnabonded.itp",linvolved,outdir+"ffnabonded.itp","others",vsites)
-   editfile(charmm+"ffnanonbonded.itp",linvolved,outdir+"ffnanonbonded.itp","others",vsites)
+   alldihedrals = collect.dihedral_lines(topfile,tags)
+   
+   
+   ffat.edit(charmmdir+"//atomtypes.atp",outdir+"//atomtypes.atp",dtags,vsites)
+   ffcmap.edit(charmmdir+"//cmap.itp",outdir+"//cmap.itp",linvolved,vsites)
+   
+   readingkey={
+      "bondtypes"         : (["bonds"],ffmod.bondmod),
+      "constrainttypes"   : (["constraints"],ffmod.constraintmod),
+      "angletypes"        : (["angles"],ffmod.anglemod),
+      "dihedraltypes"     : (["(dihedrals|impropers)"],ffmod.dihedralmod),
+      "atomtypes"         : ([""],ffmod.atomtypesmod),
+      "pairtypes"         : (["pairs"],ffmod.pairmod)
+   }
+   
+   ddtags = map(lambda x : [x], dtags)
+   ffinter.editfile(charmmdir+"//ffbonded.itp",outdir+"//ffbonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffnonbonded.itp",outdir+"//ffnonbonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffnabonded.itp",outdir+"//ffnabonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffnanonbonded.itp",outdir+"//ffnanonbonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
    

@@ -23,7 +23,7 @@ def isinline(atlist,line):
    
    for cidx in atlist:
       cser=int(cidx)+1
-      if cser in line:
+      if str(cser) in line:
          return True
 
    return False
@@ -45,17 +45,38 @@ def ffentries(sections,tags,atlist,ntags):
    ntags: how many tags in a line.
    """
    
-    lentries=[]
-    for section in sections:
-       for ln in section[1]:
+   if len(sections)==0:
+      return None
+   
+   lentries=[]
+   for section in sections:
+      for ln in section[1]:
          prs= parser.parse_line(ln)
-         if prs[0] != "Data":
-            continue
+	 if prs[0] != "Data":
+           continue
 	 
-         if not isinline(atlist,prs[0:ntags]):
+	 idline=prs[1]
+	 if not isinline(atlist,idline[0:ntags]):
             continue
-          
-         tt=serialtotags(tags,prs[0:ntags])
-         lentries.append(tt)
+	    
+         tt=serialtotags(tags,idline[0:ntags])
+	 lentries.append(tt)
+	 if len(tt)>1:
+	    lentries.append(reversed(tt))
+   
+   lentries_tmp = []
+   for lent in lentries:
+      tms=""
+      for tg in lent:
+         tms=tms+tg+"-"
+	 
+      lentries_tmp.append(tms)
       
+   lentries_tmp=list(set(lentries_tmp))
+   lentries=[]
+   for ltm in lentries_tmp:
+      ltm=ltm[:-1]
+      ltms=ltm.split("-")
+      lentries.append(ltms)
+   
    return (sections[0][0],lentries)

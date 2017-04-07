@@ -21,6 +21,10 @@ def parse_line(line_in):
       
    lin=line_in.split(';')[0]
    data=re.findall(r'\-{0,1}\S+\b',lin)
+   
+   if len(data) == 0:
+      return ("Empty","")
+   
    return ("Data",data)
 
 
