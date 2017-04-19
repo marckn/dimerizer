@@ -3,8 +3,40 @@ import dtools.forcefield.write_func as wr
 from dtools.forcefield import basic_manip as manip
 
 def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
+   """
+   Given a forcefield file and the atomic tags obtained from the topology file make a new forcefield file 
+   with the dimerized interactions.
+   
+   The function scrolls through the sections of the forcefield file as 
+   defined in readingkey. 
+   
+   fname: the forcefield file to be used
+   
+   fout: the new forcefield file
+   
+   tags: the atom tags involved in the dimerization
+   
+   linvolved: all the tags involved in the dimerization for each section of the topology file.
+      linvolved is a list where each element is a tuple (string,lines). String is the name of the 
+      topology section and lines is a list of interactions that have to be dimerized.
+      
+   readingkey: is a dictionary containing the correspondance of the forcefield sections to the topology sections.
+   Each entry in the dictionary is a tuple with: the name of the topology section, and the function used to edit the 
+   interaction lines in the forcefield files. 
+   
+   vsites: is a flag that specifies whether virtual sites need to be added or not.
+   
+   alldihedrals: every dihedral interaction in the topology has to be considered here, irrespective of the fact that it 
+   is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more 
+   wildcards "X" (ie X TAG1 TAG2 X) have to be made explicit because X cannot be extended to the new _B and _V tags.
+   """
    flist = parser.filetolist(fname)
-   fhand= open(fout,"w+")
+   try:
+      fhand= open(fout,"w+")
+   except:
+      print "\t ... "+str(fname)+" not present"
+      return
+   
    keys=parser.get_keywords(flist)
    
    keys = list(set(keys))
@@ -26,6 +58,7 @@ def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
 	    csec.append(ncc) 
       else:
          csec=csect
+      
       
       if key == "atomtypes":
          fproc=readingkey[key][1]

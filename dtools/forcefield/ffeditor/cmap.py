@@ -4,7 +4,10 @@ import dtools.forcefield.ffmodifiers.line_util as permute
 import cmaputils
 def edit(fname,outfile,linvolved,vsites):
    """
-   Edit the cmap file.
+   Edit the cmap forcefield file. 
+   
+   The data format in the cmap file is different and is processed through these 
+   dedicated functions.
    """
    
    cmlist=None
@@ -19,22 +22,33 @@ def edit(fname,outfile,linvolved,vsites):
       
    flist = parser.filetolist(fname)
    cmpp = cmaputils.parse(flist)
-
+   
    for entry in cmlist:
       fnd = cmaputils.findentry(cmpp,entry)
       if fnd is  None:
-         raise("Cannot find CMAP entry")
+         raise ValueError("Cannot find CMAP entry ")
       
       taglist=fnd[0]
       data=fnd[1]
-      bentries=permute.dimer_lines("_B",taglist)
+            
+      bentries=permute.dimer_lines("_B",5)
       for ltag in bentries:
-         cmaputils.appendentry(flist,ltag,data, halve=True)
+         ntag=[]
+         for t,suf in zip(entry,ltag):
+            nl=str(t)+str(suf)
+            ntag.append(nl)
+	    
+         flist=cmaputils.appendentry(flist,ntag,fnd, halve=True)
       
       if vsites:
-         ventries=permute.dimer_lines("_V",taglist)
+         ventries=permute.dimer_lines("_V",5)
          for ltag in ventries:
-	    cmaputils.appendentry(flist,ltag,data,halve=False)
+	    ntag=[]
+	    for t,suf in zip(entry,ltag):
+	       nl=str(t)+str(suf)
+	       ntag.append(nl)
+	    
+	    flist=cmaputils.appendentry(flist,ntag,fnd,halve=False)
       
 
    # print new file from flist

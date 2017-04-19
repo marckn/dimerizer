@@ -2,9 +2,24 @@ from itertools import permutations
 
 def dimer_lines(dtype, ntags):
    """
-   Returns all the possible distinguishable combinations for a dimer interaction line.
+   Returns all the possible combinations for a dimer interaction line without repetitions.
+   
    
    dtype is the tag to be added, either _B or _V.
+   ntags is the list of tags to be processed
+   
+   An example is best to explain: 
+   If ntags is a collection of three tags, TAG1 TAG2 TAG3 and dtype is _B, the resulting 
+   list of tags is :
+   
+   TAG1_B TAG2 TAG3
+   TAG1 TAG2_B TAG3
+   TAG1 TAG2 TAG3_B
+   TAG1_B TAG2_B TAG3
+   TAG1_B TAG2 TAG3_B
+   TAG1 TAG2_B TAG3_B
+   TAG1_B TAG2_B TAG3_B
+   
    """
    pbb=[tuple([dtype for i in range(0,ntags)])]
    
@@ -18,7 +33,18 @@ def dimer_lines(dtype, ntags):
 
 def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False):
    """
-   For every tag combination in tagmod produce the new interaction lines
+   For every tag combination in tagmod produce the new interaction lines.
+   
+   tagmod is the list of tags to be used for the new interaction lines. 
+   
+   values is the list of lines to be used. Can be more than one in the case of 
+   dihedral interactions with func=9.
+   
+   the bead-bead interactions are halved, vtohalve takes this into account by passing 
+   a list of indices whose value has to be halved.
+   
+   This function handles also the [ atomtypes ] section of a forcefield, where 
+   virtual atoms are considered accordingly.
    """
    lnl=[]
    for val in values:
@@ -61,7 +87,7 @@ def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False):
    """
    
    if not isinstance(values,list):
-      raise("Must pass a list of value-lists")
+      raise ValueError("Must pass a list of value-lists")
    
    if not isinstance(values[0],list):
       values=[values]
@@ -73,7 +99,7 @@ def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False):
    
    ltags=set(ltags)
    if len(list(ltags))>1:
-      raise("Block must have the same tags")
+      raise ValueError("Block must have the same tags")
    
    
 

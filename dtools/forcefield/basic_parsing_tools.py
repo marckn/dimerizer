@@ -109,6 +109,8 @@ def filetolist(fname):
          rbuff.append(ln)
          ln=""
    
+   if ln != "":
+      rbuff.append(ln)
 
    return rbuff   
      

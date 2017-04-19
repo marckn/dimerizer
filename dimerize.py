@@ -13,7 +13,7 @@ requiredNamed.add_argument('-ff','--forcefield',type=str,help="Forcefield direct
 parser.add_argument('-nvs','--novsites',help='Don\'t build the classical replica (and no virtual sites as well)', \
                      nargs='?', default=False)
 		     
-parser.add_argument('-pl','--plumed',type=float, nargs='+', help='Dimer strenghts for each replica')
+parser.add_argument('-pl','--plumed',type=str, nargs='+', help='Dimer strenghts for each replica')
 parser.add_argument('-o','--outdir',help='Output directory (default .)', default='.')
 parser.add_argument('-q','--q',help='Dimer spring power law (default 0.5)',type=float,default=0.5)
 parser.add_argument('-t','--temperature',help='Temperature of the simulation (default 300K)',type=float,default=300)

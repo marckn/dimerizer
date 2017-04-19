@@ -14,7 +14,7 @@ def edit(fname,outfile,dtags,vsites):
    for ctg in dtags:
       tfnd=manip.find_lines(tmpsec,[ctg])
       if len(tfnd) == 0:
-         raise("Tag ",ctg," not found in forcefield atomtypes file")
+         raise ValueError("Tag ",ctg," not found in forcefield atomtypes file")
       else:
          stradd="{0:7s} {1:10f}".format(ctg+"_B",float(tfnd[0][1][1]))
 	 flist.append(stradd)

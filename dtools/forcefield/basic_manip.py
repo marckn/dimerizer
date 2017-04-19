@@ -22,14 +22,17 @@ def find_lines(sec,ident,action="Report"):
       
       lvals=lvals[1]
       if len(ident) > len(lvals):
-         raise("Too many tags in the search query")
+         raise ValueError("Too many tags in the search query")
 	 
       found=True
       for vquery,vline in zip(ident,lvals[0:len(ident)]):
          if vline != "X" and vquery != vline:
 	    found = False
 	    break
+      
+      # the interaction lines are already symmetrized
 
+      
       if not found:
          continue
 	 
@@ -84,6 +87,7 @@ def explX_line(sec,ident):
    """
    datalist = sec[1]
    ltoadd=[]
+   foundnonx=False
    for i,el in enumerate(datalist):
       lvals = parser.parse_line(el)
       if lvals[0] != "Data":
@@ -91,7 +95,7 @@ def explX_line(sec,ident):
       
       lvals=lvals[1]
       if len(ident) > len(lvals):
-         raise("Too many tags in the search query")
+         raise ValueError("Too many tags in the search query")
 	 
       
       found=True
@@ -100,11 +104,21 @@ def explX_line(sec,ident):
 	    found = False
 	    break
 
+      
       if not found:
-         continue
+         found=True
+         for vquery,vline in zip(ident,reversed(lvals[0:len(ident)])):
+            if vline != "X" and vquery != vline:
+	       found = False
+	       break
+         
+      if not found:	 
+	 continue
+	 
       
       if not "X" in lvals[0:len(ident)]:
-         continue
+         foundnonx=True
+         break
       	 
       ndata=ident + lvals[len(ident):]
       
@@ -116,7 +130,8 @@ def explX_line(sec,ident):
       newl=newl.format(*ndata) 
       ltoadd.append(newl)
       
-   if len(ltoadd) > 0:
+   
+   if len(ltoadd) > 0 and not foundnonx:
       return append_lines(sec,ltoadd)
    
    return sec

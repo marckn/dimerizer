@@ -1010,11 +1010,12 @@ class dimerizer:
    """
    From a parsed topology file build dimerized versions.
    """
-   def __init__(self,parser, natoms, basename, nrep=1):
+   def __init__(self,parser, natoms, atomlist,basename, nrep=1):
       self.parser = parser
       self.natoms=natoms
       self.basename=basename
       self.replicas = nrep
+      self.atlist=atomlist
       
       
    def buildClassical(self):
@@ -1041,7 +1042,7 @@ class dimerizer:
       
       cmap = self.parser.getKeyword("cmap")
       
-      outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms)
+      outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist)
       
    
    def buildDimer(self, nreplicas=None, virtualsites=True):
@@ -1072,7 +1073,7 @@ class dimerizer:
 
       cmap = self.parser.getKeyword("cmap")
       
-      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,vsites=virtualsites)
+      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist,vsites=virtualsites)
 </code></pre>
   </div>
 
@@ -1095,11 +1096,12 @@ class dimerizer:
    """
    From a parsed topology file build dimerized versions.
    """
-   def __init__(self,parser, natoms, basename, nrep=1):
+   def __init__(self,parser, natoms, atomlist,basename, nrep=1):
       self.parser = parser
       self.natoms=natoms
       self.basename=basename
       self.replicas = nrep
+      self.atlist=atomlist
       
       
    def buildClassical(self):
@@ -1126,7 +1128,7 @@ class dimerizer:
       
       cmap = self.parser.getKeyword("cmap")
       
-      outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms)
+      outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist)
       
    
    def buildDimer(self, nreplicas=None, virtualsites=True):
@@ -1157,7 +1159,7 @@ class dimerizer:
 
       cmap = self.parser.getKeyword("cmap")
       
-      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,vsites=virtualsites)
+      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist,vsites=virtualsites)
 </code></pre>
   </div>
 </div>
@@ -1169,6 +1171,16 @@ class dimerizer:
           <li><a href="#dtools.topology.topol_write.dimerizer">dimerizer</a></li>
           </ul>
           <h3>Instance variables</h3>
+            <div class="item">
+            <p id="dtools.topology.topol_write.dimerizer.atlist" class="name">var <span class="ident">atlist</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
             <div class="item">
             <p id="dtools.topology.topol_write.dimerizer.basename" class="name">var <span class="ident">basename</span></p>
             
@@ -1213,7 +1225,7 @@ class dimerizer:
             
   <div class="item">
     <div class="name def" id="dtools.topology.topol_write.dimerizer.__init__">
-    <p>def <span class="ident">__init__</span>(</p><p>self, parser, natoms, basename, nrep=1)</p>
+    <p>def <span class="ident">__init__</span>(</p><p>self, parser, natoms, atomlist, basename, nrep=1)</p>
     </div>
     
 
@@ -1222,11 +1234,12 @@ class dimerizer:
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.topol_write.dimerizer.__init__', this);">Show source &equiv;</a></p>
   <div id="source-dtools.topology.topol_write.dimerizer.__init__" class="source">
-    <pre><code>def __init__(self,parser, natoms, basename, nrep=1):
+    <pre><code>def __init__(self,parser, natoms, atomlist,basename, nrep=1):
    self.parser = parser
    self.natoms=natoms
    self.basename=basename
    self.replicas = nrep
+   self.atlist=atomlist
 </code></pre>
   </div>
 </div>
@@ -1272,7 +1285,7 @@ with the outputs module.</p></div>
    
    cmap = self.parser.getKeyword("cmap")
    
-   outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms)
+   outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist)
 </code></pre>
   </div>
 </div>
@@ -1319,7 +1332,7 @@ with the outputs module.</p></div>
    dihedrals = self.parser.getKeyword("(dihedrals|impropers)")
    cmap = self.parser.getKeyword("cmap")
    
-   outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,vsites=virtualsites)
+   outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist,vsites=virtualsites)
 </code></pre>
   </div>
 </div>

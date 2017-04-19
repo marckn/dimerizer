@@ -976,6 +976,7 @@ table {
     <li class="mono"><a href="#dtools.index.index_write.writeClassical">writeClassical</a></li>
     <li class="mono"><a href="#dtools.index.index_write.writeDimer">writeDimer</a></li>
     <li class="mono"><a href="#dtools.index.index_write.writeNoVsites">writeNoVsites</a></li>
+    <li class="mono"><a href="#dtools.index.index_write.writeln">writeln</a></li>
   </ul>
 
     </li>
@@ -997,7 +998,21 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.index.index_write', this);">Show source &equiv;</a></p>
   <div id="source-dtools.index.index_write" class="source">
-    <pre><code>def writeClassical(basedir,natoms,totatoms):
+    <pre><code>def writeln(f,iterator,ibr=50):
+   """
+   Write a list on a file f on multiple lines.
+   """
+   ibreak=0
+   for i in iterator:
+      f.write(str(i+1)+" ")
+      ibreak=ibreak+1
+      if ibreak == ibr:
+         ibreak=0
+         f.write("\n")
+	 
+   f.write("\n")
+
+def writeClassical(basedir,natoms,totatoms,atomlist):
    """
    Index file for the classical replica.
    
@@ -1008,49 +1023,36 @@ table {
    """
    f= open(basedir+"index.0.ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,3*natoms):
-      f.write(str(i+1)+" ")
    
-   ibreak=0
-   if natoms != totatoms:
-      f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-	 
+   ndimers = len(atomlist)
+   
+   writeln(f,xrange(0,totatoms+2*ndimers))
+      
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   for i in xrange(0,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,atomlist) # atomlist is a list of indices and writeln converts it to serials
+   writeln(f,range(natoms,natoms+ndimers))
    
    f.write("\n\n")   
    f.write("[ INTF ]\n")
-   for i in xrange(2*natoms,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,range(natoms+ndimers,natoms+2*ndimers))
    
    f.write("\n")
    
-   if natoms != totatoms:
-      ibreak=0
+   if natoms != totatoms or ndimers != natoms:
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-   
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
  
       f.write("\n")
       
    f.close()
    
-def writeDimer(basedir,natoms,totatoms,nrep=1):
+def writeDimer(basedir,natoms,totatoms,atomlist,nrep=1):
    """
    Index file for the delocalized replicas.
    
@@ -1062,58 +1064,42 @@ def writeDimer(basedir,natoms,totatoms,nrep=1):
    """
    f = open(basedir+"index."+str(nrep)+".ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,3*natoms):
-      f.write(str(i+1)+" ")
-
-   if natoms != totatoms:
-      ibreak=0
-      f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
-	 
+   
+   ndimers = len(atomlist)
+   writeln(f,xrange(0,totatoms+2*ndimers))
+    
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   for i in xrange(0,natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,atomlist)
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   for i in xrange(natoms,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms,natoms+ndimers))
       
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   for i in xrange(2*natoms,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms+ndimers,natoms+2*ndimers))
    
    f.write("\n")
 
-   if natoms != totatoms:
+   if natoms != totatoms or ndimers != natoms:
       ibreak=0
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-       	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
    
       f.write("\n")
 
    f.close()
 
 
-def writeNoVsites(basedir,natoms,totatoms):
+def writeNoVsites(basedir,natoms,totatoms,atomlist):
    """
    Following the consideration that if the dimer is strongly localized 
    the results are indistinguishable from a classical simulation one can build 
@@ -1122,44 +1108,29 @@ def writeNoVsites(basedir,natoms,totatoms):
    """
    f= open(basedir+"index.ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,2*natoms):
-      f.write(str(i+1)+" ")
-
-   if natoms != totatoms:
-      ibreak=0
-      f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-       	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+   
+   ndimers = len(atomlist)
+   
+   writeln(f,xrange(0,totatoms+ndimers))
 
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   for i in xrange(0,natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,atomlist)
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   for i in xrange(natoms,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms,natoms+ndimers))
 
    f.write("\n")
-   if natoms != totatoms:
-      ibreak=0
+   if natoms != totatoms or ndimers != natoms:
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
- 	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+ndimers,ndimers+totatoms))
 
    f.write("\n")
 
@@ -1175,7 +1146,7 @@ def writeNoVsites(basedir,natoms,totatoms):
       
   <div class="item">
     <div class="name def" id="dtools.index.index_write.writeClassical">
-    <p>def <span class="ident">writeClassical</span>(</p><p>basedir, natoms, totatoms)</p>
+    <p>def <span class="ident">writeClassical</span>(</p><p>basedir, natoms, totatoms, atomlist)</p>
     </div>
     
 
@@ -1188,7 +1159,7 @@ which is the collection of virtual sites representing the center of mass of each
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.index.index_write.writeClassical', this);">Show source &equiv;</a></p>
   <div id="source-dtools.index.index_write.writeClassical" class="source">
-    <pre><code>def writeClassical(basedir,natoms,totatoms):
+    <pre><code>def writeClassical(basedir,natoms,totatoms,atomlist):
    """
    Index file for the classical replica.
    
@@ -1199,43 +1170,30 @@ which is the collection of virtual sites representing the center of mass of each
    """
    f= open(basedir+"index.0.ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,3*natoms):
-      f.write(str(i+1)+" ")
    
-   ibreak=0
-   if natoms != totatoms:
-      f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-	 
+   ndimers = len(atomlist)
+   
+   writeln(f,xrange(0,totatoms+2*ndimers))
+      
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   for i in xrange(0,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,atomlist) # atomlist is a list of indices and writeln converts it to serials
+   writeln(f,range(natoms,natoms+ndimers))
    
    f.write("\n\n")   
    f.write("[ INTF ]\n")
-   for i in xrange(2*natoms,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,range(natoms+ndimers,natoms+2*ndimers))
    
    f.write("\n")
    
-   if natoms != totatoms:
-      ibreak=0
+   if natoms != totatoms or ndimers != natoms:
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-   
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
  
       f.write("\n")
       
@@ -1249,7 +1207,7 @@ which is the collection of virtual sites representing the center of mass of each
       
   <div class="item">
     <div class="name def" id="dtools.index.index_write.writeDimer">
-    <p>def <span class="ident">writeDimer</span>(</p><p>basedir, natoms, totatoms, nrep=1)</p>
+    <p>def <span class="ident">writeDimer</span>(</p><p>basedir, natoms, totatoms, atomlist, nrep=1)</p>
     </div>
     
 
@@ -1264,7 +1222,7 @@ interaction between the two groups has to be switched off.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.index.index_write.writeDimer', this);">Show source &equiv;</a></p>
   <div id="source-dtools.index.index_write.writeDimer" class="source">
-    <pre><code>def writeDimer(basedir,natoms,totatoms,nrep=1):
+    <pre><code>def writeDimer(basedir,natoms,totatoms,atomlist,nrep=1):
    """
    Index file for the delocalized replicas.
    
@@ -1276,51 +1234,35 @@ interaction between the two groups has to be switched off.</p></div>
    """
    f = open(basedir+"index."+str(nrep)+".ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,3*natoms):
-      f.write(str(i+1)+" ")
-
-   if natoms != totatoms:
-      ibreak=0
-      f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
-	 
+   
+   ndimers = len(atomlist)
+   writeln(f,xrange(0,totatoms+2*ndimers))
+    
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   for i in xrange(0,natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,atomlist)
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   for i in xrange(natoms,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms,natoms+ndimers))
       
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   for i in xrange(2*natoms,3*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms+ndimers,natoms+2*ndimers))
    
    f.write("\n")
 
-   if natoms != totatoms:
+   if natoms != totatoms or ndimers != natoms:
       ibreak=0
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-       	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
    
       f.write("\n")
 
@@ -1334,7 +1276,7 @@ interaction between the two groups has to be switched off.</p></div>
       
   <div class="item">
     <div class="name def" id="dtools.index.index_write.writeNoVsites">
-    <p>def <span class="ident">writeNoVsites</span>(</p><p>basedir, natoms, totatoms)</p>
+    <p>def <span class="ident">writeNoVsites</span>(</p><p>basedir, natoms, totatoms, atomlist)</p>
     </div>
     
 
@@ -1347,7 +1289,7 @@ are required because virtual sites are not defined.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.index.index_write.writeNoVsites', this);">Show source &equiv;</a></p>
   <div id="source-dtools.index.index_write.writeNoVsites" class="source">
-    <pre><code>def writeNoVsites(basedir,natoms,totatoms):
+    <pre><code>def writeNoVsites(basedir,natoms,totatoms,atomlist):
    """
    Following the consideration that if the dimer is strongly localized 
    the results are indistinguishable from a classical simulation one can build 
@@ -1356,48 +1298,65 @@ are required because virtual sites are not defined.</p></div>
    """
    f= open(basedir+"index.ndx","w+")
    f.write("[ system ]\n")
-   for i in xrange(0,2*natoms):
-      f.write(str(i+1)+" ")
-
-   if natoms != totatoms:
-      ibreak=0
-      f.write("\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
-       	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+   
+   ndimers = len(atomlist)
+   
+   writeln(f,xrange(0,totatoms+ndimers))
 
    f.write("\n\n")
    
    f.write("[ INT1 ]\n")
-   for i in xrange(0,natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,atomlist)
       
    f.write("\n\n")
    
    f.write("[ INT2 ]\n")
-   for i in xrange(natoms,2*natoms):
-      f.write(str(i+1)+" ")
+   writeln(f,xrange(natoms,natoms+ndimers))
 
    f.write("\n")
-   if natoms != totatoms:
-      ibreak=0
+   if natoms != totatoms or ndimers != natoms:
       f.write("\n\n")
-      f.write("[ SOL ]\n")
-      for i in xrange(3*natoms,2*natoms+totatoms):
-         f.write(str(i+1)+" ")
- 	 ibreak=ibreak+1
-	 if ibreak==100:
-	    ibreak=0
-	    f.write("\n")
-
+      f.write("[ NONDIM ]\n")
+      sc = set(range(0,natoms))
+      snon = sc - set(atomlist)
+      writeln(f, list(snon))
+      writeln(f,xrange(natoms+ndimers,ndimers+totatoms))
 
    f.write("\n")
 
    f.close()
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="dtools.index.index_write.writeln">
+    <p>def <span class="ident">writeln</span>(</p><p>f, iterator, ibr=50)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Write a list on a file f on multiple lines.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.index.index_write.writeln', this);">Show source &equiv;</a></p>
+  <div id="source-dtools.index.index_write.writeln" class="source">
+    <pre><code>def writeln(f,iterator,ibr=50):
+   """
+   Write a list on a file f on multiple lines.
+   """
+   ibreak=0
+   for i in iterator:
+      f.write(str(i+1)+" ")
+      ibreak=ibreak+1
+      if ibreak == ibr:
+         ibreak=0
+         f.write("\n")
+	 
+   f.write("\n")
 </code></pre>
   </div>
 </div>

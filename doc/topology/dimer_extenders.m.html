@@ -999,7 +999,7 @@ table {
   <div id="source-dtools.topology.dimer_extenders" class="source">
     <pre><code>import re
 
-def ExtendedList(interactions, natoms, nadding=2):
+def ExtendedList(interactions, natoms,atlist, nadding=2):
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -1020,13 +1020,28 @@ def ExtendedList(interactions, natoms, nadding=2):
       for el in els:
          extlist.append(el)
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
-         subs=el.split(idxs[nadding-1],1)
+         remlist=idxs[nadding:]
+	 
+	 isdimerized=False
+	 for idx in idxs[0:nadding]:
+	    if int(idx)-1 in atlist:
+	       isdimerized=True
+	       break
+	       
+	 if not isdimerized:
+	    continue
+	    
 	 addlist=""
          for idx in idxs[0:nadding]:
-            idxp = int(idx) + int(natoms)
+            idxp=int(idx)
+	    if int(idx)-1 in atlist:
+	       ipos = atlist.index(int(idx)-1)
+	       idxp = int(ipos) + int(natoms)+1
+	       
 	    addlist= addlist+"  "+str(idxp)+"   "
       
-         addlist = addlist+subs[1]
+         for v in remlist:
+            addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)  
 	 
@@ -1037,7 +1052,7 @@ def ExtendedList(interactions, natoms, nadding=2):
    
    
  
-def atomsExtendedList(atoms,natoms,vsites=True):
+def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
    """
    From the original [ atoms ] section build the dimerzied one.
    
@@ -1047,14 +1062,51 @@ def atomsExtendedList(atoms,natoms,vsites=True):
    to their corresponding beads type. 
    """
    atlist = atoms[0][0]   # only one [ atoms ] in a topology
-   extlist=atlist*1
    
+   extlist=[]
+   d2last=int(0)
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = int(data[0])+int(natoms)
-      nln=""
-      for v in data:
-         nln= nln+str(v)+"   "
+      
+       
+      if int(data[0])-1 in atomlist:
+         data[1]=data[1]+"_B" 
+         if classical:
+            data[6]=str(0.0)
+	
+	
+      
+      d2last=int(data[2])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
+      
+      extlist.append(nln)
+	 
+      
+   
+   
+   
+   d22last=int(0)
+   ioffset=int(1)
+   for ln in atlist:
+      data = re.findall(r' \S+',ln)
+      if not int(data[0])-1 in atomlist:
+         continue
+	 
+      data[0] = str(ioffset+int(natoms))
+      ioffset=ioffset+1
+      data[1] = data[1]+"_B"
+      if classical:
+         data[6]=str(0.0)
+      
+      data[2]=str(int(data[2])+d2last)
+      d22last=int(data[2])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
       
       extlist.append(nln)
    
@@ -1063,12 +1115,23 @@ def atomsExtendedList(atoms,natoms,vsites=True):
    
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = int(data[0])+int(2*natoms)
+      
+      if not int(data[0])-1 in atomlist:
+         continue
+	 
+      data[0] = str(ioffset+int(natoms))
+      ioffset=ioffset+1
       data[1] = data[1]+"_V"
-      data[7]=0
-      nln=""
-      for v in data:
-         nln= nln+str(v)+"   "
+      if not classical:
+         data[6]=str(0.0)
+	 
+      data[2]=str(int(data[2])+d22last)
+      data[7]=str(0.0)
+      
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
       
       extlist.append(nln)
       
@@ -1076,7 +1139,7 @@ def atomsExtendedList(atoms,natoms,vsites=True):
    return extlist   
       
 
-def ClassicalExtList(interactions, natoms, nadding=2):
+def ClassicalExtList(interactions, natoms,atlist, nadding=2):
    """
    Builds a section of the topology file with the interactions pointing to the virtual sites of each dimer. 
    This is used for the classical replica.
@@ -1092,13 +1155,29 @@ def ClassicalExtList(interactions, natoms, nadding=2):
       deltalist=[]
       for el in els:
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
-         subs=el.split(idxs[nadding-1],1)
+         remlist=idxs[nadding:]
+	 
+	 isdimerized=False
+	 for idx in idxs[0:nadding]:
+	    if int(idx)-1 in atlist:
+	       isdimerized=True
+	       break
+	 
+	 if not isdimerized:
+	    extlist.append(el)
+	    continue
+	    
 	 addlist=""
          for idx in idxs[0:nadding]:
-            idxp = int(idx) + int(2*natoms)
+            idxp=int(idx)
+	    if int(idx)-1 in atlist:
+	       ipos = atlist.index(int(idx)-1)
+	       idxp = int(ipos) + natoms + len(atlist)+1
+
 	    addlist= addlist+"  "+str(idxp)+"   "
       
-         addlist = addlist+subs[1]
+         for v in remlist:
+            addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)  
 	 
@@ -1117,7 +1196,7 @@ def ClassicalExtList(interactions, natoms, nadding=2):
       
   <div class="item">
     <div class="name def" id="dtools.topology.dimer_extenders.ClassicalExtList">
-    <p>def <span class="ident">ClassicalExtList</span>(</p><p>interactions, natoms, nadding=2)</p>
+    <p>def <span class="ident">ClassicalExtList</span>(</p><p>interactions, natoms, atlist, nadding=2)</p>
     </div>
     
 
@@ -1130,7 +1209,7 @@ simply takes the standard gromacs topology and translates the atom indices by 2N
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.dimer_extenders.ClassicalExtList', this);">Show source &equiv;</a></p>
   <div id="source-dtools.topology.dimer_extenders.ClassicalExtList" class="source">
-    <pre><code>def ClassicalExtList(interactions, natoms, nadding=2):
+    <pre><code>def ClassicalExtList(interactions, natoms,atlist, nadding=2):
    """
    Builds a section of the topology file with the interactions pointing to the virtual sites of each dimer. 
    This is used for the classical replica.
@@ -1146,13 +1225,29 @@ simply takes the standard gromacs topology and translates the atom indices by 2N
       deltalist=[]
       for el in els:
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
-         subs=el.split(idxs[nadding-1],1)
+         remlist=idxs[nadding:]
+	 
+	 isdimerized=False
+	 for idx in idxs[0:nadding]:
+	    if int(idx)-1 in atlist:
+	       isdimerized=True
+	       break
+	 
+	 if not isdimerized:
+	    extlist.append(el)
+	    continue
+	    
 	 addlist=""
          for idx in idxs[0:nadding]:
-            idxp = int(idx) + int(2*natoms)
+            idxp=int(idx)
+	    if int(idx)-1 in atlist:
+	       ipos = atlist.index(int(idx)-1)
+	       idxp = int(ipos) + natoms + len(atlist)+1
+
 	    addlist= addlist+"  "+str(idxp)+"   "
       
-         addlist = addlist+subs[1]
+         for v in remlist:
+            addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)  
 	 
@@ -1169,7 +1264,7 @@ simply takes the standard gromacs topology and translates the atom indices by 2N
       
   <div class="item">
     <div class="name def" id="dtools.topology.dimer_extenders.ExtendedList">
-    <p>def <span class="ident">ExtendedList</span>(</p><p>interactions, natoms, nadding=2)</p>
+    <p>def <span class="ident">ExtendedList</span>(</p><p>interactions, natoms, atlist, nadding=2)</p>
     </div>
     
 
@@ -1185,7 +1280,7 @@ interactions on the second bead of each dimer.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.dimer_extenders.ExtendedList', this);">Show source &equiv;</a></p>
   <div id="source-dtools.topology.dimer_extenders.ExtendedList" class="source">
-    <pre><code>def ExtendedList(interactions, natoms, nadding=2):
+    <pre><code>def ExtendedList(interactions, natoms,atlist, nadding=2):
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -1206,13 +1301,28 @@ interactions on the second bead of each dimer.</p></div>
       for el in els:
          extlist.append(el)
          idxs = re.findall(r'\b\d+\b',el) # list containing all ints
-         subs=el.split(idxs[nadding-1],1)
+         remlist=idxs[nadding:]
+	 
+	 isdimerized=False
+	 for idx in idxs[0:nadding]:
+	    if int(idx)-1 in atlist:
+	       isdimerized=True
+	       break
+	       
+	 if not isdimerized:
+	    continue
+	    
 	 addlist=""
          for idx in idxs[0:nadding]:
-            idxp = int(idx) + int(natoms)
+            idxp=int(idx)
+	    if int(idx)-1 in atlist:
+	       ipos = atlist.index(int(idx)-1)
+	       idxp = int(ipos) + int(natoms)+1
+	       
 	    addlist= addlist+"  "+str(idxp)+"   "
       
-         addlist = addlist+subs[1]
+         for v in remlist:
+            addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)  
 	 
@@ -1229,7 +1339,7 @@ interactions on the second bead of each dimer.</p></div>
       
   <div class="item">
     <div class="name def" id="dtools.topology.dimer_extenders.atomsExtendedList">
-    <p>def <span class="ident">atomsExtendedList</span>(</p><p>atoms, natoms, vsites=True)</p>
+    <p>def <span class="ident">atomsExtendedList</span>(</p><p>atoms, natoms, atomlist, vsites=True, classical=False)</p>
     </div>
     
 
@@ -1243,7 +1353,7 @@ to their corresponding beads type.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.dimer_extenders.atomsExtendedList', this);">Show source &equiv;</a></p>
   <div id="source-dtools.topology.dimer_extenders.atomsExtendedList" class="source">
-    <pre><code>def atomsExtendedList(atoms,natoms,vsites=True):
+    <pre><code>def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
    """
    From the original [ atoms ] section build the dimerzied one.
    
@@ -1253,14 +1363,51 @@ to their corresponding beads type.</p></div>
    to their corresponding beads type. 
    """
    atlist = atoms[0][0]   # only one [ atoms ] in a topology
-   extlist=atlist*1
    
+   extlist=[]
+   d2last=int(0)
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = int(data[0])+int(natoms)
-      nln=""
-      for v in data:
-         nln= nln+str(v)+"   "
+      
+       
+      if int(data[0])-1 in atomlist:
+         data[1]=data[1]+"_B" 
+         if classical:
+            data[6]=str(0.0)
+	
+	
+      
+      d2last=int(data[2])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
+      
+      extlist.append(nln)
+	 
+      
+   
+   
+   
+   d22last=int(0)
+   ioffset=int(1)
+   for ln in atlist:
+      data = re.findall(r' \S+',ln)
+      if not int(data[0])-1 in atomlist:
+         continue
+	 
+      data[0] = str(ioffset+int(natoms))
+      ioffset=ioffset+1
+      data[1] = data[1]+"_B"
+      if classical:
+         data[6]=str(0.0)
+      
+      data[2]=str(int(data[2])+d2last)
+      d22last=int(data[2])
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
       
       extlist.append(nln)
    
@@ -1269,12 +1416,23 @@ to their corresponding beads type.</p></div>
    
    for ln in atlist:
       data = re.findall(r' \S+',ln)
-      data[0] = int(data[0])+int(2*natoms)
+      
+      if not int(data[0])-1 in atomlist:
+         continue
+	 
+      data[0] = str(ioffset+int(natoms))
+      ioffset=ioffset+1
       data[1] = data[1]+"_V"
-      data[7]=0
-      nln=""
-      for v in data:
-         nln= nln+str(v)+"   "
+      if not classical:
+         data[6]=str(0.0)
+	 
+      data[2]=str(int(data[2])+d22last)
+      data[7]=str(0.0)
+      
+      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
+      
+      for rel in data[8:]:
+         nln=nln+"  "+str(rel)
       
       extlist.append(nln)
       

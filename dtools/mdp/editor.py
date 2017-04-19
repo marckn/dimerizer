@@ -13,7 +13,6 @@ def editfile(mdpf,outdir,vsites,allatoms):
    allatoms: Flag, True/False. If True it means that solvent is not present and there's no need to define its energy group.
    """
    fn_in = mdpf
-   fn_out = outdir+"d"+mdpf
    
    mdpclean = mdp_parser.parseandkill(fn_in)
    

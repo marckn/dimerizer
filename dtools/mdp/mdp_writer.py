@@ -18,7 +18,7 @@ def writeClassical(mdpclean,outdir,mdpf,nondimer):
    nms=mdpf.split(".")
    nnm = nms[0:len(nms)-1]
    nnm = reduce(lambda x,y : x+"."+y, nnm)
-   nnm = outdir+nnm+".0.mdp"
+   nnm = outdir+"mdp.0.mdp"
    
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -36,7 +36,7 @@ def writeClassical(mdpclean,outdir,mdpf,nondimer):
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
@@ -65,7 +65,7 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer):
    nms=mdpf.split(".")
    nnm = nms[0:len(nms)-1]
    nnm = reduce(lambda x,y : x+"."+y, nnm)
-   nnm = outdir+nnm+".1.mdp"
+   nnm = outdir+"mdp.1.mdp"
 
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -82,7 +82,7 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer):
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User   ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
@@ -108,7 +108,7 @@ def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
    the input if outdir is set.
    allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's no explicit solvent)
    """
-   nnm = outdir+mdpf
+   nnm = outdir+"mdp.mdp"
    
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -124,7 +124,7 @@ def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group

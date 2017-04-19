@@ -997,7 +997,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.mdp.mdp_writer', this);">Show source &equiv;</a></p>
   <div id="source-dtools.mdp.mdp_writer" class="source">
-    <pre><code>def writeClassical(mdpclean,outdir,mdpf,allatoms):
+    <pre><code>def writeClassical(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the classical replica.
    
@@ -1017,7 +1017,7 @@ table {
    nms=mdpf.split(".")
    nnm = nms[0:len(nms)-1]
    nnm = reduce(lambda x,y : x+"."+y, nnm)
-   nnm = outdir+nnm+".0.mdp"
+   nnm = outdir+"mdp.0.mdp"
    
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -1026,16 +1026,16 @@ table {
    str1=""
    str2=""
    str3=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INTF SOL"
-      str3="NONINT SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INTF NONDIM"
+      str3="NONINT NONDIM"
    
       
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
@@ -1046,7 +1046,7 @@ table {
    f.write(fstr)
 
 
-def writeDimer(mdpclean,outdir,mdpf,allatoms):
+def writeDimer(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the delocalized replicas.
    
@@ -1064,7 +1064,7 @@ def writeDimer(mdpclean,outdir,mdpf,allatoms):
    nms=mdpf.split(".")
    nnm = nms[0:len(nms)-1]
    nnm = reduce(lambda x,y : x+"."+y, nnm)
-   nnm = outdir+nnm+".1.mdp"
+   nnm = outdir+"mdp.1.mdp"
 
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -1073,27 +1073,27 @@ def writeDimer(mdpclean,outdir,mdpf,allatoms):
    str1=""
    str2=""
    str3=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INT1 SOL INT2 SOL"
-      str3="NONINT SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
+      str3="NONINT NONDIM"
       
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User   ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
    energygrps=INT1 INT2 NONINT %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
-   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 %s
+   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 NONINT NONINT %s
    """ % (str1,str2,str3)
 
    f.write(fstr)
 
 
-def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
+def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the Dimer replicas without virtual sites.
    
@@ -1107,7 +1107,7 @@ def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
    the input if outdir is set.
    allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's no explicit solvent)
    """
-   nnm = outdir+mdpf
+   nnm = outdir+"mdp.mdp"
    
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -1115,15 +1115,15 @@ def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
       
    str1=""
    str2=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INT1 SOL INT2 SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
 
 
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
@@ -1145,7 +1145,7 @@ def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
       
   <div class="item">
     <div class="name def" id="dtools.mdp.mdp_writer.writeClassical">
-    <p>def <span class="ident">writeClassical</span>(</p><p>mdpclean, outdir, mdpf, allatoms)</p>
+    <p>def <span class="ident">writeClassical</span>(</p><p>mdpclean, outdir, mdpf, nondimer)</p>
     </div>
     
 
@@ -1165,7 +1165,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.mdp.mdp_writer.writeClassical', this);">Show source &equiv;</a></p>
   <div id="source-dtools.mdp.mdp_writer.writeClassical" class="source">
-    <pre><code>def writeClassical(mdpclean,outdir,mdpf,allatoms):
+    <pre><code>def writeClassical(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the classical replica.
    
@@ -1185,7 +1185,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
    nms=mdpf.split(".")
    nnm = nms[0:len(nms)-1]
    nnm = reduce(lambda x,y : x+"."+y, nnm)
-   nnm = outdir+nnm+".0.mdp"
+   nnm = outdir+"mdp.0.mdp"
    
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -1194,16 +1194,16 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
    str1=""
    str2=""
    str3=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INTF SOL"
-      str3="NONINT SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INTF NONDIM"
+      str3="NONINT NONDIM"
    
       
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
@@ -1221,7 +1221,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
       
   <div class="item">
     <div class="name def" id="dtools.mdp.mdp_writer.writeDimer">
-    <p>def <span class="ident">writeDimer</span>(</p><p>mdpclean, outdir, mdpf, allatoms)</p>
+    <p>def <span class="ident">writeDimer</span>(</p><p>mdpclean, outdir, mdpf, nondimer)</p>
     </div>
     
 
@@ -1239,7 +1239,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.mdp.mdp_writer.writeDimer', this);">Show source &equiv;</a></p>
   <div id="source-dtools.mdp.mdp_writer.writeDimer" class="source">
-    <pre><code>def writeDimer(mdpclean,outdir,mdpf,allatoms):
+    <pre><code>def writeDimer(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the delocalized replicas.
    
@@ -1257,7 +1257,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
    nms=mdpf.split(".")
    nnm = nms[0:len(nms)-1]
    nnm = reduce(lambda x,y : x+"."+y, nnm)
-   nnm = outdir+nnm+".1.mdp"
+   nnm = outdir+"mdp.1.mdp"
 
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -1266,21 +1266,21 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
    str1=""
    str2=""
    str3=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INT1 SOL INT2 SOL"
-      str3="NONINT SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
+      str3="NONINT NONDIM"
       
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User   ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
    energygrps=INT1 INT2 NONINT %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
-   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 %s
+   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 NONINT NONINT %s
    """ % (str1,str2,str3)
 
    f.write(fstr)
@@ -1293,7 +1293,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
       
   <div class="item">
     <div class="name def" id="dtools.mdp.mdp_writer.writeNoVsites">
-    <p>def <span class="ident">writeNoVsites</span>(</p><p>mdpclean, outdir, mdpf, allatoms)</p>
+    <p>def <span class="ident">writeNoVsites</span>(</p><p>mdpclean, outdir, mdpf, nondimer)</p>
     </div>
     
 
@@ -1311,7 +1311,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.mdp.mdp_writer.writeNoVsites', this);">Show source &equiv;</a></p>
   <div id="source-dtools.mdp.mdp_writer.writeNoVsites" class="source">
-    <pre><code>def writeNoVsites(mdpclean,outdir,mdpf,allatoms):
+    <pre><code>def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
    """
    Gromacs MDP file for the Dimer replicas without virtual sites.
    
@@ -1325,7 +1325,7 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
    the input if outdir is set.
    allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's no explicit solvent)
    """
-   nnm = outdir+mdpf
+   nnm = outdir+"mdp.mdp"
    
    f = open(nnm,"w+")
    for ln in mdpclean:
@@ -1333,15 +1333,15 @@ allatoms: Flag, True/False. If true the whole system is dimerized (i.e. there's 
       
    str1=""
    str2=""
-   if not allatoms:
-      str1="SOL"
-      str2="SOL SOL INT1 SOL INT2 SOL"
+   if nondimer:
+      str1="NONDIM"
+      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
 
 
    fstr="""
    ; lines added by DIMERIZER
    integrator=md-vv
-   ntscalcenergy=1
+   nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
    cutoff-scheme=group
