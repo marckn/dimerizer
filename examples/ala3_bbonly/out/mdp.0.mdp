@@ -1,0 +1,73 @@
+;input file
+;
+define = 
+nsteps = 40000
+dt = 0.001
+;
+; removing CM translation and rotation
+; Linear
+comm_mode = Linear
+nstcomm = 500
+;
+; output control
+nstlog = 10
+nstenergy = 10
+nstxout = 10
+nstvout = 5000
+nstfout = 0
+; group definition
+nstxtcout = 20
+xtc-precision = 10000000
+xtc-grps = system
+;
+; neighbour searching
+nstlist = 20
+ns_type = grid
+pbc = no
+;periodic_molecules = yes
+rlist = 1.0
+;
+; electrostatic
+rcoulomb = 1.0
+fourierspacing = 0.12
+;
+; vdw
+rvdw = 1.0
+;
+; constraints
+constraints = none
+;constraint-algorithm = lincs
+;lincs_iter = 6
+;lincs_order = 6
+;
+; temperature
+Tcoupl = v-rescale
+tc_grps = system
+tau_t = 0.1 
+ref_t = 300  
+;
+; pression
+Pcoupl = no
+;Pcoupltype = isotropic
+;tau_p = 0.5
+;compressibility = 4.5e-5
+;ref_p = 1.0
+;
+; initial velocities
+gen_vel = yes
+gen_temp = 300
+gen_seed = -1
+;
+
+
+
+   ; lines added by DIMERIZER
+   integrator=md
+   nstcalcenergy=1
+   vdw_type=user
+   coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
+   cutoff-scheme=group
+   energygrps=NONINT INTF NONDIM
+   energygrp_table=INTF INTF NONDIM NONDIM INTF NONDIM
+   energygrp-excl=NONINT NONINT NONINT INTF NONINT NONDIM
+   

@@ -35,7 +35,7 @@ def writeClassical(mdpclean,outdir,mdpf,nondimer):
       
    fstr="""
    ; lines added by DIMERIZER
-   integrator=md-vv
+   integrator=md
    nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
@@ -81,7 +81,7 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer):
       
    fstr="""
    ; lines added by DIMERIZER
-   integrator=md-vv
+   integrator=md
    nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User   ; put User if you don't need long-range Coulomb corrections
@@ -123,7 +123,7 @@ def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
 
    fstr="""
    ; lines added by DIMERIZER
-   integrator=md-vv
+   integrator=md
    nstcalcenergy=1
    vdw_type=user
    coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections

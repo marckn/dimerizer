@@ -1,0 +1,73 @@
+;input file
+;
+define = 
+; integrator
+integrator = md
+nsteps = 40000
+dt = 0.001
+;
+; removing CM translation and rotation
+; Linear
+comm_mode = Linear
+nstcomm = 500
+;
+; output control
+nstlog = 10
+nstenergy = 10
+nstxout = 10
+nstvout = 5000
+nstcalcenergy = 1
+nstfout = 0
+; group definition
+nstxtcout = 20
+xtc-precision = 10000000
+xtc-grps = system
+;
+; neighbour searching
+nstlist = 20
+ns_type = grid
+pbc = xyz
+;periodic_molecules = yes
+rlist = 1.0
+;
+; electrostatic
+;coulombtype = Cut-off
+;rcoulomb-switch = 0.95
+rcoulomb = 1.0
+fourierspacing = 0.12
+;
+; vdw
+;vdw-type = Cut-off
+;rvdw-switch = 0.9
+rvdw = 1.0
+;
+; constraints
+constraints = none
+;constraint-algorithm = lincs
+;lincs_iter = 6
+;lincs_order = 6
+;
+; temperature
+Tcoupl = v-rescale
+tc_grps = system
+tau_t = 0.1 
+ref_t = 300  
+;
+; pression
+Pcoupl = no
+;Pcoupltype = isotropic
+;tau_p = 0.5
+;compressibility = 4.5e-5
+;ref_p = 1.0
+;
+; initial velocities
+gen_vel = yes
+gen_temp = 300
+gen_seed = -1
+;
+;cutoff-scheme = group
+
+
+vdw_type=user
+coulombtype=user
+cutoff-scheme=group

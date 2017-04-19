@@ -1,0 +1,26 @@
+In basedir:
+
+. env.sh
+python2 dimerize.py 22 -o examples/ala_wsol/out -c examples/ala_wsol/aladip.pdb -p examples/ala_wsol/aladip.top -ff unmodified_forcefield/charmm22star.ff/ --mdp examples/ala_wsol/nvt.mdp -pl 0.004 0.004 0.008 0.01 0.02 0.05 0.1
+
+
+
+To run with Gromacs:
+In the simulation basedir:
+
+1) copy forcefield from the unmodified_forcefield directory and 
+   substitute the forcefield files that have been generated in out.
+2) copy the table files from dimerizer basedir/tables to simulation basedir
+
+3) copy dconfig.pdb, dtopology.x.top, index.x.ndx, 
+   mdp.x.mdp plumed.0.dat from out to simulation basedir.
+
+4) invoke grompp:
+   gmx_mpi grompp -f mdp.0.mdp -c dconfig.pdb -p dtopology.0.top -n index.0.ndx  -maxwarn 10 -o topol0
+   gmx_mpi grompp -f mdp.1.mdp -c dconfig.pdb -p dtopology.1.top -n index.1.ndx  -maxwarn 10 -o topol1
+   gmx_mpi grompp -f mdp.1.mdp -c dconfig.pdb -p dtopology.1.top -n index.1.ndx  -maxwarn 10 -o topol2
+   gmx_mpi grompp -f mdp.1.mdp -c dconfig.pdb -p dtopology.1.top -n index.1.ndx  -maxwarn 10 -o topol3
+   ...
+
+5) run with mdrun:
+   mpirun -np 7 gmx_mpi mdrun -s topol -multi 7 -hrex -replex 100 -table -tablep -plumed plumed.dat -pin on

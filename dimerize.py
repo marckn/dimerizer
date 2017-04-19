@@ -88,7 +88,7 @@ else:
 # Building plumed file(s)
 if not dimsigmas is None:
    import dtools.plumed.templates
-   dtools.plumed.templates.write(dimsigmas,natoms,atomlist,outdir,vsites,allatoms,q,temp)
+   dtools.plumed.templates.write(dimsigmas,natoms,atomlist,outdir,allatoms,q,temp)
    
 if not mdpfile is None:
    import dtools.mdp.editor

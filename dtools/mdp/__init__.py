@@ -24,8 +24,8 @@ The settings that are manipulated are the following:
    Replica exchange requires this parameter to be 1
    
 *# integrator
-   The Molecular Dynamics integrator. By default will be set to velocity-verlet (md-vv) but the standard 
-   Gromacs "md" (Leapfrog algorithm) can be used as well.
+   The Molecular Dynamics integrator. By default will be set to the standard 
+   Gromacs "md" (Leapfrog algorithm).
    
 *# energygrps
    The non-bonded interaction is not the same for the whole system and needs to be considered separately for 
