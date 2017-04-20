@@ -1,3 +1,9 @@
 A couple of examples that show how to use this dimerizer script.
 The simulations are only for demonstration and are neither optimized in parameters nor 
 are they meant to mean something physical.
+
+Note that by default the script generates plumed.X.dat files, one for each dimer strength specified in the input 
+through the --plumed argument. You will need to modify these values and it is a pain in the neck. To help there is the 
+plread.py script: just put it in the folder containing the plumed.X.dat files and use it to modify all the files 
+with a single command. plread scans through the folder in search of plumed.X.dat files and looks into the files for the 
+requested keyword. i.e.: python2 plread.py DSIGMA 
