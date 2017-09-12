@@ -1,0 +1,63 @@
+from dtools.opt import findopt
+import argparse
+
+
+parser = argparse.ArgumentParser(description="""
+Given the number of replicas, this script will determine the sigma values that will 
+produce an acceptance ratio of the swaps close to the target value.
+""")
+
+parser.add_argument('nrep', type=int, help='The number of replicas')
+required = parser.add_argument_group('mandatory arguments:')
+
+required.add_argument('-s','--sigstart',type=float,help='The starting sigma value', required=True)
+required.add_argument('-N','--natoms',type=float,help='The number of dimerized atoms', required=True)
+
+parser.add_argument('-t','--ptarg',type=float,help='Target probability',default=0.25)
+parser.add_argument('-g','--gamma',type=float,help='The bias factor',default=1.0)
+parser.add_argument('-q','--q',type=float,help='Q-value of the dimer interaction',default=0.5)
+
+
+optional = parser.add_argument_group('Very optional stuff:')
+optional.add_argument('--nsigmaint',type=int,help='Numerical integration range in sigma-units', default=20, required=False)
+optional.add_argument('--intres',type=int,help='Numerical integration points for each sigma-interval', default=100, required=False)
+optional.add_argument('--epsend',type=float,help='Accuracy of the target probability', default=0.01, required=False)
+optional.add_argument('--escloop',type=int,help='Maximum iterations in the bisection method', default=200, required=False)
+
+args = parser.parse_args()
+
+nrep = args.nrep
+sigstart = args.sigstart
+N = args.natoms
+ptarg=args.ptarg
+gamma=args.gamma
+q = args.q
+
+nsigmaint = args.nsigmaint
+intres = args.intres
+epsend = args.epsend
+escloop = args.escloop
+
+
+
+
+
+dsigmas=[sigstart, sigstart]
+for i in range(nrep-2):
+   (nextsig,pexp) = findopt(dsigmas[i+1],ptarg,q,gamma,N,nsigmaint,intres,epsend,escloop)
+   dsigmas.append(nextsig)
+
+
+print "With ",nrep," replicas, considering also the Boltzmann replica:"
+stout="--plumed "
+for s in dsigmas:
+   stout = stout + " {0:.6f},".format(s)
+
+stout=list(stout)[:-1]
+stout="".join(stout)
+print stout
+
+
+
+
+   
