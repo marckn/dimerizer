@@ -23,6 +23,5 @@ setup(name='dimerizer',
       license='GPL',
       packages=['dimerizer'],
       scripts=['bin/dimerize','bin/plread','bin/tune_replicas'],
-      install_requires=['re', 'itertools'],
       include_package_data=True,
       zip_safe=False)
