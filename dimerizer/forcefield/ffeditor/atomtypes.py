@@ -1,5 +1,5 @@
-import dtools.forcefield.basic_parsing_tools as parser
-import dtools.forcefield.basic_manip as manip
+import dimerizer.forcefield.basic_parsing_tools as parser
+import dimerizer.forcefield.basic_manip as manip
 
 def edit(fname,outfile,dtags,vsites):
    """

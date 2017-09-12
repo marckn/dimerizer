@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.forcefield.basic_parsing_tools API documentation</title>
+    <title>dimerizer.forcefield.basic_parsing_tools API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,10 +1044,10 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.forcefield.basic_parsing_tools.filetolist">filetolist</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_parsing_tools.get_keywords">get_keywords</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_parsing_tools.get_section">get_section</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_parsing_tools.parse_line">parse_line</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_parsing_tools.filetolist">filetolist</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_parsing_tools.get_keywords">get_keywords</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_parsing_tools.get_section">get_section</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_parsing_tools.parse_line">parse_line</a></li>
   </ul>
 
     </li>
@@ -993,132 +1064,133 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.forcefield.basic_parsing_tools</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.forcefield.basic_parsing_tools</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_parsing_tools', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_parsing_tools" class="source">
-    <pre><code>import re
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_parsing_tools', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_parsing_tools" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
-def parse_line(line_in):
-   """
-   Parse a line of a forcefield file.
+<span class="k">def</span> <span class="nf">parse_line</span><span class="p">(</span><span class="n">line_in</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Parse a line of a forcefield file.</span>
+<span class="sd">   </span>
+<span class="sd">   Returns a tuple (type,list) where </span>
+<span class="sd">   type can be either &quot;Empty&quot;, &quot;Special&quot; or &quot;Data&quot; and </span>
+<span class="sd">   list is a list containing the columns.</span>
+<span class="sd">   Comment lines as well as inline comments are ignored.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   Returns a tuple (type,list) where 
-   type can be either "Empty", "Special" or "Data" and 
-   list is a list containing the columns.
-   Comment lines as well as inline comments are ignored.
-   """
+   <span class="n">rx_comline</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*;&quot;</span><span class="p">)</span>
+   <span class="n">rx_special</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*#&quot;</span><span class="p">)</span>
    
-   rx_comline = re.compile(r"\s*;")
-   rx_special = re.compile(r"\s*#")
-   
-   if not rx_comline.match(line_in) is None:
-      return ("Empty",[])
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">rx_comline</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line_in</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Empty&quot;</span><span class="p">,[])</span>
       
-   if not rx_special.match(line_in) is None:
-      return ("Special",[line_in])
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">rx_special</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line_in</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Special&quot;</span><span class="p">,[</span><span class="n">line_in</span><span class="p">])</span>
       
-   lin=line_in.split(';')[0]
-   data=re.findall(r'\-{0,1}\S+\b',lin)
+   <span class="n">lin</span><span class="o">=</span><span class="n">line_in</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="n">data</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\-{0,1}\S+\b&#39;</span><span class="p">,</span><span class="n">lin</span><span class="p">)</span>
    
-   if len(data) == 0:
-      return ("Empty","")
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Empty&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
    
-   return ("Data",data)
+   <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
 
 
-def get_section(flist, secname):
-   """
-   Return a list with the lines corresponding to the specified section.
-   
-   The forcefield file is given through its list of lines.
-   The returned structure is a list of tuples (section_name,list), 
-   where section_name is a string and list is the list containing all the (unparsed) lines.
-   """
-   keyword_rexp=r"\s*\[\s*.*\]"
-   kwo = re.compile(keyword_rexp)
+<span class="k">def</span> <span class="nf">get_section</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span> <span class="n">secname</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Return a list with the lines corresponding to the specified section.</span>
+<span class="sd">   </span>
+<span class="sd">   The forcefield file is given through its list of lines.</span>
+<span class="sd">   The returned structure is a list of tuples (section_name,list), </span>
+<span class="sd">   where section_name is a string and list is the list containing all the (unparsed) lines.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+   <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
       
-   keyword_targ=r"\s*\[ "+secname+r" \]\s*"
-   kwo_targ = re.compile(keyword_targ)
+   <span class="n">keyword_targ</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[ &quot;</span><span class="o">+</span><span class="n">secname</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot; \]\s*&quot;</span>
+   <span class="n">kwo_targ</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_targ</span><span class="p">)</span>
    
       
-   found=[]
+   <span class="n">found</span><span class="o">=</span><span class="p">[]</span>
    
-   insec=False
-   cfound=[]
-   for ln in flist:
-      if not kwo.match(ln) is None:
-         if insec:
-	    found.append((secname,cfound))
-	    cfound=[]
+   <span class="n">insec</span><span class="o">=</span><span class="bp">False</span>
+   <span class="n">cfound</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">kwo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">insec</span><span class="p">:</span>
+	    <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">secname</span><span class="p">,</span><span class="n">cfound</span><span class="p">))</span>
+	    <span class="n">cfound</span><span class="o">=</span><span class="p">[]</span>
 	    
-	 insec=False
+	 <span class="n">insec</span><span class="o">=</span><span class="bp">False</span>
 	
-      if kwo_targ.match(ln) is None:
-         if insec:
-	    cfound.append(ln)
+      <span class="k">if</span> <span class="n">kwo_targ</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">insec</span><span class="p">:</span>
+	    <span class="n">cfound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
 	    
-      else:
-         insec=True
-	 cfound=[]
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">insec</span><span class="o">=</span><span class="bp">True</span>
+	 <span class="n">cfound</span><span class="o">=</span><span class="p">[]</span>
 
-   if len(cfound)>0:
-      found.append((secname,cfound))
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cfound</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+      <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">secname</span><span class="p">,</span><span class="n">cfound</span><span class="p">))</span>
       
-   return found
+   <span class="k">return</span> <span class="n">found</span>
    
-def get_keywords(flist):
-   """
-   Return the list of [ keywords ] in a forcefield file list.
-   """
+<span class="k">def</span> <span class="nf">get_keywords</span><span class="p">(</span><span class="n">flist</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Return the list of [ keywords ] in a forcefield file list.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   keyword_rexp=r"\s*\[\s*.*\]"
-   kwo = re.compile(keyword_rexp)
+   <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+   <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
    
-   kfound=[]
-   for ln in flist:
-      if kwo.match(ln) is None:
-         continue
+   <span class="n">kfound</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">kwo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+         <span class="k">continue</span>
 	 
-      lnn = ln.split(";")[0]
-      lnn = lnn.split("]")[0]
-      lnn = lnn.split("[")[1]
-      lnn=list(lnn)
-      lnn=lnn[1:-1]
-      lnn="".join(lnn)
-      kfound.append(lnn)
+      <span class="n">lnn</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">lnn</span> <span class="o">=</span> <span class="n">lnn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">lnn</span> <span class="o">=</span> <span class="n">lnn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">lnn</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">lnn</span><span class="p">)</span>
+      <span class="n">lnn</span><span class="o">=</span><span class="n">lnn</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">lnn</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lnn</span><span class="p">)</span>
+      <span class="n">kfound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lnn</span><span class="p">)</span>
       
-   return kfound
+   <span class="k">return</span> <span class="n">kfound</span>
 
    
-def filetolist(fname):
-   """
-   Read a file and return the list of lines
-   """ 
+<span class="k">def</span> <span class="nf">filetolist</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Read a file and return the list of lines</span>
+<span class="sd">   &quot;&quot;&quot;</span> 
    
-   with open(fname,"r") as fi:
-      rawdata=fi.read()
+   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+      <span class="n">rawdata</span><span class="o">=</span><span class="n">fi</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
       
-   rbuff=[]
-   ln=""
-   for c in rawdata:
-      if c != "\n":
-         ln=ln+c
-      else:
-         rbuff.append(ln)
-         ln=""
+   <span class="n">rbuff</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+   <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">rawdata</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+         <span class="n">ln</span><span class="o">=</span><span class="n">ln</span><span class="o">+</span><span class="n">c</span>
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+         <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
    
-   if ln != "":
-      rbuff.append(ln)
+   <span class="k">if</span> <span class="n">ln</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+      <span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
 
-   return rbuff   
+   <span class="k">return</span> <span class="n">rbuff</span>   
      
        	 
       
 
             
-</code></pre>
+</pre></div>
+
   </div>
 
   </header>
@@ -1128,7 +1200,7 @@ def filetolist(fname):
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_parsing_tools.filetolist">
+    <div class="name def" id="dimerizer.forcefield.basic_parsing_tools.filetolist">
     <p>def <span class="ident">filetolist</span>(</p><p>fname)</p>
     </div>
     
@@ -1137,30 +1209,31 @@ def filetolist(fname):
   
     <div class="desc"><p>Read a file and return the list of lines</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_parsing_tools.filetolist', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_parsing_tools.filetolist" class="source">
-    <pre><code>def filetolist(fname):
-   """
-   Read a file and return the list of lines
-   """ 
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_parsing_tools.filetolist', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_parsing_tools.filetolist" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">filetolist</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Read a file and return the list of lines</span>
+<span class="sd">   &quot;&quot;&quot;</span> 
    
-   with open(fname,"r") as fi:
-      rawdata=fi.read()
+   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+      <span class="n">rawdata</span><span class="o">=</span><span class="n">fi</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
       
-   rbuff=[]
-   ln=""
-   for c in rawdata:
-      if c != "\n":
-         ln=ln+c
-      else:
-         rbuff.append(ln)
-         ln=""
+   <span class="n">rbuff</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+   <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">rawdata</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+         <span class="n">ln</span><span class="o">=</span><span class="n">ln</span><span class="o">+</span><span class="n">c</span>
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+         <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
    
-   if ln != "":
-      rbuff.append(ln)
+   <span class="k">if</span> <span class="n">ln</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+      <span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
 
-   return rbuff   
-</code></pre>
+   <span class="k">return</span> <span class="n">rbuff</span>   
+</pre></div>
+
   </div>
 </div>
 
@@ -1168,7 +1241,7 @@ def filetolist(fname):
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_parsing_tools.get_keywords">
+    <div class="name def" id="dimerizer.forcefield.basic_parsing_tools.get_keywords">
     <p>def <span class="ident">get_keywords</span>(</p><p>flist)</p>
     </div>
     
@@ -1177,31 +1250,32 @@ def filetolist(fname):
   
     <div class="desc"><p>Return the list of [ keywords ] in a forcefield file list.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_parsing_tools.get_keywords', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_parsing_tools.get_keywords" class="source">
-    <pre><code>def get_keywords(flist):
-   """
-   Return the list of [ keywords ] in a forcefield file list.
-   """
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_parsing_tools.get_keywords', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_parsing_tools.get_keywords" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_keywords</span><span class="p">(</span><span class="n">flist</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Return the list of [ keywords ] in a forcefield file list.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   keyword_rexp=r"\s*\[\s*.*\]"
-   kwo = re.compile(keyword_rexp)
+   <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+   <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
    
-   kfound=[]
-   for ln in flist:
-      if kwo.match(ln) is None:
-         continue
+   <span class="n">kfound</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">kwo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+         <span class="k">continue</span>
 	 
-      lnn = ln.split(";")[0]
-      lnn = lnn.split("]")[0]
-      lnn = lnn.split("[")[1]
-      lnn=list(lnn)
-      lnn=lnn[1:-1]
-      lnn="".join(lnn)
-      kfound.append(lnn)
+      <span class="n">lnn</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">lnn</span> <span class="o">=</span> <span class="n">lnn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">lnn</span> <span class="o">=</span> <span class="n">lnn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">lnn</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">lnn</span><span class="p">)</span>
+      <span class="n">lnn</span><span class="o">=</span><span class="n">lnn</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">lnn</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lnn</span><span class="p">)</span>
+      <span class="n">kfound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lnn</span><span class="p">)</span>
       
-   return kfound
-</code></pre>
+   <span class="k">return</span> <span class="n">kfound</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1209,7 +1283,7 @@ def filetolist(fname):
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_parsing_tools.get_section">
+    <div class="name def" id="dimerizer.forcefield.basic_parsing_tools.get_section">
     <p>def <span class="ident">get_section</span>(</p><p>flist, secname)</p>
     </div>
     
@@ -1221,48 +1295,49 @@ def filetolist(fname):
 The returned structure is a list of tuples (section_name,list), 
 where section_name is a string and list is the list containing all the (unparsed) lines.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_parsing_tools.get_section', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_parsing_tools.get_section" class="source">
-    <pre><code>def get_section(flist, secname):
-   """
-   Return a list with the lines corresponding to the specified section.
-   
-   The forcefield file is given through its list of lines.
-   The returned structure is a list of tuples (section_name,list), 
-   where section_name is a string and list is the list containing all the (unparsed) lines.
-   """
-   keyword_rexp=r"\s*\[\s*.*\]"
-   kwo = re.compile(keyword_rexp)
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_parsing_tools.get_section', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_parsing_tools.get_section" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_section</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span> <span class="n">secname</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Return a list with the lines corresponding to the specified section.</span>
+<span class="sd">   </span>
+<span class="sd">   The forcefield file is given through its list of lines.</span>
+<span class="sd">   The returned structure is a list of tuples (section_name,list), </span>
+<span class="sd">   where section_name is a string and list is the list containing all the (unparsed) lines.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+   <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
       
-   keyword_targ=r"\s*\[ "+secname+r" \]\s*"
-   kwo_targ = re.compile(keyword_targ)
+   <span class="n">keyword_targ</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[ &quot;</span><span class="o">+</span><span class="n">secname</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot; \]\s*&quot;</span>
+   <span class="n">kwo_targ</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_targ</span><span class="p">)</span>
    
       
-   found=[]
+   <span class="n">found</span><span class="o">=</span><span class="p">[]</span>
    
-   insec=False
-   cfound=[]
-   for ln in flist:
-      if not kwo.match(ln) is None:
-         if insec:
-	    found.append((secname,cfound))
-	    cfound=[]
+   <span class="n">insec</span><span class="o">=</span><span class="bp">False</span>
+   <span class="n">cfound</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">kwo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">insec</span><span class="p">:</span>
+	    <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">secname</span><span class="p">,</span><span class="n">cfound</span><span class="p">))</span>
+	    <span class="n">cfound</span><span class="o">=</span><span class="p">[]</span>
 	    
-	 insec=False
+	 <span class="n">insec</span><span class="o">=</span><span class="bp">False</span>
 	
-      if kwo_targ.match(ln) is None:
-         if insec:
-	    cfound.append(ln)
+      <span class="k">if</span> <span class="n">kwo_targ</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">insec</span><span class="p">:</span>
+	    <span class="n">cfound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
 	    
-      else:
-         insec=True
-	 cfound=[]
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">insec</span><span class="o">=</span><span class="bp">True</span>
+	 <span class="n">cfound</span><span class="o">=</span><span class="p">[]</span>
 
-   if len(cfound)>0:
-      found.append((secname,cfound))
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cfound</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+      <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">secname</span><span class="p">,</span><span class="n">cfound</span><span class="p">))</span>
       
-   return found
-</code></pre>
+   <span class="k">return</span> <span class="n">found</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1270,7 +1345,7 @@ where section_name is a string and list is the list containing all the (unparsed
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_parsing_tools.parse_line">
+    <div class="name def" id="dimerizer.forcefield.basic_parsing_tools.parse_line">
     <p>def <span class="ident">parse_line</span>(</p><p>line_in)</p>
     </div>
     
@@ -1283,35 +1358,36 @@ type can be either "Empty", "Special" or "Data" and
 list is a list containing the columns.
 Comment lines as well as inline comments are ignored.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_parsing_tools.parse_line', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_parsing_tools.parse_line" class="source">
-    <pre><code>def parse_line(line_in):
-   """
-   Parse a line of a forcefield file.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_parsing_tools.parse_line', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_parsing_tools.parse_line" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">parse_line</span><span class="p">(</span><span class="n">line_in</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Parse a line of a forcefield file.</span>
+<span class="sd">   </span>
+<span class="sd">   Returns a tuple (type,list) where </span>
+<span class="sd">   type can be either &quot;Empty&quot;, &quot;Special&quot; or &quot;Data&quot; and </span>
+<span class="sd">   list is a list containing the columns.</span>
+<span class="sd">   Comment lines as well as inline comments are ignored.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   Returns a tuple (type,list) where 
-   type can be either "Empty", "Special" or "Data" and 
-   list is a list containing the columns.
-   Comment lines as well as inline comments are ignored.
-   """
+   <span class="n">rx_comline</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*;&quot;</span><span class="p">)</span>
+   <span class="n">rx_special</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*#&quot;</span><span class="p">)</span>
    
-   rx_comline = re.compile(r"\s*;")
-   rx_special = re.compile(r"\s*#")
-   
-   if not rx_comline.match(line_in) is None:
-      return ("Empty",[])
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">rx_comline</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line_in</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Empty&quot;</span><span class="p">,[])</span>
       
-   if not rx_special.match(line_in) is None:
-      return ("Special",[line_in])
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">rx_special</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line_in</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Special&quot;</span><span class="p">,[</span><span class="n">line_in</span><span class="p">])</span>
       
-   lin=line_in.split(';')[0]
-   data=re.findall(r'\-{0,1}\S+\b',lin)
+   <span class="n">lin</span><span class="o">=</span><span class="n">line_in</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="n">data</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\-{0,1}\S+\b&#39;</span><span class="p">,</span><span class="n">lin</span><span class="p">)</span>
    
-   if len(data) == 0:
-      return ("Empty","")
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Empty&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
    
-   return ("Data",data)
-</code></pre>
+   <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 

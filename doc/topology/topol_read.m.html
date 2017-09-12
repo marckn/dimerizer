@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.topology.topol_read API documentation</title>
+    <title>dimerizer.topology.topol_read API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -974,12 +1045,12 @@ table {
     <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
         <li class="mono">
-        <span class="class_name"><a href="#dtools.topology.topol_read.parse_topol">parse_topol</a></span>
+        <span class="class_name"><a href="#dimerizer.topology.topol_read.parse_topol">parse_topol</a></span>
         
           
   <ul>
-    <li class="mono"><a href="#dtools.topology.topol_read.parse_topol.__init__">__init__</a></li>
-    <li class="mono"><a href="#dtools.topology.topol_read.parse_topol.getKeyword">getKeyword</a></li>
+    <li class="mono"><a href="#dimerizer.topology.topol_read.parse_topol.__init__">__init__</a></li>
+    <li class="mono"><a href="#dimerizer.topology.topol_read.parse_topol.getKeyword">getKeyword</a></li>
   </ul>
 
         </li>
@@ -997,114 +1068,115 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.topology.topol_read</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.topology.topol_read</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.topol_read', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.topol_read" class="source">
-    <pre><code>import re
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.topol_read', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.topol_read" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
-class parse_topol:
-   """
-   Read a topology file and provide access to its different sections
-   
-   The input topology file is stored in a list. A method in this class 
-   returns a sublist containing the sections corresponding to the keyword given as argument. 
-   For each section its position in the file is returned as well.
-   
-   """
-   def __init__(self,fname):
-      """
-      Open and read the file passed as argument and store each line in a list.
-      """
-      with open(fname,'r') as f:
-         self.raw = f.read()
+<span class="k">class</span> <span class="nc">parse_topol</span><span class="p">:</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Read a topology file and provide access to its different sections</span>
+<span class="sd">   </span>
+<span class="sd">   The input topology file is stored in a list. A method in this class </span>
+<span class="sd">   returns a sublist containing the sections corresponding to the keyword given as argument. </span>
+<span class="sd">   For each section its position in the file is returned as well.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Open and read the file passed as argument and store each line in a list.</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
       	 
-      self.rbuff=[]
-      ln=""
-      for c in self.raw:
-         if c != "\n":
-	    ln=ln+c
-	 else:
-	    self.rbuff.append(ln)
-	    ln=""
+      <span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="o">=</span><span class="p">[]</span>
+      <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+      <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+	    <span class="n">ln</span><span class="o">=</span><span class="n">ln</span><span class="o">+</span><span class="n">c</span>
+	 <span class="k">else</span><span class="p">:</span>
+	    <span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	    <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 	    
-      # rbuff is a list containing the .top file
+      <span class="c1"># rbuff is a list containing the .top file</span>
            
 
 
    
-   def getKeyword(self,kword):
-      """
-      Return a section of the topology file identified by the keyword passed as argument.
+   <span class="k">def</span> <span class="nf">getKeyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">kword</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Return a section of the topology file identified by the keyword passed as argument.</span>
+<span class="sd">      </span>
+<span class="sd">      Regular expressions are used to identify comment lines, any section identifier, </span>
+<span class="sd">      the requested section (or sections) and whether we are still in a section or not.</span>
+<span class="sd">      </span>
+<span class="sd">      These regexps are used to remove unwanted parts of the files (comments, # directives, ...) and </span>
+<span class="sd">      delimit the desired sections. This is done while scanning the whole file. </span>
+<span class="sd">      The returned value is a tuple with the following format:</span>
+<span class="sd">      </span>
+<span class="sd">      (nfound,nindices)</span>
+<span class="sd">      </span>
+<span class="sd">         - nfound is a list where each element corresponds to the data (as a list) of a section with the requested keyword.</span>
+<span class="sd">	 - nindices is a list that follows the ordering of nfound. Each element of nindices is a couple of values storing the position of the beginning and the </span>
+<span class="sd">	   end of the found section.</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+      <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+      <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
       
-      Regular expressions are used to identify comment lines, any section identifier, 
-      the requested section (or sections) and whether we are still in a section or not.
+      <span class="n">keyword_targ</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[ &quot;</span><span class="o">+</span><span class="n">kword</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot; \]\s*&quot;</span>
+      <span class="n">kwo_targ</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_targ</span><span class="p">)</span>
       
-      These regexps are used to remove unwanted parts of the files (comments, # directives, ...) and 
-      delimit the desired sections. This is done while scanning the whole file. 
-      The returned value is a tuple with the following format:
-      
-      (nfound,nindices)
-      
-         - nfound is a list where each element corresponds to the data (as a list) of a section with the requested keyword.
-	 - nindices is a list that follows the ordering of nfound. Each element of nindices is a couple of values storing the position of the beginning and the 
-	   end of the found section.
-      """
-      keyword_rexp=r"\s*\[\s*.*\]"
-      kwo = re.compile(keyword_rexp)
-      
-      keyword_targ=r"\s*\[ "+kword+r" \]\s*"
-      kwo_targ = re.compile(keyword_targ)
-      
-      keyword_comment=r";.*"
-      kwo_comment = re.compile(keyword_comment)
+      <span class="n">keyword_comment</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;;.*&quot;</span>
+      <span class="n">kwo_comment</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_comment</span><span class="p">)</span>
       
       
-      keyword_data=r"(.*\d+.*)+"
-      if kword == "atoms":
-         keyword_data=r".*\d+.*"
+      <span class="n">keyword_data</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;(.*\d+.*)+&quot;</span>
+      <span class="k">if</span> <span class="n">kword</span> <span class="o">==</span> <span class="s2">&quot;atoms&quot;</span><span class="p">:</span>
+         <span class="n">keyword_data</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*\d+.*&quot;</span>
 	 
-      kwo_data=re.compile(keyword_data)
+      <span class="n">kwo_data</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
       
-      nfound=[]
-      indices=[]
-      getsaving=False
-      idx=-1
-      for n,ln in enumerate(self.rbuff):
+      <span class="n">nfound</span><span class="o">=</span><span class="p">[]</span>
+      <span class="n">indices</span><span class="o">=</span><span class="p">[]</span>
+      <span class="n">getsaving</span><span class="o">=</span><span class="bp">False</span>
+      <span class="n">idx</span><span class="o">=-</span><span class="mi">1</span>
+      <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">ln</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="p">):</span>
          
-	 cmt = kwo_comment.match(ln)
-	 if not cmt is None:  # ignore comments
-	    continue
+	 <span class="n">cmt</span> <span class="o">=</span> <span class="n">kwo_comment</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="ow">not</span> <span class="n">cmt</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>  <span class="c1"># ignore comments</span>
+	    <span class="k">continue</span>
 	 
-	 mct=kwo_targ.match(ln)
-	 if not mct is None:
-	    idx = idx+1
-	    getsaving=True   
-            nfound.append([])
-	    indices.append([])
-	    indices[idx].append(n)
-	    continue
+	 <span class="n">mct</span><span class="o">=</span><span class="n">kwo_targ</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="ow">not</span> <span class="n">mct</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+	    <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+	    <span class="n">getsaving</span><span class="o">=</span><span class="bp">True</span>   
+            <span class="n">nfound</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+	    <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+	    <span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+	    <span class="k">continue</span>
 	    	    
-         if getsaving is True:
-            isdata= kwo_data.match(ln)
-	    if not isdata is None:
-	       lst=nfound[idx]
-	       lst.append(ln)
+         <span class="k">if</span> <span class="n">getsaving</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">isdata</span><span class="o">=</span> <span class="n">kwo_data</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	    <span class="k">if</span> <span class="ow">not</span> <span class="n">isdata</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+	       <span class="n">lst</span><span class="o">=</span><span class="n">nfound</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+	       <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
 	    
-	    else:
-	       indices[idx].append(n)
-	       if not mct is None:
-	          idx = idx+1
-		  nfound.append([])
-		  indices.append([])
+	    <span class="k">else</span><span class="p">:</span>
+	       <span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+	       <span class="k">if</span> <span class="ow">not</span> <span class="n">mct</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+	          <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+		  <span class="n">nfound</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+		  <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
 	      
-	       else:
-	          getsaving=False
+	       <span class="k">else</span><span class="p">:</span>
+	          <span class="n">getsaving</span><span class="o">=</span><span class="bp">False</span>
 
 
-      return (nfound,indices)
-</code></pre>
+      <span class="k">return</span> <span class="p">(</span><span class="n">nfound</span><span class="p">,</span><span class="n">indices</span><span class="p">)</span>
+</pre></div>
+
   </div>
 
   </header>
@@ -1115,7 +1187,7 @@ class parse_topol:
     <h2 class="section-title" id="header-classes">Classes</h2>
       
       <div class="item">
-      <p id="dtools.topology.topol_read.parse_topol" class="name">class <span class="ident">parse_topol</span></p>
+      <p id="dimerizer.topology.topol_read.parse_topol" class="name">class <span class="ident">parse_topol</span></p>
       
   
     <div class="desc"><p>Read a topology file and provide access to its different sections</p>
@@ -1123,109 +1195,110 @@ class parse_topol:
 returns a sublist containing the sections corresponding to the keyword given as argument. 
 For each section its position in the file is returned as well.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.topol_read.parse_topol', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.topol_read.parse_topol" class="source">
-    <pre><code>class parse_topol:
-   """
-   Read a topology file and provide access to its different sections
-   
-   The input topology file is stored in a list. A method in this class 
-   returns a sublist containing the sections corresponding to the keyword given as argument. 
-   For each section its position in the file is returned as well.
-   
-   """
-   def __init__(self,fname):
-      """
-      Open and read the file passed as argument and store each line in a list.
-      """
-      with open(fname,'r') as f:
-         self.raw = f.read()
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.topol_read.parse_topol', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.topol_read.parse_topol" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">parse_topol</span><span class="p">:</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Read a topology file and provide access to its different sections</span>
+<span class="sd">   </span>
+<span class="sd">   The input topology file is stored in a list. A method in this class </span>
+<span class="sd">   returns a sublist containing the sections corresponding to the keyword given as argument. </span>
+<span class="sd">   For each section its position in the file is returned as well.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Open and read the file passed as argument and store each line in a list.</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
       	 
-      self.rbuff=[]
-      ln=""
-      for c in self.raw:
-         if c != "\n":
-	    ln=ln+c
-	 else:
-	    self.rbuff.append(ln)
-	    ln=""
+      <span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="o">=</span><span class="p">[]</span>
+      <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+      <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+	    <span class="n">ln</span><span class="o">=</span><span class="n">ln</span><span class="o">+</span><span class="n">c</span>
+	 <span class="k">else</span><span class="p">:</span>
+	    <span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	    <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 	    
-      # rbuff is a list containing the .top file
+      <span class="c1"># rbuff is a list containing the .top file</span>
            
 
 
    
-   def getKeyword(self,kword):
-      """
-      Return a section of the topology file identified by the keyword passed as argument.
+   <span class="k">def</span> <span class="nf">getKeyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">kword</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      Return a section of the topology file identified by the keyword passed as argument.</span>
+<span class="sd">      </span>
+<span class="sd">      Regular expressions are used to identify comment lines, any section identifier, </span>
+<span class="sd">      the requested section (or sections) and whether we are still in a section or not.</span>
+<span class="sd">      </span>
+<span class="sd">      These regexps are used to remove unwanted parts of the files (comments, # directives, ...) and </span>
+<span class="sd">      delimit the desired sections. This is done while scanning the whole file. </span>
+<span class="sd">      The returned value is a tuple with the following format:</span>
+<span class="sd">      </span>
+<span class="sd">      (nfound,nindices)</span>
+<span class="sd">      </span>
+<span class="sd">         - nfound is a list where each element corresponds to the data (as a list) of a section with the requested keyword.</span>
+<span class="sd">	 - nindices is a list that follows the ordering of nfound. Each element of nindices is a couple of values storing the position of the beginning and the </span>
+<span class="sd">	   end of the found section.</span>
+<span class="sd">      &quot;&quot;&quot;</span>
+      <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+      <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
       
-      Regular expressions are used to identify comment lines, any section identifier, 
-      the requested section (or sections) and whether we are still in a section or not.
+      <span class="n">keyword_targ</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[ &quot;</span><span class="o">+</span><span class="n">kword</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot; \]\s*&quot;</span>
+      <span class="n">kwo_targ</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_targ</span><span class="p">)</span>
       
-      These regexps are used to remove unwanted parts of the files (comments, # directives, ...) and 
-      delimit the desired sections. This is done while scanning the whole file. 
-      The returned value is a tuple with the following format:
-      
-      (nfound,nindices)
-      
-         - nfound is a list where each element corresponds to the data (as a list) of a section with the requested keyword.
-	 - nindices is a list that follows the ordering of nfound. Each element of nindices is a couple of values storing the position of the beginning and the 
-	   end of the found section.
-      """
-      keyword_rexp=r"\s*\[\s*.*\]"
-      kwo = re.compile(keyword_rexp)
-      
-      keyword_targ=r"\s*\[ "+kword+r" \]\s*"
-      kwo_targ = re.compile(keyword_targ)
-      
-      keyword_comment=r";.*"
-      kwo_comment = re.compile(keyword_comment)
+      <span class="n">keyword_comment</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;;.*&quot;</span>
+      <span class="n">kwo_comment</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_comment</span><span class="p">)</span>
       
       
-      keyword_data=r"(.*\d+.*)+"
-      if kword == "atoms":
-         keyword_data=r".*\d+.*"
+      <span class="n">keyword_data</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;(.*\d+.*)+&quot;</span>
+      <span class="k">if</span> <span class="n">kword</span> <span class="o">==</span> <span class="s2">&quot;atoms&quot;</span><span class="p">:</span>
+         <span class="n">keyword_data</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*\d+.*&quot;</span>
 	 
-      kwo_data=re.compile(keyword_data)
+      <span class="n">kwo_data</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
       
-      nfound=[]
-      indices=[]
-      getsaving=False
-      idx=-1
-      for n,ln in enumerate(self.rbuff):
+      <span class="n">nfound</span><span class="o">=</span><span class="p">[]</span>
+      <span class="n">indices</span><span class="o">=</span><span class="p">[]</span>
+      <span class="n">getsaving</span><span class="o">=</span><span class="bp">False</span>
+      <span class="n">idx</span><span class="o">=-</span><span class="mi">1</span>
+      <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">ln</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="p">):</span>
          
-	 cmt = kwo_comment.match(ln)
-	 if not cmt is None:  # ignore comments
-	    continue
+	 <span class="n">cmt</span> <span class="o">=</span> <span class="n">kwo_comment</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="ow">not</span> <span class="n">cmt</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>  <span class="c1"># ignore comments</span>
+	    <span class="k">continue</span>
 	 
-	 mct=kwo_targ.match(ln)
-	 if not mct is None:
-	    idx = idx+1
-	    getsaving=True   
-            nfound.append([])
-	    indices.append([])
-	    indices[idx].append(n)
-	    continue
+	 <span class="n">mct</span><span class="o">=</span><span class="n">kwo_targ</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="ow">not</span> <span class="n">mct</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+	    <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+	    <span class="n">getsaving</span><span class="o">=</span><span class="bp">True</span>   
+            <span class="n">nfound</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+	    <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+	    <span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+	    <span class="k">continue</span>
 	    	    
-         if getsaving is True:
-            isdata= kwo_data.match(ln)
-	    if not isdata is None:
-	       lst=nfound[idx]
-	       lst.append(ln)
+         <span class="k">if</span> <span class="n">getsaving</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">isdata</span><span class="o">=</span> <span class="n">kwo_data</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	    <span class="k">if</span> <span class="ow">not</span> <span class="n">isdata</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+	       <span class="n">lst</span><span class="o">=</span><span class="n">nfound</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+	       <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
 	    
-	    else:
-	       indices[idx].append(n)
-	       if not mct is None:
-	          idx = idx+1
-		  nfound.append([])
-		  indices.append([])
+	    <span class="k">else</span><span class="p">:</span>
+	       <span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+	       <span class="k">if</span> <span class="ow">not</span> <span class="n">mct</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+	          <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+		  <span class="n">nfound</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+		  <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
 	      
-	       else:
-	          getsaving=False
+	       <span class="k">else</span><span class="p">:</span>
+	          <span class="n">getsaving</span><span class="o">=</span><span class="bp">False</span>
 
 
-      return (nfound,indices)
-</code></pre>
+      <span class="k">return</span> <span class="p">(</span><span class="n">nfound</span><span class="p">,</span><span class="n">indices</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1233,11 +1306,11 @@ For each section its position in the file is returned as well.</p></div>
       <div class="class">
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
-          <li><a href="#dtools.topology.topol_read.parse_topol">parse_topol</a></li>
+          <li><a href="#dimerizer.topology.topol_read.parse_topol">parse_topol</a></li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
-            <p id="dtools.topology.topol_read.parse_topol.rbuff" class="name">var <span class="ident">rbuff</span></p>
+            <p id="dimerizer.topology.topol_read.parse_topol.rbuff" class="name">var <span class="ident">rbuff</span></p>
             
 
             
@@ -1249,7 +1322,7 @@ For each section its position in the file is returned as well.</p></div>
           <h3>Methods</h3>
             
   <div class="item">
-    <div class="name def" id="dtools.topology.topol_read.parse_topol.__init__">
+    <div class="name def" id="dimerizer.topology.topol_read.parse_topol.__init__">
     <p>def <span class="ident">__init__</span>(</p><p>self, fname)</p>
     </div>
     
@@ -1258,24 +1331,25 @@ For each section its position in the file is returned as well.</p></div>
   
     <div class="desc"><p>Open and read the file passed as argument and store each line in a list.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.topol_read.parse_topol.__init__', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.topol_read.parse_topol.__init__" class="source">
-    <pre><code>def __init__(self,fname):
-   """
-   Open and read the file passed as argument and store each line in a list.
-   """
-   with open(fname,'r') as f:
-      self.raw = f.read()
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.topol_read.parse_topol.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.topol_read.parse_topol.__init__" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">fname</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Open and read the file passed as argument and store each line in a list.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
    	 
-   self.rbuff=[]
-   ln=""
-   for c in self.raw:
-      if c != "\n":
-  ln=ln+c
-lse:
-  self.rbuff.append(ln)
-  ln=""
-</code></pre>
+   <span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+   <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+  <span class="n">ln</span><span class="o">=</span><span class="n">ln</span><span class="o">+</span><span class="n">c</span>
+<span class="n">lse</span><span class="p">:</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+  <span class="n">ln</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1283,7 +1357,7 @@ lse:
   
             
   <div class="item">
-    <div class="name def" id="dtools.topology.topol_read.parse_topol.getKeyword">
+    <div class="name def" id="dimerizer.topology.topol_read.parse_topol.getKeyword">
     <p>def <span class="ident">getKeyword</span>(</p><p>self, kword)</p>
     </div>
     
@@ -1303,75 +1377,76 @@ The returned value is a tuple with the following format:</p>
      end of the found section.</li>
 </ul></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.topol_read.parse_topol.getKeyword', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.topol_read.parse_topol.getKeyword" class="source">
-    <pre><code>def getKeyword(self,kword):
-   """
-   Return a section of the topology file identified by the keyword passed as argument.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.topol_read.parse_topol.getKeyword', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.topol_read.parse_topol.getKeyword" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">getKeyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">kword</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Return a section of the topology file identified by the keyword passed as argument.</span>
+<span class="sd">   </span>
+<span class="sd">   Regular expressions are used to identify comment lines, any section identifier, </span>
+<span class="sd">   the requested section (or sections) and whether we are still in a section or not.</span>
+<span class="sd">   </span>
+<span class="sd">   These regexps are used to remove unwanted parts of the files (comments, # directives, ...) and </span>
+<span class="sd">   delimit the desired sections. This is done while scanning the whole file. </span>
+<span class="sd">   The returned value is a tuple with the following format:</span>
+<span class="sd">   </span>
+<span class="sd">   (nfound,nindices)</span>
+<span class="sd">   </span>
+<span class="sd">      - nfound is a list where each element corresponds to the data (as a list) of a section with the requested keyword.</span>
+<span class="sd"> nindices is a list that follows the ordering of nfound. Each element of nindices is a couple of values storing the position of the beginning and the </span>
+<span class="sd"> end of the found section.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">keyword_rexp</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[\s*.*\]&quot;</span>
+   <span class="n">kwo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_rexp</span><span class="p">)</span>
    
-   Regular expressions are used to identify comment lines, any section identifier, 
-   the requested section (or sections) and whether we are still in a section or not.
+   <span class="n">keyword_targ</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s*\[ &quot;</span><span class="o">+</span><span class="n">kword</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot; \]\s*&quot;</span>
+   <span class="n">kwo_targ</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_targ</span><span class="p">)</span>
    
-   These regexps are used to remove unwanted parts of the files (comments, # directives, ...) and 
-   delimit the desired sections. This is done while scanning the whole file. 
-   The returned value is a tuple with the following format:
-   
-   (nfound,nindices)
-   
-      - nfound is a list where each element corresponds to the data (as a list) of a section with the requested keyword.
- nindices is a list that follows the ordering of nfound. Each element of nindices is a couple of values storing the position of the beginning and the 
- end of the found section.
-   """
-   keyword_rexp=r"\s*\[\s*.*\]"
-   kwo = re.compile(keyword_rexp)
-   
-   keyword_targ=r"\s*\[ "+kword+r" \]\s*"
-   kwo_targ = re.compile(keyword_targ)
-   
-   keyword_comment=r";.*"
-   kwo_comment = re.compile(keyword_comment)
+   <span class="n">keyword_comment</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;;.*&quot;</span>
+   <span class="n">kwo_comment</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_comment</span><span class="p">)</span>
    
    
-   keyword_data=r"(.*\d+.*)+"
-   if kword == "atoms":
-      keyword_data=r".*\d+.*"
-   kwo_data=re.compile(keyword_data)
+   <span class="n">keyword_data</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;(.*\d+.*)+&quot;</span>
+   <span class="k">if</span> <span class="n">kword</span> <span class="o">==</span> <span class="s2">&quot;atoms&quot;</span><span class="p">:</span>
+      <span class="n">keyword_data</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*\d+.*&quot;</span>
+   <span class="n">kwo_data</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword_data</span><span class="p">)</span>
    
-   nfound=[]
-   indices=[]
-   getsaving=False
-   idx=-1
-   for n,ln in enumerate(self.rbuff):
+   <span class="n">nfound</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">indices</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">getsaving</span><span class="o">=</span><span class="bp">False</span>
+   <span class="n">idx</span><span class="o">=-</span><span class="mi">1</span>
+   <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">ln</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rbuff</span><span class="p">):</span>
       
-mt = kwo_comment.match(ln)
-f not cmt is None:  # ignore comments
-  continue
-ct=kwo_targ.match(ln)
-f not mct is None:
-  idx = idx+1
-  getsaving=True   
-         nfound.append([])
-  indices.append([])
-  indices[idx].append(n)
-  continue
+<span class="n">mt</span> <span class="o">=</span> <span class="n">kwo_comment</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+<span class="n">f</span> <span class="ow">not</span> <span class="n">cmt</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>  <span class="c1"># ignore comments</span>
+  <span class="k">continue</span>
+<span class="n">ct</span><span class="o">=</span><span class="n">kwo_targ</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+<span class="n">f</span> <span class="ow">not</span> <span class="n">mct</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+  <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+  <span class="n">getsaving</span><span class="o">=</span><span class="bp">True</span>   
+         <span class="n">nfound</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+  <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+  <span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+  <span class="k">continue</span>
   	    
-      if getsaving is True:
-         isdata= kwo_data.match(ln)
-  if not isdata is None:
-     lst=nfound[idx]
-     lst.append(ln)
+      <span class="k">if</span> <span class="n">getsaving</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+         <span class="n">isdata</span><span class="o">=</span> <span class="n">kwo_data</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">isdata</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+     <span class="n">lst</span><span class="o">=</span><span class="n">nfound</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+     <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
   
-  else:
-     indices[idx].append(n)
-     if not mct is None:
-        idx = idx+1
- nfound.append([])
- indices.append([])
+  <span class="k">else</span><span class="p">:</span>
+     <span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+     <span class="k">if</span> <span class="ow">not</span> <span class="n">mct</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+ <span class="n">nfound</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+ <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
     
-     else:
-        getsaving=False
-   return (nfound,indices)
-</code></pre>
+     <span class="k">else</span><span class="p">:</span>
+        <span class="n">getsaving</span><span class="o">=</span><span class="bp">False</span>
+   <span class="k">return</span> <span class="p">(</span><span class="n">nfound</span><span class="p">,</span><span class="n">indices</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 

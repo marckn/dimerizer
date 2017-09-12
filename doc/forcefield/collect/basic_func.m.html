@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.forcefield.collect.basic_func API documentation</title>
+    <title>dimerizer.forcefield.collect.basic_func API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,9 +1044,9 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.forcefield.collect.basic_func.ffentries">ffentries</a></li>
-    <li class="mono"><a href="#dtools.forcefield.collect.basic_func.isinline">isinline</a></li>
-    <li class="mono"><a href="#dtools.forcefield.collect.basic_func.serialtotags">serialtotags</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.collect.basic_func.ffentries">ffentries</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.collect.basic_func.isinline">isinline</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.collect.basic_func.serialtotags">serialtotags</a></li>
   </ul>
 
     </li>
@@ -992,94 +1063,95 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.forcefield.collect.basic_func</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.forcefield.collect.basic_func</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.collect.basic_func', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.collect.basic_func" class="source">
-    <pre><code>import dtools.forcefield.basic_parsing_tools as parser
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.collect.basic_func', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.collect.basic_func" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">dimerizer.forcefield.basic_parsing_tools</span> <span class="kn">as</span> <span class="nn">parser</span>
 
-def serialtotags(tags,line):
-   """
-   From a list of serials return a list of idx
-   """
+<span class="k">def</span> <span class="nf">serialtotags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span><span class="n">line</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   From a list of serials return a list of idx</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   tlist=[]
-   for s in line:
-      idx=int(s)-1
-      tlist.append(tags[idx])
+   <span class="n">tlist</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+      <span class="n">idx</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+      <span class="n">tlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tags</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
       
-   return tlist
+   <span class="k">return</span> <span class="n">tlist</span>
    
-def isinline(atlist,line):
-   """
-   Check whether an interaction line involves some of the dimerized atoms.
+<span class="k">def</span> <span class="nf">isinline</span><span class="p">(</span><span class="n">atlist</span><span class="p">,</span><span class="n">line</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Check whether an interaction line involves some of the dimerized atoms.</span>
+<span class="sd">   </span>
+<span class="sd">   The interaction line is given as a list of serials.</span>
+<span class="sd">   </span>
+<span class="sd">   Return True/False</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   The interaction line is given as a list of serials.
-   
-   Return True/False
-   """
-   
-   for cidx in atlist:
-      cser=int(cidx)+1
-      if str(cser) in line:
-         return True
+   <span class="k">for</span> <span class="n">cidx</span> <span class="ow">in</span> <span class="n">atlist</span><span class="p">:</span>
+      <span class="n">cser</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">cidx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+      <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">cser</span><span class="p">)</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+         <span class="k">return</span> <span class="bp">True</span>
 
-   return False
+   <span class="k">return</span> <span class="bp">False</span>
 
 
 
-def ffentries(sections,tags,atlist,ntags):
-   """
-   For a given section produces the entries that are involved in the dimerization process.
+<span class="k">def</span> <span class="nf">ffentries</span><span class="p">(</span><span class="n">sections</span><span class="p">,</span><span class="n">tags</span><span class="p">,</span><span class="n">atlist</span><span class="p">,</span><span class="n">ntags</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   For a given section produces the entries that are involved in the dimerization process.</span>
+<span class="sd">   </span>
+<span class="sd">   Returns: tuple with two elements</span>
+<span class="sd">   1) The name of the section</span>
+<span class="sd">   2) The list of found entries. Each element is a list of tags.</span>
+<span class="sd">   </span>
+<span class="sd">   Input:</span>
+<span class="sd">   sections: a list of section, section is in the usual format (name,list)</span>
+<span class="sd">   tags: the correspondance idx - tag, see the collect_tags function</span>
+<span class="sd">   atlist: the atoms to be dimerized</span>
+<span class="sd">   ntags: how many tags in a line.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   Returns: tuple with two elements
-   1) The name of the section
-   2) The list of found entries. Each element is a list of tags.
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
    
-   Input:
-   sections: a list of section, section is in the usual format (name,list)
-   tags: the correspondance idx - tag, see the collect_tags function
-   atlist: the atoms to be dimerized
-   ntags: how many tags in a line.
-   """
-   
-   if len(sections)==0:
-      return None
-   
-   lentries=[]
-   for section in sections:
-      for ln in section[1]:
-         prs= parser.parse_line(ln)
-	 if prs[0] != "Data":
-           continue
+   <span class="n">lentries</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">section</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+         <span class="n">prs</span><span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="n">prs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+           <span class="k">continue</span>
 	 
-	 idline=prs[1]
-	 if not isinline(atlist,idline[0:ntags]):
-            continue
+	 <span class="n">idline</span><span class="o">=</span><span class="n">prs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	 <span class="k">if</span> <span class="ow">not</span> <span class="n">isinline</span><span class="p">(</span><span class="n">atlist</span><span class="p">,</span><span class="n">idline</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ntags</span><span class="p">]):</span>
+            <span class="k">continue</span>
 	    
-         tt=serialtotags(tags,idline[0:ntags])
-	 lentries.append(tt)
-	 if len(tt)>1:
-	    lentries.append(reversed(tt))
+         <span class="n">tt</span><span class="o">=</span><span class="n">serialtotags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span><span class="n">idline</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ntags</span><span class="p">])</span>
+	 <span class="n">lentries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+	    <span class="n">lentries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">tt</span><span class="p">))</span>
    
-   lentries_tmp = []
-   for lent in lentries:
-      tms=""
-      for tg in lent:
-         tms=tms+tg+"-"
+   <span class="n">lentries_tmp</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="k">for</span> <span class="n">lent</span> <span class="ow">in</span> <span class="n">lentries</span><span class="p">:</span>
+      <span class="n">tms</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+      <span class="k">for</span> <span class="n">tg</span> <span class="ow">in</span> <span class="n">lent</span><span class="p">:</span>
+         <span class="n">tms</span><span class="o">=</span><span class="n">tms</span><span class="o">+</span><span class="n">tg</span><span class="o">+</span><span class="s2">&quot;-&quot;</span>
 	 
-      lentries_tmp.append(tms)
+      <span class="n">lentries_tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tms</span><span class="p">)</span>
       
-   lentries_tmp=list(set(lentries_tmp))
-   lentries=[]
-   for ltm in lentries_tmp:
-      ltm=ltm[:-1]
-      ltms=ltm.split("-")
-      lentries.append(ltms)
+   <span class="n">lentries_tmp</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">lentries_tmp</span><span class="p">))</span>
+   <span class="n">lentries</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">ltm</span> <span class="ow">in</span> <span class="n">lentries_tmp</span><span class="p">:</span>
+      <span class="n">ltm</span><span class="o">=</span><span class="n">ltm</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">ltms</span><span class="o">=</span><span class="n">ltm</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+      <span class="n">lentries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ltms</span><span class="p">)</span>
    
-   return (sections[0][0],lentries)
-</code></pre>
+   <span class="k">return</span> <span class="p">(</span><span class="n">sections</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">lentries</span><span class="p">)</span>
+</pre></div>
+
   </div>
 
   </header>
@@ -1089,7 +1161,7 @@ def ffentries(sections,tags,atlist,ntags):
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.collect.basic_func.ffentries">
+    <div class="name def" id="dimerizer.forcefield.collect.basic_func.ffentries">
     <p>def <span class="ident">ffentries</span>(</p><p>sections, tags, atlist, ntags)</p>
     </div>
     
@@ -1106,59 +1178,60 @@ tags: the correspondance idx - tag, see the collect_tags function
 atlist: the atoms to be dimerized
 ntags: how many tags in a line.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.collect.basic_func.ffentries', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.collect.basic_func.ffentries" class="source">
-    <pre><code>def ffentries(sections,tags,atlist,ntags):
-   """
-   For a given section produces the entries that are involved in the dimerization process.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.collect.basic_func.ffentries', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.collect.basic_func.ffentries" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">ffentries</span><span class="p">(</span><span class="n">sections</span><span class="p">,</span><span class="n">tags</span><span class="p">,</span><span class="n">atlist</span><span class="p">,</span><span class="n">ntags</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   For a given section produces the entries that are involved in the dimerization process.</span>
+<span class="sd">   </span>
+<span class="sd">   Returns: tuple with two elements</span>
+<span class="sd">   1) The name of the section</span>
+<span class="sd">   2) The list of found entries. Each element is a list of tags.</span>
+<span class="sd">   </span>
+<span class="sd">   Input:</span>
+<span class="sd">   sections: a list of section, section is in the usual format (name,list)</span>
+<span class="sd">   tags: the correspondance idx - tag, see the collect_tags function</span>
+<span class="sd">   atlist: the atoms to be dimerized</span>
+<span class="sd">   ntags: how many tags in a line.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   Returns: tuple with two elements
-   1) The name of the section
-   2) The list of found entries. Each element is a list of tags.
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
    
-   Input:
-   sections: a list of section, section is in the usual format (name,list)
-   tags: the correspondance idx - tag, see the collect_tags function
-   atlist: the atoms to be dimerized
-   ntags: how many tags in a line.
-   """
-   
-   if len(sections)==0:
-      return None
-   
-   lentries=[]
-   for section in sections:
-      for ln in section[1]:
-         prs= parser.parse_line(ln)
-	 if prs[0] != "Data":
-           continue
+   <span class="n">lentries</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">section</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+         <span class="n">prs</span><span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="n">prs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+           <span class="k">continue</span>
 	 
-	 idline=prs[1]
-	 if not isinline(atlist,idline[0:ntags]):
-            continue
+	 <span class="n">idline</span><span class="o">=</span><span class="n">prs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	 <span class="k">if</span> <span class="ow">not</span> <span class="n">isinline</span><span class="p">(</span><span class="n">atlist</span><span class="p">,</span><span class="n">idline</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ntags</span><span class="p">]):</span>
+            <span class="k">continue</span>
 	    
-         tt=serialtotags(tags,idline[0:ntags])
-	 lentries.append(tt)
-	 if len(tt)>1:
-	    lentries.append(reversed(tt))
+         <span class="n">tt</span><span class="o">=</span><span class="n">serialtotags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span><span class="n">idline</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ntags</span><span class="p">])</span>
+	 <span class="n">lentries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+	 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+	    <span class="n">lentries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">tt</span><span class="p">))</span>
    
-   lentries_tmp = []
-   for lent in lentries:
-      tms=""
-      for tg in lent:
-         tms=tms+tg+"-"
+   <span class="n">lentries_tmp</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="k">for</span> <span class="n">lent</span> <span class="ow">in</span> <span class="n">lentries</span><span class="p">:</span>
+      <span class="n">tms</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+      <span class="k">for</span> <span class="n">tg</span> <span class="ow">in</span> <span class="n">lent</span><span class="p">:</span>
+         <span class="n">tms</span><span class="o">=</span><span class="n">tms</span><span class="o">+</span><span class="n">tg</span><span class="o">+</span><span class="s2">&quot;-&quot;</span>
 	 
-      lentries_tmp.append(tms)
+      <span class="n">lentries_tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tms</span><span class="p">)</span>
       
-   lentries_tmp=list(set(lentries_tmp))
-   lentries=[]
-   for ltm in lentries_tmp:
-      ltm=ltm[:-1]
-      ltms=ltm.split("-")
-      lentries.append(ltms)
+   <span class="n">lentries_tmp</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">lentries_tmp</span><span class="p">))</span>
+   <span class="n">lentries</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">ltm</span> <span class="ow">in</span> <span class="n">lentries_tmp</span><span class="p">:</span>
+      <span class="n">ltm</span><span class="o">=</span><span class="n">ltm</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">ltms</span><span class="o">=</span><span class="n">ltm</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+      <span class="n">lentries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ltms</span><span class="p">)</span>
    
-   return (sections[0][0],lentries)
-</code></pre>
+   <span class="k">return</span> <span class="p">(</span><span class="n">sections</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">lentries</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1166,7 +1239,7 @@ ntags: how many tags in a line.</p></div>
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.collect.basic_func.isinline">
+    <div class="name def" id="dimerizer.forcefield.collect.basic_func.isinline">
     <p>def <span class="ident">isinline</span>(</p><p>atlist, line)</p>
     </div>
     
@@ -1177,24 +1250,25 @@ ntags: how many tags in a line.</p></div>
 <p>The interaction line is given as a list of serials.</p>
 <p>Return True/False</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.collect.basic_func.isinline', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.collect.basic_func.isinline" class="source">
-    <pre><code>def isinline(atlist,line):
-   """
-   Check whether an interaction line involves some of the dimerized atoms.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.collect.basic_func.isinline', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.collect.basic_func.isinline" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">isinline</span><span class="p">(</span><span class="n">atlist</span><span class="p">,</span><span class="n">line</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Check whether an interaction line involves some of the dimerized atoms.</span>
+<span class="sd">   </span>
+<span class="sd">   The interaction line is given as a list of serials.</span>
+<span class="sd">   </span>
+<span class="sd">   Return True/False</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   The interaction line is given as a list of serials.
-   
-   Return True/False
-   """
-   
-   for cidx in atlist:
-      cser=int(cidx)+1
-      if str(cser) in line:
-         return True
+   <span class="k">for</span> <span class="n">cidx</span> <span class="ow">in</span> <span class="n">atlist</span><span class="p">:</span>
+      <span class="n">cser</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">cidx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+      <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">cser</span><span class="p">)</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+         <span class="k">return</span> <span class="bp">True</span>
 
-   return False
-</code></pre>
+   <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1202,7 +1276,7 @@ ntags: how many tags in a line.</p></div>
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.collect.basic_func.serialtotags">
+    <div class="name def" id="dimerizer.forcefield.collect.basic_func.serialtotags">
     <p>def <span class="ident">serialtotags</span>(</p><p>tags, line)</p>
     </div>
     
@@ -1211,20 +1285,21 @@ ntags: how many tags in a line.</p></div>
   
     <div class="desc"><p>From a list of serials return a list of idx</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.collect.basic_func.serialtotags', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.collect.basic_func.serialtotags" class="source">
-    <pre><code>def serialtotags(tags,line):
-   """
-   From a list of serials return a list of idx
-   """
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.collect.basic_func.serialtotags', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.collect.basic_func.serialtotags" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">serialtotags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span><span class="n">line</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   From a list of serials return a list of idx</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   tlist=[]
-   for s in line:
-      idx=int(s)-1
-      tlist.append(tags[idx])
+   <span class="n">tlist</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+      <span class="n">idx</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+      <span class="n">tlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tags</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
       
-   return tlist
-</code></pre>
+   <span class="k">return</span> <span class="n">tlist</span>
+</pre></div>
+
   </div>
 </div>
 

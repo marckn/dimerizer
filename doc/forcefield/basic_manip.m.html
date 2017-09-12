@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.forcefield.basic_manip API documentation</title>
+    <title>dimerizer.forcefield.basic_manip API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,11 +1044,11 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.forcefield.basic_manip.append_lines">append_lines</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_manip.explX_line">explX_line</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_manip.find_lines">find_lines</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_manip.killInvolvedWildcards">killInvolvedWildcards</a></li>
-    <li class="mono"><a href="#dtools.forcefield.basic_manip.remove_lines">remove_lines</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_manip.append_lines">append_lines</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_manip.explX_line">explX_line</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_manip.find_lines">find_lines</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_manip.killInvolvedWildcards">killInvolvedWildcards</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.basic_manip.remove_lines">remove_lines</a></li>
   </ul>
 
     </li>
@@ -994,180 +1065,181 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.forcefield.basic_manip</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.forcefield.basic_manip</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_manip', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_manip" class="source">
-    <pre><code>import basic_parsing_tools as parser
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_manip', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_manip" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">basic_parsing_tools</span> <span class="kn">as</span> <span class="nn">parser</span>
 
-def find_lines(sec,ident,action="Report"):
-   """
-   Remove or simply find a line from a section.
+<span class="k">def</span> <span class="nf">find_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">,</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;Report&quot;</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Remove or simply find a line from a section.</span>
+<span class="sd">   </span>
+<span class="sd">   The line is identified by the tag parameter list ident, </span>
+<span class="sd">   and the section is the tuple sec, defined as in get_section.</span>
+<span class="sd">   </span>
+<span class="sd">   If the line is found this function returns a tuple with </span>
+<span class="sd">   the index in datalist and a list of values.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   The line is identified by the tag parameter list ident, 
-   and the section is the tuple sec, defined as in get_section.
-   
-   If the line is found this function returns a tuple with 
-   the index in datalist and a list of values.
-   """
-   
-   datalist = sec[1]
-   retvals=[]
-   irem=[]
+   <span class="n">datalist</span> <span class="o">=</span> <span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">retvals</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">irem</span><span class="o">=</span><span class="p">[]</span>
       
-   for i,el in enumerate(datalist):
-      lvals = parser.parse_line(el)
-      if lvals[0] != "Data":
-         continue
+   <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
+      <span class="n">lvals</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+         <span class="k">continue</span>
       
-      lvals=lvals[1]
-      if len(ident) > len(lvals):
-         raise ValueError("Too many tags in the search query")
+      <span class="n">lvals</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lvals</span><span class="p">):</span>
+         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many tags in the search query&quot;</span><span class="p">)</span>
 	 
-      found=True
-      for vquery,vline in zip(ident,lvals[0:len(ident)]):
-         if vline != "X" and vquery != vline:
-	    found = False
-	    break
+      <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+      <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)]):</span>
+         <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	    <span class="k">break</span>
       
-      # the interaction lines are already symmetrized
+      <span class="c1"># the interaction lines are already symmetrized</span>
 
       
-      if not found:
-         continue
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+         <span class="k">continue</span>
 	 
-      irem.append(i)
-      retvals.append((i,lvals))
+      <span class="n">irem</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">retvals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span><span class="n">lvals</span><span class="p">))</span>
 	 
-   if action == "Remove":
-      for i in reversed(irem):
-         datalist=datalist[0:i]+datalist[i+1:]
+   <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;Remove&quot;</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">irem</span><span class="p">):</span>
+         <span class="n">datalist</span><span class="o">=</span><span class="n">datalist</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">datalist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
 	 
-      return (sec[0],datalist)
-   else:
-      return retvals
+      <span class="k">return</span> <span class="p">(</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">datalist</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">retvals</span>
       
-def append_lines(sec,ndata):
-   """
-   Appends new lines in a section and returns the new section. 
+<span class="k">def</span> <span class="nf">append_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ndata</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Appends new lines in a section and returns the new section. </span>
+<span class="sd">   </span>
+<span class="sd">   sec is the usual section tuple, ndata is the list of </span>
+<span class="sd">   new lines</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ndata</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+      <span class="n">ndata</span><span class="o">=</span><span class="p">[</span><span class="n">ndata</span><span class="p">]</span>
    
-   sec is the usual section tuple, ndata is the list of 
-   new lines
-   """
-   if not isinstance(ndata,list):
-      ndata=[ndata]
-   
-   datalist=1*sec[1]
+   <span class="n">datalist</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
       
-   for ndd in ndata:
-      datalist.append(ndd)
+   <span class="k">for</span> <span class="n">ndd</span> <span class="ow">in</span> <span class="n">ndata</span><span class="p">:</span>
+      <span class="n">datalist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ndd</span><span class="p">)</span>
    
-   return (sec[0],datalist)
+   <span class="k">return</span> <span class="p">(</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">datalist</span><span class="p">)</span>
 
-def remove_lines(sec,ident):
-   """
-   Wrapper function. Removes a line from sec. 
-   
-   See find_line.
-   """
-   return find_lines(sec,ident,"Remove")
-
-
+<span class="k">def</span> <span class="nf">remove_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Wrapper function. Removes a line from sec. </span>
+<span class="sd">   </span>
+<span class="sd">   See find_line.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">return</span> <span class="n">find_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">,</span><span class="s2">&quot;Remove&quot;</span><span class="p">)</span>
 
 
-def explX_line(sec,ident):
-   """
-   If tag referes to a ff line with wildcards add an explicit line.
-   
-   The line is identified by the tag parameter list ident, 
-   and the section is the tuple sec, defined as in get_section.
-   
-   This function returns a section with the 
-   added explicit line (if found).
-   """
-   datalist = sec[1]
-   ltoadd=[]
-   foundnonx=False
-   for i,el in enumerate(datalist):
-      lvals = parser.parse_line(el)
-      if lvals[0] != "Data":
-         continue
+
+
+<span class="k">def</span> <span class="nf">explX_line</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   If tag referes to a ff line with wildcards add an explicit line.</span>
+<span class="sd">   </span>
+<span class="sd">   The line is identified by the tag parameter list ident, </span>
+<span class="sd">   and the section is the tuple sec, defined as in get_section.</span>
+<span class="sd">   </span>
+<span class="sd">   This function returns a section with the </span>
+<span class="sd">   added explicit line (if found).</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">datalist</span> <span class="o">=</span> <span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">ltoadd</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">foundnonx</span><span class="o">=</span><span class="bp">False</span>
+   <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
+      <span class="n">lvals</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+         <span class="k">continue</span>
       
-      lvals=lvals[1]
-      if len(ident) > len(lvals):
-         raise ValueError("Too many tags in the search query")
+      <span class="n">lvals</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lvals</span><span class="p">):</span>
+         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many tags in the search query&quot;</span><span class="p">)</span>
 	 
       
-      found=True
-      for vquery,vline in zip(ident,lvals[0:len(ident)]):
-         if vline != "X" and vquery != vline:
-	    found = False
-	    break
+      <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+      <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)]):</span>
+         <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	    <span class="k">break</span>
 
       
-      if not found:
-         found=True
-         for vquery,vline in zip(ident,reversed(lvals[0:len(ident)])):
-            if vline != "X" and vquery != vline:
-	       found = False
-	       break
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+         <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+         <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="nb">reversed</span><span class="p">(</span><span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)])):</span>
+            <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	       <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	       <span class="k">break</span>
          
-      if not found:	 
-	 continue
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>	 
+	 <span class="k">continue</span>
 	 
       
-      if not "X" in lvals[0:len(ident)]:
-         foundnonx=True
-         break
+      <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;X&quot;</span> <span class="ow">in</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)]:</span>
+         <span class="n">foundnonx</span><span class="o">=</span><span class="bp">True</span>
+         <span class="k">break</span>
       	 
-      ndata=ident + lvals[len(ident):]
+      <span class="n">ndata</span><span class="o">=</span><span class="n">ident</span> <span class="o">+</span> <span class="n">lvals</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">):]</span>
       
-      newl=""
-      for i,val in enumerate(ndata):
-         newl=newl+"{"+str(i)+":8s} "
+      <span class="n">newl</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+      <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ndata</span><span class="p">):</span>
+         <span class="n">newl</span><span class="o">=</span><span class="n">newl</span><span class="o">+</span><span class="s2">&quot;{&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;:8s} &quot;</span>
 	
-      ndata = map(lambda x: str(x), ndata)
-      newl=newl.format(*ndata) 
-      ltoadd.append(newl)
+      <span class="n">ndata</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ndata</span><span class="p">)</span>
+      <span class="n">newl</span><span class="o">=</span><span class="n">newl</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">ndata</span><span class="p">)</span> 
+      <span class="n">ltoadd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newl</span><span class="p">)</span>
       
    
-   if len(ltoadd) > 0 and not foundnonx:
-      return append_lines(sec,ltoadd)
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ltoadd</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">foundnonx</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">append_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ltoadd</span><span class="p">)</span>
    
-   return sec
+   <span class="k">return</span> <span class="n">sec</span>
 
-def killInvolvedWildcards(sec, ltag):
-   """
-   Scan through a section and remove every line containing a wildcard 
-   that is related to a dimerized atom.
-   """
+<span class="k">def</span> <span class="nf">killInvolvedWildcards</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span> <span class="n">ltag</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Scan through a section and remove every line containing a wildcard </span>
+<span class="sd">   that is related to a dimerized atom.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   datalist=sec[1]
-   sec2=1*sec
+   <span class="n">datalist</span><span class="o">=</span><span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">sec2</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">sec</span>
    
-   for lst in datalist:
-      lvals=parser.parse_line(lst)
-      if lvals[0] != "Data":
-         continue
+   <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">datalist</span><span class="p">:</span>
+      <span class="n">lvals</span><span class="o">=</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+         <span class="k">continue</span>
 
-      ltg=lvals[1]
-      found=True
-      for vquery,vline in zip(ltag,ltg[0:len(ltag)]):
-         if vline != "X" and vquery != vline:
-	    found = False
-	    break
+      <span class="n">ltg</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+      <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ltag</span><span class="p">,</span><span class="n">ltg</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ltag</span><span class="p">)]):</span>
+         <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	    <span class="k">break</span>
       
       
-      if not found:
-         continue
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+         <span class="k">continue</span>
        
-      line=lvals[1]
-      if "X" in line[0:len(ltag)]:
-         sec2=remove_lines(sec2,line[0:len(ltag)])
+      <span class="n">line</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="s2">&quot;X&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ltag</span><span class="p">)]:</span>
+         <span class="n">sec2</span><span class="o">=</span><span class="n">remove_lines</span><span class="p">(</span><span class="n">sec2</span><span class="p">,</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ltag</span><span class="p">)])</span>
 	 
-   return sec2   
-</code></pre>
+   <span class="k">return</span> <span class="n">sec2</span>   
+</pre></div>
+
   </div>
 
   </header>
@@ -1177,7 +1249,7 @@ def killInvolvedWildcards(sec, ltag):
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_manip.append_lines">
+    <div class="name def" id="dimerizer.forcefield.basic_manip.append_lines">
     <p>def <span class="ident">append_lines</span>(</p><p>sec, ndata)</p>
     </div>
     
@@ -1188,25 +1260,26 @@ def killInvolvedWildcards(sec, ltag):
 <p>sec is the usual section tuple, ndata is the list of 
 new lines</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_manip.append_lines', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_manip.append_lines" class="source">
-    <pre><code>def append_lines(sec,ndata):
-   """
-   Appends new lines in a section and returns the new section. 
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_manip.append_lines', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_manip.append_lines" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">append_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ndata</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Appends new lines in a section and returns the new section. </span>
+<span class="sd">   </span>
+<span class="sd">   sec is the usual section tuple, ndata is the list of </span>
+<span class="sd">   new lines</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ndata</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+      <span class="n">ndata</span><span class="o">=</span><span class="p">[</span><span class="n">ndata</span><span class="p">]</span>
    
-   sec is the usual section tuple, ndata is the list of 
-   new lines
-   """
-   if not isinstance(ndata,list):
-      ndata=[ndata]
-   
-   datalist=1*sec[1]
+   <span class="n">datalist</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
       
-   for ndd in ndata:
-      datalist.append(ndd)
+   <span class="k">for</span> <span class="n">ndd</span> <span class="ow">in</span> <span class="n">ndata</span><span class="p">:</span>
+      <span class="n">datalist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ndd</span><span class="p">)</span>
    
-   return (sec[0],datalist)
-</code></pre>
+   <span class="k">return</span> <span class="p">(</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">datalist</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1214,7 +1287,7 @@ new lines</p></div>
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_manip.explX_line">
+    <div class="name def" id="dimerizer.forcefield.basic_manip.explX_line">
     <p>def <span class="ident">explX_line</span>(</p><p>sec, ident)</p>
     </div>
     
@@ -1227,69 +1300,70 @@ and the section is the tuple sec, defined as in get_section.</p>
 <p>This function returns a section with the 
 added explicit line (if found).</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_manip.explX_line', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_manip.explX_line" class="source">
-    <pre><code>def explX_line(sec,ident):
-   """
-   If tag referes to a ff line with wildcards add an explicit line.
-   
-   The line is identified by the tag parameter list ident, 
-   and the section is the tuple sec, defined as in get_section.
-   
-   This function returns a section with the 
-   added explicit line (if found).
-   """
-   datalist = sec[1]
-   ltoadd=[]
-   foundnonx=False
-   for i,el in enumerate(datalist):
-      lvals = parser.parse_line(el)
-      if lvals[0] != "Data":
-         continue
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_manip.explX_line', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_manip.explX_line" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">explX_line</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   If tag referes to a ff line with wildcards add an explicit line.</span>
+<span class="sd">   </span>
+<span class="sd">   The line is identified by the tag parameter list ident, </span>
+<span class="sd">   and the section is the tuple sec, defined as in get_section.</span>
+<span class="sd">   </span>
+<span class="sd">   This function returns a section with the </span>
+<span class="sd">   added explicit line (if found).</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">datalist</span> <span class="o">=</span> <span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">ltoadd</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">foundnonx</span><span class="o">=</span><span class="bp">False</span>
+   <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
+      <span class="n">lvals</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+         <span class="k">continue</span>
       
-      lvals=lvals[1]
-      if len(ident) > len(lvals):
-         raise ValueError("Too many tags in the search query")
+      <span class="n">lvals</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lvals</span><span class="p">):</span>
+         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many tags in the search query&quot;</span><span class="p">)</span>
 	 
       
-      found=True
-      for vquery,vline in zip(ident,lvals[0:len(ident)]):
-         if vline != "X" and vquery != vline:
-	    found = False
-	    break
+      <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+      <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)]):</span>
+         <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	    <span class="k">break</span>
 
       
-      if not found:
-         found=True
-         for vquery,vline in zip(ident,reversed(lvals[0:len(ident)])):
-            if vline != "X" and vquery != vline:
-	       found = False
-	       break
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+         <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+         <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="nb">reversed</span><span class="p">(</span><span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)])):</span>
+            <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	       <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	       <span class="k">break</span>
          
-      if not found:	 
-	 continue
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>	 
+	 <span class="k">continue</span>
 	 
       
-      if not "X" in lvals[0:len(ident)]:
-         foundnonx=True
-         break
+      <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;X&quot;</span> <span class="ow">in</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)]:</span>
+         <span class="n">foundnonx</span><span class="o">=</span><span class="bp">True</span>
+         <span class="k">break</span>
       	 
-      ndata=ident + lvals[len(ident):]
+      <span class="n">ndata</span><span class="o">=</span><span class="n">ident</span> <span class="o">+</span> <span class="n">lvals</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">):]</span>
       
-      newl=""
-      for i,val in enumerate(ndata):
-         newl=newl+"{"+str(i)+":8s} "
+      <span class="n">newl</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+      <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ndata</span><span class="p">):</span>
+         <span class="n">newl</span><span class="o">=</span><span class="n">newl</span><span class="o">+</span><span class="s2">&quot;{&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;:8s} &quot;</span>
 	
-      ndata = map(lambda x: str(x), ndata)
-      newl=newl.format(*ndata) 
-      ltoadd.append(newl)
+      <span class="n">ndata</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ndata</span><span class="p">)</span>
+      <span class="n">newl</span><span class="o">=</span><span class="n">newl</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">ndata</span><span class="p">)</span> 
+      <span class="n">ltoadd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newl</span><span class="p">)</span>
       
    
-   if len(ltoadd) > 0 and not foundnonx:
-      return append_lines(sec,ltoadd)
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ltoadd</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">foundnonx</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">append_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ltoadd</span><span class="p">)</span>
    
-   return sec
-</code></pre>
+   <span class="k">return</span> <span class="n">sec</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1297,7 +1371,7 @@ added explicit line (if found).</p></div>
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_manip.find_lines">
+    <div class="name def" id="dimerizer.forcefield.basic_manip.find_lines">
     <p>def <span class="ident">find_lines</span>(</p><p>sec, ident, action=&#39;Report&#39;)</p>
     </div>
     
@@ -1310,55 +1384,56 @@ and the section is the tuple sec, defined as in get_section.</p>
 <p>If the line is found this function returns a tuple with 
 the index in datalist and a list of values.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_manip.find_lines', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_manip.find_lines" class="source">
-    <pre><code>def find_lines(sec,ident,action="Report"):
-   """
-   Remove or simply find a line from a section.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_manip.find_lines', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_manip.find_lines" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">find_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">,</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;Report&quot;</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Remove or simply find a line from a section.</span>
+<span class="sd">   </span>
+<span class="sd">   The line is identified by the tag parameter list ident, </span>
+<span class="sd">   and the section is the tuple sec, defined as in get_section.</span>
+<span class="sd">   </span>
+<span class="sd">   If the line is found this function returns a tuple with </span>
+<span class="sd">   the index in datalist and a list of values.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   The line is identified by the tag parameter list ident, 
-   and the section is the tuple sec, defined as in get_section.
-   
-   If the line is found this function returns a tuple with 
-   the index in datalist and a list of values.
-   """
-   
-   datalist = sec[1]
-   retvals=[]
-   irem=[]
+   <span class="n">datalist</span> <span class="o">=</span> <span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">retvals</span><span class="o">=</span><span class="p">[]</span>
+   <span class="n">irem</span><span class="o">=</span><span class="p">[]</span>
       
-   for i,el in enumerate(datalist):
-      lvals = parser.parse_line(el)
-      if lvals[0] != "Data":
-         continue
+   <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
+      <span class="n">lvals</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+         <span class="k">continue</span>
       
-      lvals=lvals[1]
-      if len(ident) > len(lvals):
-         raise ValueError("Too many tags in the search query")
+      <span class="n">lvals</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lvals</span><span class="p">):</span>
+         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many tags in the search query&quot;</span><span class="p">)</span>
 	 
-      found=True
-      for vquery,vline in zip(ident,lvals[0:len(ident)]):
-         if vline != "X" and vquery != vline:
-	    found = False
-	    break
+      <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+      <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span><span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ident</span><span class="p">)]):</span>
+         <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	    <span class="k">break</span>
       
-      # the interaction lines are already symmetrized
+      <span class="c1"># the interaction lines are already symmetrized</span>
 
       
-      if not found:
-         continue
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+         <span class="k">continue</span>
 	 
-      irem.append(i)
-      retvals.append((i,lvals))
+      <span class="n">irem</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">retvals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span><span class="n">lvals</span><span class="p">))</span>
 	 
-   if action == "Remove":
-      for i in reversed(irem):
-         datalist=datalist[0:i]+datalist[i+1:]
+   <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;Remove&quot;</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">irem</span><span class="p">):</span>
+         <span class="n">datalist</span><span class="o">=</span><span class="n">datalist</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">datalist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
 	 
-      return (sec[0],datalist)
-   else:
-      return retvals
-</code></pre>
+      <span class="k">return</span> <span class="p">(</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">datalist</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">retvals</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1366,7 +1441,7 @@ the index in datalist and a list of values.</p></div>
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_manip.killInvolvedWildcards">
+    <div class="name def" id="dimerizer.forcefield.basic_manip.killInvolvedWildcards">
     <p>def <span class="ident">killInvolvedWildcards</span>(</p><p>sec, ltag)</p>
     </div>
     
@@ -1376,39 +1451,40 @@ the index in datalist and a list of values.</p></div>
     <div class="desc"><p>Scan through a section and remove every line containing a wildcard 
 that is related to a dimerized atom.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_manip.killInvolvedWildcards', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_manip.killInvolvedWildcards" class="source">
-    <pre><code>def killInvolvedWildcards(sec, ltag):
-   """
-   Scan through a section and remove every line containing a wildcard 
-   that is related to a dimerized atom.
-   """
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_manip.killInvolvedWildcards', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_manip.killInvolvedWildcards" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">killInvolvedWildcards</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span> <span class="n">ltag</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Scan through a section and remove every line containing a wildcard </span>
+<span class="sd">   that is related to a dimerized atom.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   datalist=sec[1]
-   sec2=1*sec
+   <span class="n">datalist</span><span class="o">=</span><span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">sec2</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">sec</span>
    
-   for lst in datalist:
-      lvals=parser.parse_line(lst)
-      if lvals[0] != "Data":
-         continue
+   <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">datalist</span><span class="p">:</span>
+      <span class="n">lvals</span><span class="o">=</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_line</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">lvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+         <span class="k">continue</span>
 
-      ltg=lvals[1]
-      found=True
-      for vquery,vline in zip(ltag,ltg[0:len(ltag)]):
-         if vline != "X" and vquery != vline:
-	    found = False
-	    break
+      <span class="n">ltg</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">found</span><span class="o">=</span><span class="bp">True</span>
+      <span class="k">for</span> <span class="n">vquery</span><span class="p">,</span><span class="n">vline</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ltag</span><span class="p">,</span><span class="n">ltg</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ltag</span><span class="p">)]):</span>
+         <span class="k">if</span> <span class="n">vline</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="ow">and</span> <span class="n">vquery</span> <span class="o">!=</span> <span class="n">vline</span><span class="p">:</span>
+	    <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+	    <span class="k">break</span>
       
       
-      if not found:
-         continue
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+         <span class="k">continue</span>
        
-      line=lvals[1]
-      if "X" in line[0:len(ltag)]:
-         sec2=remove_lines(sec2,line[0:len(ltag)])
+      <span class="n">line</span><span class="o">=</span><span class="n">lvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="s2">&quot;X&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ltag</span><span class="p">)]:</span>
+         <span class="n">sec2</span><span class="o">=</span><span class="n">remove_lines</span><span class="p">(</span><span class="n">sec2</span><span class="p">,</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">ltag</span><span class="p">)])</span>
 	 
-   return sec2   
-</code></pre>
+   <span class="k">return</span> <span class="n">sec2</span>   
+</pre></div>
+
   </div>
 </div>
 
@@ -1416,7 +1492,7 @@ that is related to a dimerized atom.</p></div>
   
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.basic_manip.remove_lines">
+    <div class="name def" id="dimerizer.forcefield.basic_manip.remove_lines">
     <p>def <span class="ident">remove_lines</span>(</p><p>sec, ident)</p>
     </div>
     
@@ -1426,16 +1502,17 @@ that is related to a dimerized atom.</p></div>
     <div class="desc"><p>Wrapper function. Removes a line from sec. </p>
 <p>See find_line.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.basic_manip.remove_lines', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.basic_manip.remove_lines" class="source">
-    <pre><code>def remove_lines(sec,ident):
-   """
-   Wrapper function. Removes a line from sec. 
-   
-   See find_line.
-   """
-   return find_lines(sec,ident,"Remove")
-</code></pre>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.basic_manip.remove_lines', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.basic_manip.remove_lines" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">remove_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Wrapper function. Removes a line from sec. </span>
+<span class="sd">   </span>
+<span class="sd">   See find_line.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">return</span> <span class="n">find_lines</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="n">ident</span><span class="p">,</span><span class="s2">&quot;Remove&quot;</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 

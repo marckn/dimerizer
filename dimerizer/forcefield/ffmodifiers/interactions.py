@@ -1,5 +1,5 @@
-from dtools.forcefield import basic_parsing_tools as parser
-from dtools.forcefield import basic_manip as manip
+from dimerizer.forcefield import basic_parsing_tools as parser
+from dimerizer.forcefield import basic_manip as manip
 import line_util as line
 def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False):
    """

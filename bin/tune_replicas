@@ -1,4 +1,6 @@
-from dtools.opt import findopt
+#!/usr/bin/env python2
+
+from dimerizer.opt import findopt
 import argparse
 
 

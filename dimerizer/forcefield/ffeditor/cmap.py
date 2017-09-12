@@ -1,5 +1,5 @@
-import dtools.forcefield.basic_parsing_tools as parser
-import dtools.forcefield.ffmodifiers.line_util as permute
+import dimerizer.forcefield.basic_parsing_tools as parser
+import dimerizer.forcefield.ffmodifiers.line_util as permute
 
 import cmaputils
 def edit(fname,outfile,linvolved,vsites):

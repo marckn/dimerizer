@@ -1,8 +1,7 @@
-In basedir:
+./dimerize 22 -o examples/ala_wsol/out -c examples/ala_wsol/aladip.pdb -p examples/ala_wsol/aladip.top -ff unmodified_forcefield/charmm22star.ff/ --mdp examples/ala_wsol/nvt.mdp -pl 0.004 0.004 0.008 0.01 0.02 0.05 0.1
 
-. env.sh
-python2 dimerize.py 22 -o examples/ala_wsol/out -c examples/ala_wsol/aladip.pdb -p examples/ala_wsol/aladip.top -ff unmodified_forcefield/charmm22star.ff/ --mdp examples/ala_wsol/nvt.mdp -pl 0.004 0.004 0.008 0.01 0.02 0.05 0.1
-
+(if you did not install the package you have to source the basedir and 
+call the dimerizer script from the bin directory with python2 dimerize.py)
 
 
 To run with Gromacs:

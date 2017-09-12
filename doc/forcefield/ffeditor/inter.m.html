@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.forcefield.ffeditor.inter API documentation</title>
+    <title>dimerizer.forcefield.ffeditor.inter API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,7 +1044,7 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.forcefield.ffeditor.inter.editfile">editfile</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.ffeditor.inter.editfile">editfile</a></li>
   </ul>
 
     </li>
@@ -990,106 +1061,107 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.forcefield.ffeditor.inter</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.forcefield.ffeditor.inter</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.ffeditor.inter', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.ffeditor.inter" class="source">
-    <pre><code>import dtools.forcefield.basic_parsing_tools as parser
-import dtools.forcefield.write_func as wr
-from dtools.forcefield import basic_manip as manip
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.ffeditor.inter', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.ffeditor.inter" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">dimerizer.forcefield.basic_parsing_tools</span> <span class="kn">as</span> <span class="nn">parser</span>
+<span class="kn">import</span> <span class="nn">dimerizer.forcefield.write_func</span> <span class="kn">as</span> <span class="nn">wr</span>
+<span class="kn">from</span> <span class="nn">dimerizer.forcefield</span> <span class="kn">import</span> <span class="n">basic_manip</span> <span class="k">as</span> <span class="n">manip</span>
 
-def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
-   """
-   Given a forcefield file and the atomic tags obtained from the topology file make a new forcefield file 
-   with the dimerized interactions.
+<span class="k">def</span> <span class="nf">editfile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">fout</span><span class="p">,</span><span class="n">tags</span><span class="p">,</span><span class="n">linvolved</span><span class="p">,</span><span class="n">alldihedrals</span><span class="p">,</span><span class="n">readingkey</span><span class="p">,</span><span class="n">vsites</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Given a forcefield file and the atomic tags obtained from the topology file make a new forcefield file </span>
+<span class="sd">   with the dimerized interactions.</span>
+<span class="sd">   </span>
+<span class="sd">   The function scrolls through the sections of the forcefield file as </span>
+<span class="sd">   defined in readingkey. </span>
+<span class="sd">   </span>
+<span class="sd">   fname: the forcefield file to be used</span>
+<span class="sd">   </span>
+<span class="sd">   fout: the new forcefield file</span>
+<span class="sd">   </span>
+<span class="sd">   tags: the atom tags involved in the dimerization</span>
+<span class="sd">   </span>
+<span class="sd">   linvolved: all the tags involved in the dimerization for each section of the topology file.</span>
+<span class="sd">      linvolved is a list where each element is a tuple (string,lines). String is the name of the </span>
+<span class="sd">      topology section and lines is a list of interactions that have to be dimerized.</span>
+<span class="sd">      </span>
+<span class="sd">   readingkey: is a dictionary containing the correspondance of the forcefield sections to the topology sections.</span>
+<span class="sd">   Each entry in the dictionary is a tuple with: the name of the topology section, and the function used to edit the </span>
+<span class="sd">   interaction lines in the forcefield files. </span>
+<span class="sd">   </span>
+<span class="sd">   vsites: is a flag that specifies whether virtual sites need to be added or not.</span>
+<span class="sd">   </span>
+<span class="sd">   alldihedrals: every dihedral interaction in the topology has to be considered here, irrespective of the fact that it </span>
+<span class="sd">   is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more </span>
+<span class="sd">   wildcards &quot;X&quot; (ie X TAG1 TAG2 X) have to be made explicit because X cannot be extended to the new _B and _V tags.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">flist</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">filetolist</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+   <span class="k">try</span><span class="p">:</span>
+      <span class="n">fhand</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+   <span class="k">except</span><span class="p">:</span>
+      <span class="k">print</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> ... &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; not present&quot;</span>
+      <span class="k">return</span>
    
-   The function scrolls through the sections of the forcefield file as 
-   defined in readingkey. 
+   <span class="n">keys</span><span class="o">=</span><span class="n">parser</span><span class="o">.</span><span class="n">get_keywords</span><span class="p">(</span><span class="n">flist</span><span class="p">)</span>
    
-   fname: the forcefield file to be used
+   <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span>
    
-   fout: the new forcefield file
-   
-   tags: the atom tags involved in the dimerization
-   
-   linvolved: all the tags involved in the dimerization for each section of the topology file.
-      linvolved is a list where each element is a tuple (string,lines). String is the name of the 
-      topology section and lines is a list of interactions that have to be dimerized.
+   <span class="n">mdsec</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+      <span class="n">csect</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+      <span class="n">csec</span><span class="o">=</span><span class="p">[]</span>
       
-   readingkey: is a dictionary containing the correspondance of the forcefield sections to the topology sections.
-   Each entry in the dictionary is a tuple with: the name of the topology section, and the function used to edit the 
-   interaction lines in the forcefield files. 
-   
-   vsites: is a flag that specifies whether virtual sites need to be added or not.
-   
-   alldihedrals: every dihedral interaction in the topology has to be considered here, irrespective of the fact that it 
-   is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more 
-   wildcards "X" (ie X TAG1 TAG2 X) have to be made explicit because X cannot be extended to the new _B and _V tags.
-   """
-   flist = parser.filetolist(fname)
-   try:
-      fhand= open(fout,"w+")
-   except:
-      print "\t ... "+str(fname)+" not present"
-      return
-   
-   keys=parser.get_keywords(flist)
-   
-   keys = list(set(keys))
-   
-   mdsec=[]
-   for key in keys:
-      csect = parser.get_section(flist,key)
-      csec=[]
-      
-      if key == "dihedraltypes":
-         for cc in csect:
-            ncc=1*cc
-	    for lnt in alldihedrals[0][1]:
-	       ncc = manip.explX_line(ncc,lnt)
+      <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;dihedraltypes&quot;</span><span class="p">:</span>
+         <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">csect</span><span class="p">:</span>
+            <span class="n">ncc</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">cc</span>
+	    <span class="k">for</span> <span class="n">lnt</span> <span class="ow">in</span> <span class="n">alldihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+	       <span class="n">ncc</span> <span class="o">=</span> <span class="n">manip</span><span class="o">.</span><span class="n">explX_line</span><span class="p">(</span><span class="n">ncc</span><span class="p">,</span><span class="n">lnt</span><span class="p">)</span>
 	       
-	    for lnt in alldihedrals[0][1]:
-	       ncc=manip.killInvolvedWildcards(ncc,lnt)
+	    <span class="k">for</span> <span class="n">lnt</span> <span class="ow">in</span> <span class="n">alldihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+	       <span class="n">ncc</span><span class="o">=</span><span class="n">manip</span><span class="o">.</span><span class="n">killInvolvedWildcards</span><span class="p">(</span><span class="n">ncc</span><span class="p">,</span><span class="n">lnt</span><span class="p">)</span>
 	    
-	    csec.append(ncc) 
-      else:
-         csec=csect
+	    <span class="n">csec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ncc</span><span class="p">)</span> 
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">csec</span><span class="o">=</span><span class="n">csect</span>
       
       
-      if key == "atomtypes":
-         fproc=readingkey[key][1]
-	 nsec = fproc(csec[0],tags,vsites)
+      <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;atomtypes&quot;</span><span class="p">:</span>
+         <span class="n">fproc</span><span class="o">=</span><span class="n">readingkey</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+	 <span class="n">nsec</span> <span class="o">=</span> <span class="n">fproc</span><span class="p">(</span><span class="n">csec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tags</span><span class="p">,</span><span class="n">vsites</span><span class="p">)</span>
 	 
-	 mdsec.append(nsec)
+	 <span class="n">mdsec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nsec</span><span class="p">)</span>
       
-      for cs in linvolved:
-         if cs[0] in readingkey[key][0]:
-            fproc=readingkey[key][1]
+      <span class="k">for</span> <span class="n">cs</span> <span class="ow">in</span> <span class="n">linvolved</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">cs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">readingkey</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">fproc</span><span class="o">=</span><span class="n">readingkey</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 	    
-	    nsec=[]
-	    for curr in csec:
-	       ns = fproc(curr,cs[1],vsites)   
-	       nsec.append(ns)
+	    <span class="n">nsec</span><span class="o">=</span><span class="p">[]</span>
+	    <span class="k">for</span> <span class="n">curr</span> <span class="ow">in</span> <span class="n">csec</span><span class="p">:</span>
+	       <span class="n">ns</span> <span class="o">=</span> <span class="n">fproc</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span><span class="n">cs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">vsites</span><span class="p">)</span>   
+	       <span class="n">nsec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
 	    
-	    mdsec.append(nsec)	    
-	    break
+	    <span class="n">mdsec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nsec</span><span class="p">)</span>	    
+	    <span class="k">break</span>
    
    
    
-   for sec in mdsec:    
-      wr.sec_to_file(fhand,sec)
+   <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="n">mdsec</span><span class="p">:</span>    
+      <span class="n">wr</span><span class="o">.</span><span class="n">sec_to_file</span><span class="p">(</span><span class="n">fhand</span><span class="p">,</span><span class="n">sec</span><span class="p">)</span>
          
 
 
 
-# linvolved: list of tuples (type,entry_list)
-#readingkey: dictionary for 
-#   ff keywords -> ([topology keywords], funciton_to_process)
+<span class="c1"># linvolved: list of tuples (type,entry_list)</span>
+<span class="c1">#readingkey: dictionary for </span>
+<span class="c1">#   ff keywords -&gt; ([topology keywords], funciton_to_process)</span>
 
-#keys: list of ff keywords
-#csec is a list of tuples (section_name, list)
-</code></pre>
+<span class="c1">#keys: list of ff keywords</span>
+<span class="c1">#csec is a list of tuples (section_name, list)</span>
+</pre></div>
+
   </div>
 
   </header>
@@ -1099,7 +1171,7 @@ def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.ffeditor.inter.editfile">
+    <div class="name def" id="dimerizer.forcefield.ffeditor.inter.editfile">
     <p>def <span class="ident">editfile</span>(</p><p>fname, fout, tags, linvolved, alldihedrals, readingkey, vsites)</p>
     </div>
     
@@ -1124,89 +1196,90 @@ interaction lines in the forcefield files. </p>
 is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more 
 wildcards "X" (ie X TAG1 TAG2 X) have to be made explicit because X cannot be extended to the new _B and _V tags.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.ffeditor.inter.editfile', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.ffeditor.inter.editfile" class="source">
-    <pre><code>def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
-   """
-   Given a forcefield file and the atomic tags obtained from the topology file make a new forcefield file 
-   with the dimerized interactions.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.ffeditor.inter.editfile', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.ffeditor.inter.editfile" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">editfile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">fout</span><span class="p">,</span><span class="n">tags</span><span class="p">,</span><span class="n">linvolved</span><span class="p">,</span><span class="n">alldihedrals</span><span class="p">,</span><span class="n">readingkey</span><span class="p">,</span><span class="n">vsites</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Given a forcefield file and the atomic tags obtained from the topology file make a new forcefield file </span>
+<span class="sd">   with the dimerized interactions.</span>
+<span class="sd">   </span>
+<span class="sd">   The function scrolls through the sections of the forcefield file as </span>
+<span class="sd">   defined in readingkey. </span>
+<span class="sd">   </span>
+<span class="sd">   fname: the forcefield file to be used</span>
+<span class="sd">   </span>
+<span class="sd">   fout: the new forcefield file</span>
+<span class="sd">   </span>
+<span class="sd">   tags: the atom tags involved in the dimerization</span>
+<span class="sd">   </span>
+<span class="sd">   linvolved: all the tags involved in the dimerization for each section of the topology file.</span>
+<span class="sd">      linvolved is a list where each element is a tuple (string,lines). String is the name of the </span>
+<span class="sd">      topology section and lines is a list of interactions that have to be dimerized.</span>
+<span class="sd">      </span>
+<span class="sd">   readingkey: is a dictionary containing the correspondance of the forcefield sections to the topology sections.</span>
+<span class="sd">   Each entry in the dictionary is a tuple with: the name of the topology section, and the function used to edit the </span>
+<span class="sd">   interaction lines in the forcefield files. </span>
+<span class="sd">   </span>
+<span class="sd">   vsites: is a flag that specifies whether virtual sites need to be added or not.</span>
+<span class="sd">   </span>
+<span class="sd">   alldihedrals: every dihedral interaction in the topology has to be considered here, irrespective of the fact that it </span>
+<span class="sd">   is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more </span>
+<span class="sd">   wildcards &quot;X&quot; (ie X TAG1 TAG2 X) have to be made explicit because X cannot be extended to the new _B and _V tags.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">flist</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">filetolist</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+   <span class="k">try</span><span class="p">:</span>
+      <span class="n">fhand</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+   <span class="k">except</span><span class="p">:</span>
+      <span class="k">print</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> ... &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; not present&quot;</span>
+      <span class="k">return</span>
    
-   The function scrolls through the sections of the forcefield file as 
-   defined in readingkey. 
+   <span class="n">keys</span><span class="o">=</span><span class="n">parser</span><span class="o">.</span><span class="n">get_keywords</span><span class="p">(</span><span class="n">flist</span><span class="p">)</span>
    
-   fname: the forcefield file to be used
+   <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span>
    
-   fout: the new forcefield file
-   
-   tags: the atom tags involved in the dimerization
-   
-   linvolved: all the tags involved in the dimerization for each section of the topology file.
-      linvolved is a list where each element is a tuple (string,lines). String is the name of the 
-      topology section and lines is a list of interactions that have to be dimerized.
+   <span class="n">mdsec</span><span class="o">=</span><span class="p">[]</span>
+   <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+      <span class="n">csect</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+      <span class="n">csec</span><span class="o">=</span><span class="p">[]</span>
       
-   readingkey: is a dictionary containing the correspondance of the forcefield sections to the topology sections.
-   Each entry in the dictionary is a tuple with: the name of the topology section, and the function used to edit the 
-   interaction lines in the forcefield files. 
-   
-   vsites: is a flag that specifies whether virtual sites need to be added or not.
-   
-   alldihedrals: every dihedral interaction in the topology has to be considered here, irrespective of the fact that it 
-   is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more 
-   wildcards "X" (ie X TAG1 TAG2 X) have to be made explicit because X cannot be extended to the new _B and _V tags.
-   """
-   flist = parser.filetolist(fname)
-   try:
-      fhand= open(fout,"w+")
-   except:
-      print "\t ... "+str(fname)+" not present"
-      return
-   
-   keys=parser.get_keywords(flist)
-   
-   keys = list(set(keys))
-   
-   mdsec=[]
-   for key in keys:
-      csect = parser.get_section(flist,key)
-      csec=[]
-      
-      if key == "dihedraltypes":
-         for cc in csect:
-            ncc=1*cc
-	    for lnt in alldihedrals[0][1]:
-	       ncc = manip.explX_line(ncc,lnt)
+      <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;dihedraltypes&quot;</span><span class="p">:</span>
+         <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">csect</span><span class="p">:</span>
+            <span class="n">ncc</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">cc</span>
+	    <span class="k">for</span> <span class="n">lnt</span> <span class="ow">in</span> <span class="n">alldihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+	       <span class="n">ncc</span> <span class="o">=</span> <span class="n">manip</span><span class="o">.</span><span class="n">explX_line</span><span class="p">(</span><span class="n">ncc</span><span class="p">,</span><span class="n">lnt</span><span class="p">)</span>
 	       
-	    for lnt in alldihedrals[0][1]:
-	       ncc=manip.killInvolvedWildcards(ncc,lnt)
+	    <span class="k">for</span> <span class="n">lnt</span> <span class="ow">in</span> <span class="n">alldihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+	       <span class="n">ncc</span><span class="o">=</span><span class="n">manip</span><span class="o">.</span><span class="n">killInvolvedWildcards</span><span class="p">(</span><span class="n">ncc</span><span class="p">,</span><span class="n">lnt</span><span class="p">)</span>
 	    
-	    csec.append(ncc) 
-      else:
-         csec=csect
+	    <span class="n">csec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ncc</span><span class="p">)</span> 
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">csec</span><span class="o">=</span><span class="n">csect</span>
       
       
-      if key == "atomtypes":
-         fproc=readingkey[key][1]
-	 nsec = fproc(csec[0],tags,vsites)
+      <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;atomtypes&quot;</span><span class="p">:</span>
+         <span class="n">fproc</span><span class="o">=</span><span class="n">readingkey</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+	 <span class="n">nsec</span> <span class="o">=</span> <span class="n">fproc</span><span class="p">(</span><span class="n">csec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tags</span><span class="p">,</span><span class="n">vsites</span><span class="p">)</span>
 	 
-	 mdsec.append(nsec)
+	 <span class="n">mdsec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nsec</span><span class="p">)</span>
       
-      for cs in linvolved:
-         if cs[0] in readingkey[key][0]:
-            fproc=readingkey[key][1]
+      <span class="k">for</span> <span class="n">cs</span> <span class="ow">in</span> <span class="n">linvolved</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">cs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">readingkey</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">fproc</span><span class="o">=</span><span class="n">readingkey</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 	    
-	    nsec=[]
-	    for curr in csec:
-	       ns = fproc(curr,cs[1],vsites)   
-	       nsec.append(ns)
+	    <span class="n">nsec</span><span class="o">=</span><span class="p">[]</span>
+	    <span class="k">for</span> <span class="n">curr</span> <span class="ow">in</span> <span class="n">csec</span><span class="p">:</span>
+	       <span class="n">ns</span> <span class="o">=</span> <span class="n">fproc</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span><span class="n">cs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">vsites</span><span class="p">)</span>   
+	       <span class="n">nsec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
 	    
-	    mdsec.append(nsec)	    
-	    break
+	    <span class="n">mdsec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nsec</span><span class="p">)</span>	    
+	    <span class="k">break</span>
    
    
    
-   for sec in mdsec:    
-      wr.sec_to_file(fhand,sec)
-</code></pre>
+   <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="n">mdsec</span><span class="p">:</span>    
+      <span class="n">wr</span><span class="o">.</span><span class="n">sec_to_file</span><span class="p">(</span><span class="n">fhand</span><span class="p">,</span><span class="n">sec</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 

@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.forcefield.ffeditor.cmap API documentation</title>
+    <title>dimerizer.forcefield.ffeditor.cmap API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,7 +1044,7 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.forcefield.ffeditor.cmap.edit">edit</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.ffeditor.cmap.edit">edit</a></li>
   </ul>
 
     </li>
@@ -990,71 +1061,72 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.forcefield.ffeditor.cmap</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.forcefield.ffeditor.cmap</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.ffeditor.cmap', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.ffeditor.cmap" class="source">
-    <pre><code>import dtools.forcefield.basic_parsing_tools as parser
-import dtools.forcefield.ffmodifiers.line_util as permute
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.ffeditor.cmap', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.ffeditor.cmap" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">dimerizer.forcefield.basic_parsing_tools</span> <span class="kn">as</span> <span class="nn">parser</span>
+<span class="kn">import</span> <span class="nn">dimerizer.forcefield.ffmodifiers.line_util</span> <span class="kn">as</span> <span class="nn">permute</span>
 
-import cmaputils
-def edit(fname,outfile,linvolved,vsites):
-   """
-   Edit the cmap forcefield file. 
+<span class="kn">import</span> <span class="nn">cmaputils</span>
+<span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">outfile</span><span class="p">,</span><span class="n">linvolved</span><span class="p">,</span><span class="n">vsites</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Edit the cmap forcefield file. </span>
+<span class="sd">   </span>
+<span class="sd">   The data format in the cmap file is different and is processed through these </span>
+<span class="sd">   dedicated functions.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   The data format in the cmap file is different and is processed through these 
-   dedicated functions.
-   """
-   
-   cmlist=None
-   for tp in linvolved:
-      if tp[0]=="cmap":
-         cmlist=tp[1]
-	 break
+   <span class="n">cmlist</span><span class="o">=</span><span class="bp">None</span>
+   <span class="k">for</span> <span class="n">tp</span> <span class="ow">in</span> <span class="n">linvolved</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;cmap&quot;</span><span class="p">:</span>
+         <span class="n">cmlist</span><span class="o">=</span><span class="n">tp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	 <span class="k">break</span>
 
-   if cmlist is None:
-      return
+   <span class="k">if</span> <span class="n">cmlist</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span>
    
       
-   flist = parser.filetolist(fname)
-   cmpp = cmaputils.parse(flist)
+   <span class="n">flist</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">filetolist</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+   <span class="n">cmpp</span> <span class="o">=</span> <span class="n">cmaputils</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">flist</span><span class="p">)</span>
    
-   for entry in cmlist:
-      fnd = cmaputils.findentry(cmpp,entry)
-      if fnd is  None:
-         raise ValueError("Cannot find CMAP entry ")
+   <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">cmlist</span><span class="p">:</span>
+      <span class="n">fnd</span> <span class="o">=</span> <span class="n">cmaputils</span><span class="o">.</span><span class="n">findentry</span><span class="p">(</span><span class="n">cmpp</span><span class="p">,</span><span class="n">entry</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">fnd</span> <span class="ow">is</span>  <span class="bp">None</span><span class="p">:</span>
+         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot find CMAP entry &quot;</span><span class="p">)</span>
       
-      taglist=fnd[0]
-      data=fnd[1]
+      <span class="n">taglist</span><span class="o">=</span><span class="n">fnd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">data</span><span class="o">=</span><span class="n">fnd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             
-      bentries=permute.dimer_lines("_B",5)
-      for ltag in bentries:
-         ntag=[]
-         for t,suf in zip(entry,ltag):
-            nl=str(t)+str(suf)
-            ntag.append(nl)
+      <span class="n">bentries</span><span class="o">=</span><span class="n">permute</span><span class="o">.</span><span class="n">dimer_lines</span><span class="p">(</span><span class="s2">&quot;_B&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">ltag</span> <span class="ow">in</span> <span class="n">bentries</span><span class="p">:</span>
+         <span class="n">ntag</span><span class="o">=</span><span class="p">[]</span>
+         <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">suf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">ltag</span><span class="p">):</span>
+            <span class="n">nl</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span>
+            <span class="n">ntag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>
 	    
-         flist=cmaputils.appendentry(flist,ntag,fnd, halve=True)
+         <span class="n">flist</span><span class="o">=</span><span class="n">cmaputils</span><span class="o">.</span><span class="n">appendentry</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">ntag</span><span class="p">,</span><span class="n">fnd</span><span class="p">,</span> <span class="n">halve</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
       
-      if vsites:
-         ventries=permute.dimer_lines("_V",5)
-         for ltag in ventries:
-	    ntag=[]
-	    for t,suf in zip(entry,ltag):
-	       nl=str(t)+str(suf)
-	       ntag.append(nl)
+      <span class="k">if</span> <span class="n">vsites</span><span class="p">:</span>
+         <span class="n">ventries</span><span class="o">=</span><span class="n">permute</span><span class="o">.</span><span class="n">dimer_lines</span><span class="p">(</span><span class="s2">&quot;_V&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+         <span class="k">for</span> <span class="n">ltag</span> <span class="ow">in</span> <span class="n">ventries</span><span class="p">:</span>
+	    <span class="n">ntag</span><span class="o">=</span><span class="p">[]</span>
+	    <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">suf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">ltag</span><span class="p">):</span>
+	       <span class="n">nl</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span>
+	       <span class="n">ntag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>
 	    
-	    flist=cmaputils.appendentry(flist,ntag,fnd,halve=False)
+	    <span class="n">flist</span><span class="o">=</span><span class="n">cmaputils</span><span class="o">.</span><span class="n">appendentry</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">ntag</span><span class="p">,</span><span class="n">fnd</span><span class="p">,</span><span class="n">halve</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
       
 
-   # print new file from flist
-   fo = open(outfile,"w+")
-   for ln in flist:
-      fo.write(ln+"\n")
+   <span class="c1"># print new file from flist</span>
+   <span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+      <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
       
-   fo.close()
-</code></pre>
+   <span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
   </div>
 
   </header>
@@ -1064,7 +1136,7 @@ def edit(fname,outfile,linvolved,vsites):
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.ffeditor.cmap.edit">
+    <div class="name def" id="dimerizer.forcefield.ffeditor.cmap.edit">
     <p>def <span class="ident">edit</span>(</p><p>fname, outfile, linvolved, vsites)</p>
     </div>
     
@@ -1075,64 +1147,65 @@ def edit(fname,outfile,linvolved,vsites):
 <p>The data format in the cmap file is different and is processed through these 
 dedicated functions.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.ffeditor.cmap.edit', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.ffeditor.cmap.edit" class="source">
-    <pre><code>def edit(fname,outfile,linvolved,vsites):
-   """
-   Edit the cmap forcefield file. 
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.ffeditor.cmap.edit', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.ffeditor.cmap.edit" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">outfile</span><span class="p">,</span><span class="n">linvolved</span><span class="p">,</span><span class="n">vsites</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Edit the cmap forcefield file. </span>
+<span class="sd">   </span>
+<span class="sd">   The data format in the cmap file is different and is processed through these </span>
+<span class="sd">   dedicated functions.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   The data format in the cmap file is different and is processed through these 
-   dedicated functions.
-   """
-   
-   cmlist=None
-   for tp in linvolved:
-      if tp[0]=="cmap":
-         cmlist=tp[1]
-	 break
+   <span class="n">cmlist</span><span class="o">=</span><span class="bp">None</span>
+   <span class="k">for</span> <span class="n">tp</span> <span class="ow">in</span> <span class="n">linvolved</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;cmap&quot;</span><span class="p">:</span>
+         <span class="n">cmlist</span><span class="o">=</span><span class="n">tp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	 <span class="k">break</span>
 
-   if cmlist is None:
-      return
+   <span class="k">if</span> <span class="n">cmlist</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span>
    
       
-   flist = parser.filetolist(fname)
-   cmpp = cmaputils.parse(flist)
+   <span class="n">flist</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">filetolist</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+   <span class="n">cmpp</span> <span class="o">=</span> <span class="n">cmaputils</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">flist</span><span class="p">)</span>
    
-   for entry in cmlist:
-      fnd = cmaputils.findentry(cmpp,entry)
-      if fnd is  None:
-         raise ValueError("Cannot find CMAP entry ")
+   <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">cmlist</span><span class="p">:</span>
+      <span class="n">fnd</span> <span class="o">=</span> <span class="n">cmaputils</span><span class="o">.</span><span class="n">findentry</span><span class="p">(</span><span class="n">cmpp</span><span class="p">,</span><span class="n">entry</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">fnd</span> <span class="ow">is</span>  <span class="bp">None</span><span class="p">:</span>
+         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot find CMAP entry &quot;</span><span class="p">)</span>
       
-      taglist=fnd[0]
-      data=fnd[1]
+      <span class="n">taglist</span><span class="o">=</span><span class="n">fnd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">data</span><span class="o">=</span><span class="n">fnd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             
-      bentries=permute.dimer_lines("_B",5)
-      for ltag in bentries:
-         ntag=[]
-         for t,suf in zip(entry,ltag):
-            nl=str(t)+str(suf)
-            ntag.append(nl)
+      <span class="n">bentries</span><span class="o">=</span><span class="n">permute</span><span class="o">.</span><span class="n">dimer_lines</span><span class="p">(</span><span class="s2">&quot;_B&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">ltag</span> <span class="ow">in</span> <span class="n">bentries</span><span class="p">:</span>
+         <span class="n">ntag</span><span class="o">=</span><span class="p">[]</span>
+         <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">suf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">ltag</span><span class="p">):</span>
+            <span class="n">nl</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span>
+            <span class="n">ntag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>
 	    
-         flist=cmaputils.appendentry(flist,ntag,fnd, halve=True)
+         <span class="n">flist</span><span class="o">=</span><span class="n">cmaputils</span><span class="o">.</span><span class="n">appendentry</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">ntag</span><span class="p">,</span><span class="n">fnd</span><span class="p">,</span> <span class="n">halve</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
       
-      if vsites:
-         ventries=permute.dimer_lines("_V",5)
-         for ltag in ventries:
-	    ntag=[]
-	    for t,suf in zip(entry,ltag):
-	       nl=str(t)+str(suf)
-	       ntag.append(nl)
+      <span class="k">if</span> <span class="n">vsites</span><span class="p">:</span>
+         <span class="n">ventries</span><span class="o">=</span><span class="n">permute</span><span class="o">.</span><span class="n">dimer_lines</span><span class="p">(</span><span class="s2">&quot;_V&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+         <span class="k">for</span> <span class="n">ltag</span> <span class="ow">in</span> <span class="n">ventries</span><span class="p">:</span>
+	    <span class="n">ntag</span><span class="o">=</span><span class="p">[]</span>
+	    <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">suf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">ltag</span><span class="p">):</span>
+	       <span class="n">nl</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span>
+	       <span class="n">ntag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>
 	    
-	    flist=cmaputils.appendentry(flist,ntag,fnd,halve=False)
+	    <span class="n">flist</span><span class="o">=</span><span class="n">cmaputils</span><span class="o">.</span><span class="n">appendentry</span><span class="p">(</span><span class="n">flist</span><span class="p">,</span><span class="n">ntag</span><span class="p">,</span><span class="n">fnd</span><span class="p">,</span><span class="n">halve</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
       
 
-   # print new file from flist
-   fo = open(outfile,"w+")
-   for ln in flist:
-      fo.write(ln+"\n")
+   <span class="c1"># print new file from flist</span>
+   <span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+      <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
       
-   fo.close()
-</code></pre>
+   <span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
   </div>
 </div>
 

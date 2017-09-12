@@ -1,8 +1,8 @@
-import dtools.forcefield.collect.collectfromtopology as collect
-import dtools.forcefield.ffeditor.atomtypes as ffat
-import dtools.forcefield.ffeditor.cmap as ffcmap
-import dtools.forcefield.ffeditor.inter as ffinter
-import dtools.forcefield.ffmodifiers.interactions as ffmod
+import dimerizer.forcefield.collect.collectfromtopology as collect
+import dimerizer.forcefield.ffeditor.atomtypes as ffat
+import dimerizer.forcefield.ffeditor.cmap as ffcmap
+import dimerizer.forcefield.ffeditor.inter as ffinter
+import dimerizer.forcefield.ffmodifiers.interactions as ffmod
 
 def editdir(topfile,atlist,charmmdir,outdir,vsites):
    """

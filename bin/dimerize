@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 
 
@@ -44,18 +46,18 @@ if atomlist == "All":
 
 ffdir=args.forcefield
    
-from dtools.alparser import atomlist_parser as alp
+from dimerizer.alparser import atomlist_parser as alp
 atomlist=alp(atomlist)
 
 if len(atomlist)>natoms:
    raise("Number of elements in atomlist larger than N")
 
 # Arguments read. Building dimerized pdb.
-import dtools.pdb.pdb_read
-import dtools.pdb.pdb_write
+import dimerizer.pdb.pdb_read
+import dimerizer.pdb.pdb_write
 pdbout = outdir+"dconfig.pdb"
-ppdb = dtools.pdb.pdb_read.parse_pdb(pdbfile)
-pdbf = dtools.pdb.pdb_write.dimerizer(ppdb,pdbout,atomlist,natoms)
+ppdb = dimerizer.pdb.pdb_read.parse_pdb(pdbfile)
+pdbf = dimerizer.pdb.pdb_write.dimerizer(ppdb,pdbout,atomlist,natoms)
 pdbf.buildConfig(vsites)
 totatoms=pdbf.totatoms
 if len(atomlist)==totatoms:
@@ -64,11 +66,11 @@ else:
    allatoms=False
    
 # Building topology file(s)
-import dtools.topology.topol_read
-import dtools.topology.topol_write
+import dimerizer.topology.topol_read
+import dimerizer.topology.topol_write
 topout = outdir+"dtopology.top"
-ptop = dtools.topology.topol_read.parse_topol(topfile)
-ftop = dtools.topology.topol_write.dimerizer(ptop,natoms,atomlist,topout)
+ptop = dimerizer.topology.topol_read.parse_topol(topfile)
+ftop = dimerizer.topology.topol_write.dimerizer(ptop,natoms,atomlist,topout)
 if vsites:
    ftop.buildClassical()
    ftop.buildDimer(1)
@@ -76,26 +78,26 @@ else:
    ftop.buildDimer(virtualsites=False)
 
 # Building index file(s)
-import dtools.index.index_write
+import dimerizer.index.index_write
 
 if vsites:
-   dtools.index.index_write.writeClassical(outdir,natoms,totatoms,atomlist)
-   dtools.index.index_write.writeDimer(outdir,natoms,totatoms,atomlist)
+   dimerizer.index.index_write.writeClassical(outdir,natoms,totatoms,atomlist)
+   dimerizer.index.index_write.writeDimer(outdir,natoms,totatoms,atomlist)
 else:
-   dtools.index.index_write.writeNoVsites(outdir,natoms,totatoms,atomlist)
+   dimerizer.index.index_write.writeNoVsites(outdir,natoms,totatoms,atomlist)
 
 
 # Building plumed file(s)
 if not dimsigmas is None:
-   import dtools.plumed.templates
-   dtools.plumed.templates.write(dimsigmas,natoms,atomlist,outdir,allatoms,q,temp)
+   import dimerizer.plumed.templates
+   dimerizer.plumed.templates.write(dimsigmas,natoms,atomlist,outdir,allatoms,q,temp)
    
 if not mdpfile is None:
-   import dtools.mdp.editor
+   import dimerizer.mdp.editor
    nondimer = not allatoms or len(atomlist) < natoms
-   dtools.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer)
+   dimerizer.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer)
 
 
 # Editing forcefield
-import dtools.forcefield.ffedit as ffedit
+import dimerizer.forcefield.ffedit as ffedit
 ffedit.editdir(topfile,atomlist,ffdir,outdir,vsites)

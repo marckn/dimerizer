@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.plumed.templates API documentation</title>
+    <title>dimerizer.plumed.templates API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,7 +1044,7 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.plumed.templates.write">write</a></li>
+    <li class="mono"><a href="#dimerizer.plumed.templates.write">write</a></li>
   </ul>
 
     </li>
@@ -990,104 +1061,72 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.plumed.templates</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.plumed.templates</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.plumed.templates', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.plumed.templates" class="source">
-    <pre><code>from dtools.alparser import atomlist_backparser as backparser
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.plumed.templates', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.plumed.templates" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dimerizer.alparser</span> <span class="kn">import</span> <span class="n">atomlist_backparser</span> <span class="k">as</span> <span class="n">backparser</span>
 
-def write(sigmas,natoms,atomlist,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atoffset=0):
-   """
-   A collection of plumed templates for the two basic ways of running a Dimer simulation.
+<span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">sigmas</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span><span class="n">atomlist</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span> <span class="n">allatoms</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">atoffset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   A collection plumed template for the two basic ways of running a Dimer simulation.</span>
+<span class="sd">   </span>
+<span class="sd">   Check the Plumed documentation for more info about the Dimer Collective Variable.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="n">allatoms</span><span class="p">:</span>
+      <span class="n">satoms</span><span class="o">=</span><span class="s2">&quot;ALLATOMS&quot;</span>
+      <span class="n">grps</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">lst</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">atoffset</span><span class="p">,</span><span class="n">natoms</span><span class="o">+</span><span class="n">atoffset</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+      
+      <span class="n">atlist2</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">natoms</span><span class="p">,</span> <span class="n">natoms</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">atomlist</span><span class="p">))</span>
+      
+      <span class="n">d1b1</span><span class="o">=</span><span class="n">backparser</span><span class="p">(</span><span class="n">atomlist</span><span class="p">)</span>
+      <span class="n">d1b2</span><span class="o">=</span><span class="n">backparser</span><span class="p">(</span><span class="n">atlist2</span><span class="p">)</span>
+      <span class="n">grps</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">GROUP ATOMS=</span><span class="si">%s</span><span class="s2"> LABEL=d1b1</span>
+<span class="s2">GROUP ATOMS=</span><span class="si">%s</span><span class="s2"> LABEL=d1b2</span>
+<span class="s2">      &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">d1b1</span><span class="p">,</span><span class="n">d1b2</span><span class="p">)</span>
+      <span class="n">satoms</span><span class="o">=</span><span class="s2">&quot;ATOMS1=d1b1 ATOMS2=d1b2&quot;</span>
+      
    
-   Check the Plumed documentation for more info about the Dimer Collective Variable.
-   """
-   if allatoms:
-      satoms="ALLATOMS"
-      grps=""
-   else:
-      lst=range(1+atoffset,natoms+atoffset+1)
+   <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sigmas</span><span class="p">):</span>
+      <span class="n">fn</span><span class="o">=</span><span class="n">outdir</span><span class="o">+</span><span class="s2">&quot;plumed.&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.dat&quot;</span>
+      <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+      <span class="n">sg</span><span class="o">=</span><span class="s2">&quot;DSIGMA=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+      <span class="n">plin</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">####### File generated by DIMERIZER #########</span>
+<span class="s2">#######This is the replica index </span><span class="si">%d</span><span class="s2"> ######### </span>
+<span class="s2">##Basic configuration for a Gromacs Dimer </span>
+<span class="s2">##simulation with virtual sites.</span>
+<span class="s2">##To be used with modified forcefields </span>
+<span class="s2">##that should have been generated along with this file.</span>
+<span class="s2">##Edit with what you need.</span>
+<span class="s2">#############################################</span>
+
+<span class="si">%s</span><span class="s2"></span>
+
+<span class="s2">dim: DIMER Q=</span><span class="si">%.2f</span><span class="s2"> TEMP=</span><span class="si">%.2f</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"></span>
+
+<span class="s2">RESTRAINT ARG=dim AT=0 KAPPA=0 SLOPE=1 LABEL=dimforces</span>
+
+
+
+<span class="s2">PRINT ...</span>
+<span class="s2">ARG=dim</span>
+<span class="s2">STRIDE=10</span>
+<span class="s2">FILE=colvar.string</span>
+<span class="s2">... PRINT </span>
+
+<span class="s2">      &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">grps</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">temp</span><span class="p">,</span><span class="n">sg</span><span class="p">,</span><span class="n">satoms</span><span class="p">)</span>
       
-      atlist2= range(natoms, natoms+len(atomlist))
-      
-      d1b1=backparser(atomlist)
-      d1b2=backparser(atlist2)
-      grps="""
-GROUP ATOMS=%s LABEL=d1b1
-GROUP ATOMS=%s LABEL=d1b2
-      """ % (d1b1,d1b2)
-      satoms="ATOMS1=d1b1 ATOMS2=d1b2"
-      
-   if vsites:
-      for i,s in enumerate(sigmas):
-         fn=outdir+"plumed."+str(i)+".dat"
-	 fh = open(fn,"w+")
-	 sg="DSIGMA="+str(s)
-	 plin="""
-####### File generated by DIMERIZER #########
-#######This is the replica index %d ######### 
-##Basic configuration for a Gromacs Dimer 
-##simulation with virtual sites.
-##To be used with modified forcefields 
-##containing the definition of the virtual sites
-##Edit with what you need.
-#############################################
-
-%s
-
-dim: DIMER Q=%.2f TEMP=%.2f %s %s
-
-RESTRAINT ARG=dim AT=0 KAPPA=0 SLOPE=1 LABEL=dimforces
-
-
-
-PRINT ...
-ARG=dim
-STRIDE=10
-FILE=colvar.string
-... PRINT 
-
-         """ % (i,grps,q,temp,sg,satoms)
-      
-         fh.write(plin)
-         fh.close()
+      <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plin</span><span class="p">)</span>
+      <span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
       
 	 
-   else:
-      fh = open(outdir+"plumed.dat","w+")
-      sgs = reduce(lambda i,j: str(i)+","+str(j) , sigmas)
-      sgs="DSIGMA="+sgs
-      plin="""
-####### File generated by DIMERIZER #########
-##Basic configuration for a Gromacs Dimer 
-##simulation without virtual sites.
-##To be used with standard forcefields 
-##(no modifications required)
-##Edit with what you need.
-#############################################
+</pre></div>
 
-%s
-
-dim: DIMER Q=%.2f TEMP=%.2f %s %s
-
-en: ENERGY
-
-RESTRAINT ARG=dim,en AT=0,0 KAPPA=0,0 SLOPE=1,-0.5 LABEL=dimforces
-
-
-
-PRINT ...
-ARG=dim,en
-STRIDE=10
-FILE=colvar.string
-... PRINT 
-
-      """ % (grps,q,temp,sgs,satoms)
-      
-      fh.write(plin)
-      fh.close()
-</code></pre>
   </div>
 
   </header>
@@ -1097,109 +1136,75 @@ FILE=colvar.string
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.plumed.templates.write">
-    <p>def <span class="ident">write</span>(</p><p>sigmas, natoms, atomlist, outdir, vsites, allatoms=False, q=0.5, temp=300, atoffset=0)</p>
+    <div class="name def" id="dimerizer.plumed.templates.write">
+    <p>def <span class="ident">write</span>(</p><p>sigmas, natoms, atomlist, outdir, allatoms=False, q=0.5, temp=300, atoffset=0)</p>
     </div>
     
 
     
   
-    <div class="desc"><p>A collection of plumed templates for the two basic ways of running a Dimer simulation.</p>
+    <div class="desc"><p>A collection plumed template for the two basic ways of running a Dimer simulation.</p>
 <p>Check the Plumed documentation for more info about the Dimer Collective Variable.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.plumed.templates.write', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.plumed.templates.write" class="source">
-    <pre><code>def write(sigmas,natoms,atomlist,outdir,vsites, allatoms=False, q = 0.5, temp = 300, atoffset=0):
-   """
-   A collection of plumed templates for the two basic ways of running a Dimer simulation.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.plumed.templates.write', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.plumed.templates.write" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">sigmas</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span><span class="n">atomlist</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span> <span class="n">allatoms</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">atoffset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   A collection plumed template for the two basic ways of running a Dimer simulation.</span>
+<span class="sd">   </span>
+<span class="sd">   Check the Plumed documentation for more info about the Dimer Collective Variable.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="n">allatoms</span><span class="p">:</span>
+      <span class="n">satoms</span><span class="o">=</span><span class="s2">&quot;ALLATOMS&quot;</span>
+      <span class="n">grps</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">lst</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">atoffset</span><span class="p">,</span><span class="n">natoms</span><span class="o">+</span><span class="n">atoffset</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+      
+      <span class="n">atlist2</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">natoms</span><span class="p">,</span> <span class="n">natoms</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">atomlist</span><span class="p">))</span>
+      
+      <span class="n">d1b1</span><span class="o">=</span><span class="n">backparser</span><span class="p">(</span><span class="n">atomlist</span><span class="p">)</span>
+      <span class="n">d1b2</span><span class="o">=</span><span class="n">backparser</span><span class="p">(</span><span class="n">atlist2</span><span class="p">)</span>
+      <span class="n">grps</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">GROUP ATOMS=</span><span class="si">%s</span><span class="s2"> LABEL=d1b1</span>
+<span class="s2">GROUP ATOMS=</span><span class="si">%s</span><span class="s2"> LABEL=d1b2</span>
+<span class="s2">      &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">d1b1</span><span class="p">,</span><span class="n">d1b2</span><span class="p">)</span>
+      <span class="n">satoms</span><span class="o">=</span><span class="s2">&quot;ATOMS1=d1b1 ATOMS2=d1b2&quot;</span>
+      
    
-   Check the Plumed documentation for more info about the Dimer Collective Variable.
-   """
-   if allatoms:
-      satoms="ALLATOMS"
-      grps=""
-   else:
-      lst=range(1+atoffset,natoms+atoffset+1)
+   <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sigmas</span><span class="p">):</span>
+      <span class="n">fn</span><span class="o">=</span><span class="n">outdir</span><span class="o">+</span><span class="s2">&quot;plumed.&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.dat&quot;</span>
+      <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+      <span class="n">sg</span><span class="o">=</span><span class="s2">&quot;DSIGMA=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+      <span class="n">plin</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">####### File generated by DIMERIZER #########</span>
+<span class="s2">#######This is the replica index </span><span class="si">%d</span><span class="s2"> ######### </span>
+<span class="s2">##Basic configuration for a Gromacs Dimer </span>
+<span class="s2">##simulation with virtual sites.</span>
+<span class="s2">##To be used with modified forcefields </span>
+<span class="s2">##that should have been generated along with this file.</span>
+<span class="s2">##Edit with what you need.</span>
+<span class="s2">#############################################</span>
+
+<span class="si">%s</span><span class="s2"></span>
+
+<span class="s2">dim: DIMER Q=</span><span class="si">%.2f</span><span class="s2"> TEMP=</span><span class="si">%.2f</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"></span>
+
+<span class="s2">RESTRAINT ARG=dim AT=0 KAPPA=0 SLOPE=1 LABEL=dimforces</span>
+
+
+
+<span class="s2">PRINT ...</span>
+<span class="s2">ARG=dim</span>
+<span class="s2">STRIDE=10</span>
+<span class="s2">FILE=colvar.string</span>
+<span class="s2">... PRINT </span>
+
+<span class="s2">      &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">grps</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">temp</span><span class="p">,</span><span class="n">sg</span><span class="p">,</span><span class="n">satoms</span><span class="p">)</span>
       
-      atlist2= range(natoms, natoms+len(atomlist))
-      
-      d1b1=backparser(atomlist)
-      d1b2=backparser(atlist2)
-      grps="""
-GROUP ATOMS=%s LABEL=d1b1
-GROUP ATOMS=%s LABEL=d1b2
-      """ % (d1b1,d1b2)
-      satoms="ATOMS1=d1b1 ATOMS2=d1b2"
-      
-   if vsites:
-      for i,s in enumerate(sigmas):
-         fn=outdir+"plumed."+str(i)+".dat"
-	 fh = open(fn,"w+")
-	 sg="DSIGMA="+str(s)
-	 plin="""
-####### File generated by DIMERIZER #########
-#######This is the replica index %d ######### 
-##Basic configuration for a Gromacs Dimer 
-##simulation with virtual sites.
-##To be used with modified forcefields 
-##containing the definition of the virtual sites
-##Edit with what you need.
-#############################################
+      <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plin</span><span class="p">)</span>
+      <span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
 
-%s
-
-dim: DIMER Q=%.2f TEMP=%.2f %s %s
-
-RESTRAINT ARG=dim AT=0 KAPPA=0 SLOPE=1 LABEL=dimforces
-
-
-
-PRINT ...
-ARG=dim
-STRIDE=10
-FILE=colvar.string
-... PRINT 
-
-         """ % (i,grps,q,temp,sg,satoms)
-      
-         fh.write(plin)
-         fh.close()
-      
-	 
-   else:
-      fh = open(outdir+"plumed.dat","w+")
-      sgs = reduce(lambda i,j: str(i)+","+str(j) , sigmas)
-      sgs="DSIGMA="+sgs
-      plin="""
-####### File generated by DIMERIZER #########
-##Basic configuration for a Gromacs Dimer 
-##simulation without virtual sites.
-##To be used with standard forcefields 
-##(no modifications required)
-##Edit with what you need.
-#############################################
-
-%s
-
-dim: DIMER Q=%.2f TEMP=%.2f %s %s
-
-en: ENERGY
-
-RESTRAINT ARG=dim,en AT=0,0 KAPPA=0,0 SLOPE=1,-0.5 LABEL=dimforces
-
-
-
-PRINT ...
-ARG=dim,en
-STRIDE=10
-FILE=colvar.string
-... PRINT 
-
-      """ % (grps,q,temp,sgs,satoms)
-      
-      fh.write(plin)
-      fh.close()
-</code></pre>
   </div>
 </div>
 

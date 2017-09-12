@@ -1,8 +1,7 @@
-In basedir:
+./dimerize 42 -o examples/ala3_bbonly/out -c examples/ala3_bbonly/3ala.pdb -p examples/ala3_bbonly/3ala.top -ff unmodified_forcefield/charmm22star.ff/ --mdp examples/ala3_bbonly/nvt.mdp --dimers 1,5,7,9,15,17,19,25,27,29,35,37,39 -pl 0.004 0.004 0.008 0.01 0.02 0.05 0.1
 
-. env.sh
-python2 dimerize.py 42 -o examples/ala3_bbonly/out -c examples/ala3_bbonly/3ala.pdb -p examples/ala3_bbonly/3ala.top -ff unmodified_forcefield/charmm22star.ff/ --mdp examples/ala3_bbonly/nvt.mdp --dimers 1,5,7,9,15,17,19,25,27,29,35,37,39 -pl 0.004 0.004 0.008 0.01 0.02 0.05 0.1
-
+(if you did not install the package you have to source the basedir and 
+call the dimerizer script from the bin directory with python2 dimerize.py)
 
 
 To run with Gromacs:

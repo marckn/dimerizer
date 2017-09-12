@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.topology.outputs API documentation</title>
+    <title>dimerizer.topology.outputs API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,11 +1044,11 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.topology.outputs.addHeader">addHeader</a></li>
-    <li class="mono"><a href="#dtools.topology.outputs.addVirtualSites">addVirtualSites</a></li>
-    <li class="mono"><a href="#dtools.topology.outputs.classical">classical</a></li>
-    <li class="mono"><a href="#dtools.topology.outputs.dimer">dimer</a></li>
-    <li class="mono"><a href="#dtools.topology.outputs.inject_modtop">inject_modtop</a></li>
+    <li class="mono"><a href="#dimerizer.topology.outputs.addHeader">addHeader</a></li>
+    <li class="mono"><a href="#dimerizer.topology.outputs.addVirtualSites">addVirtualSites</a></li>
+    <li class="mono"><a href="#dimerizer.topology.outputs.classical">classical</a></li>
+    <li class="mono"><a href="#dimerizer.topology.outputs.dimer">dimer</a></li>
+    <li class="mono"><a href="#dimerizer.topology.outputs.inject_modtop">inject_modtop</a></li>
   </ul>
 
     </li>
@@ -994,136 +1065,137 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.topology.outputs</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.topology.outputs</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.outputs', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.outputs" class="source">
-    <pre><code>import dimer_extenders as de
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.outputs', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.outputs" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">dimer_extenders</span> <span class="kn">as</span> <span class="nn">de</span>
 
-def inject_modtop(f,lns):
-   """
-   Utility function that writes a list lns to a file f.
-   """
-   for ln in lns:
-      f.write(ln+"\n")
+<span class="k">def</span> <span class="nf">inject_modtop</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">lns</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Utility function that writes a list lns to a file f.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">lns</span><span class="p">:</span>
+      <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
       
-def addVirtualSites(at,nat, atlist):
-   """
-   Adds the [ virtual_sites2 ] section to a topology file.
-   
-   The topology file is passed as argument (at), it is a list. 
-   The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] section.
-   
-   """
-   at.append("; virtual sites for the center of mass of the dimers")
-   at.append("[ virtual_sites2 ]")
-   offset=len(atlist)
-   for ii,i in enumerate(atlist): 
-      site = ii+nat+offset+1
-      a1 = i+1
-      a2 = ii + nat+1
-      at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.5") 
+<span class="k">def</span> <span class="nf">addVirtualSites</span><span class="p">(</span><span class="n">at</span><span class="p">,</span><span class="n">nat</span><span class="p">,</span> <span class="n">atlist</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Adds the [ virtual_sites2 ] section to a topology file.</span>
+<span class="sd">   </span>
+<span class="sd">   The topology file is passed as argument (at), it is a list. </span>
+<span class="sd">   The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] section.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">at</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;; virtual sites for the center of mass of the dimers&quot;</span><span class="p">)</span>
+   <span class="n">at</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;[ virtual_sites2 ]&quot;</span><span class="p">)</span>
+   <span class="n">offset</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">atlist</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">ii</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">atlist</span><span class="p">):</span> 
+      <span class="n">site</span> <span class="o">=</span> <span class="n">ii</span><span class="o">+</span><span class="n">nat</span><span class="o">+</span><span class="n">offset</span><span class="o">+</span><span class="mi">1</span>
+      <span class="n">a1</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+      <span class="n">a2</span> <span class="o">=</span> <span class="n">ii</span> <span class="o">+</span> <span class="n">nat</span><span class="o">+</span><span class="mi">1</span>
+      <span class="n">at</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">site</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  1  0.5&quot;</span><span class="p">)</span> 
 
-def addHeader(f):
-   """
-   A message informing the user of the Dimer paper he should cite.
-   
-   """
-   f.write("""
-   ;This file has been edited by the Dimerizer tool for the Dimer enhanced sampling method.
-   ;Please cite the Dimer paper: J. Chem. Theory Comput. 13, 425 (2017).
-   
-   """)
+<span class="k">def</span> <span class="nf">addHeader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   A message informing the user of the Dimer paper he should cite.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">   ;This file has been edited by the Dimerizer tool for the Dimer enhanced sampling method.</span>
+<span class="s2">   ;Please cite the Dimer paper: J. Chem. Theory Comput. 13, 425 (2017).</span>
+<span class="s2">   </span>
+<span class="s2">   &quot;&quot;&quot;</span><span class="p">)</span>
    
 
-def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ExtendedList, vsites=True):
-   f = open(out_file,'w+')
-   """
-   From a standard Gromacs topology create the dimer .top file
+<span class="k">def</span> <span class="nf">dimer</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">olist</span><span class="p">,</span><span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="n">extendlist</span><span class="o">=</span><span class="n">de</span><span class="o">.</span><span class="n">ExtendedList</span><span class="p">,</span> <span class="n">vsites</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+   <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span><span class="s1">&#39;w+&#39;</span><span class="p">)</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   From a standard Gromacs topology create the dimer .top file</span>
+<span class="sd">   </span>
+<span class="sd">   Each section to be modified is processed with the dimer_extenders module (entering as a function named &#39;extendlist&#39; that </span>
+<span class="sd">   points to the right function of the module). In the case of the [ pairs ] section, if </span>
+<span class="sd">   a classical replica is being built, the list is doubled to take into account that the provided pairs table </span>
+<span class="sd">   contains a halved interaction potential.</span>
+<span class="sd">   </span>
+<span class="sd">   The second half of this function creates the new .top file. This file is obtained with insertions from the original .top file, so </span>
+<span class="sd">   that only the necessary parts are modified. To do this one needs to insert the modified sections in place of the old ones and this is done by </span>
+<span class="sd">   writing the new file line by line and keeping track of the line numbering in order to find the correspondence with each section. </span>
+<span class="sd">   To do this, each section is stored in a list called &quot;shiftex&quot; made by elements containing the list of the lines to be written </span>
+<span class="sd">   for that modified section, its beginning and end points in the original file and a flag used to avoid multiple insertions. </span>
+<span class="sd">   For convenience this list is sorted so that the entry point of each section is in increasing order.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   Each section to be modified is processed with the dimer_extenders module (entering as a function named 'extendlist' that 
-   points to the right function of the module). In the case of the [ pairs ] section, if 
-   a classical replica is being built, the list is doubled to take into account that the provided pairs table 
-   contains a halved interaction potential.
+   <span class="n">addHeader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">extendlist</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;ClassicalExtList&quot;</span><span class="p">:</span>
+      <span class="n">ext_atoms</span> <span class="o">=</span> <span class="n">de</span><span class="o">.</span><span class="n">atomsExtendedList</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span><span class="n">atlist</span><span class="p">,</span><span class="n">vsites</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">ext_atoms</span> <span class="o">=</span> <span class="n">de</span><span class="o">.</span><span class="n">atomsExtendedList</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span><span class="n">atlist</span><span class="p">,</span><span class="n">vsites</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
    
-   The second half of this function creates the new .top file. This file is obtained with insertions from the original .top file, so 
-   that only the necessary parts are modified. To do this one needs to insert the modified sections in place of the old ones and this is done by 
-   writing the new file line by line and keeping track of the line numbering in order to find the correspondence with each section. 
-   To do this, each section is stored in a list called "shiftex" made by elements containing the list of the lines to be written 
-   for that modified section, its beginning and end points in the original file and a flag used to avoid multiple insertions. 
-   For convenience this list is sorted so that the entry point of each section is in increasing order.
-   """
+   <span class="k">if</span> <span class="n">vsites</span><span class="p">:</span>
+      <span class="n">addVirtualSites</span><span class="p">(</span><span class="n">ext_atoms</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">)</span>
    
-   addHeader(f)
-   if extendlist.__name__ == "ClassicalExtList":
-      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,True)
-   else:
-      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,False)
-   
-   if vsites:
-      addVirtualSites(ext_atoms,natoms, atlist)
-   
-   ext_bonds = extendlist(bonds,natoms, atlist, 2)
-   ext_pairs = extendlist(pairs,natoms, atlist, 2)
-   if extendlist.__name__ == "ClassicalExtList":
-      ext_pairs[0] = ext_pairs[0] + ext_pairs[0]   # with VSITES tablep is halved
+   <span class="n">ext_bonds</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">bonds</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="n">ext_pairs</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">extendlist</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;ClassicalExtList&quot;</span><span class="p">:</span>
+      <span class="n">ext_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ext_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ext_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># with VSITES tablep is halved</span>
       
-   ext_angles = extendlist(angles,natoms, atlist, 3)
-   ext_dihedrals = extendlist(dihedrals,natoms, atlist, 4)
+   <span class="n">ext_angles</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+   <span class="n">ext_dihedrals</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">dihedrals</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
    
-   ext_cmap = extendlist(cmap,natoms, atlist, 5)
+   <span class="n">ext_cmap</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
    
-   shiftex=[]
-   
-   
-   shiftex.append([ext_atoms,atoms[1][0],False])
+   <span class="n">shiftex</span><span class="o">=</span><span class="p">[]</span>
    
    
-   for ee1,ee2 in zip(ext_bonds,bonds[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ext_atoms</span><span class="p">,</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="bp">False</span><span class="p">])</span>
+   
+   
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_bonds</span><span class="p">,</span><span class="n">bonds</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
          
-   for ee1,ee2 in zip(ext_pairs,pairs[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_pairs</span><span class="p">,</span><span class="n">pairs</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
       
-   for ee1,ee2 in zip(ext_angles,angles[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_angles</span><span class="p">,</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
       
-   for ee1,ee2 in zip(ext_dihedrals,dihedrals[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_dihedrals</span><span class="p">,</span><span class="n">dihedrals</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
  
-   for ee1,ee2 in zip(ext_cmap,cmap[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_cmap</span><span class="p">,</span><span class="n">cmap</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
  
-   shiftex.sort(key=lambda x: x[1][0])  
+   <span class="n">shiftex</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  
    
    
-   for (i,ln) in enumerate(olist):
-      inj=False
-      for els in shiftex:
-         if i>els[1][0] and i < els[1][1]:
-	    inj=True
-	    if els[2] is False:
-	       els[2]=True
-	       inject_modtop(f,els[0])
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">ln</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">olist</span><span class="p">):</span>
+      <span class="n">inj</span><span class="o">=</span><span class="bp">False</span>
+      <span class="k">for</span> <span class="n">els</span> <span class="ow">in</span> <span class="n">shiftex</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">els</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">els</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+	    <span class="n">inj</span><span class="o">=</span><span class="bp">True</span>
+	    <span class="k">if</span> <span class="n">els</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+	       <span class="n">els</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="bp">True</span>
+	       <span class="n">inject_modtop</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">els</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 	    
-	    break
+	    <span class="k">break</span>
       
-      if inj is False:
-         f.write(ln+"\n")
+      <span class="k">if</span> <span class="n">inj</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-   f.close()	 
+   <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>	 
    	 
-def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist):
-   """
-   From a standard Gromacs topology create the dimer .top file for the classical replica.
-    
-   This is handled by the previous function "dimer" with de.ClassicalExtList passed as argument.
-   """
-   dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ClassicalExtList, vsites=True)
+<span class="k">def</span> <span class="nf">classical</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">olist</span><span class="p">,</span><span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   From a standard Gromacs topology create the dimer .top file for the classical replica.</span>
+<span class="sd">    </span>
+<span class="sd">   This is handled by the previous function &quot;dimer&quot; with de.ClassicalExtList passed as argument.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">dimer</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">olist</span><span class="p">,</span><span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="n">extendlist</span><span class="o">=</span><span class="n">de</span><span class="o">.</span><span class="n">ClassicalExtList</span><span class="p">,</span> <span class="n">vsites</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 	 
 	          
-</code></pre>
+</pre></div>
+
   </div>
 
   </header>
@@ -1133,7 +1205,7 @@ def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, nato
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.topology.outputs.addHeader">
+    <div class="name def" id="dimerizer.topology.outputs.addHeader">
     <p>def <span class="ident">addHeader</span>(</p><p>f)</p>
     </div>
     
@@ -1142,19 +1214,20 @@ def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, nato
   
     <div class="desc"><p>A message informing the user of the Dimer paper he should cite.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.outputs.addHeader', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.outputs.addHeader" class="source">
-    <pre><code>def addHeader(f):
-   """
-   A message informing the user of the Dimer paper he should cite.
-   
-   """
-   f.write("""
-   ;This file has been edited by the Dimerizer tool for the Dimer enhanced sampling method.
-   ;Please cite the Dimer paper: J. Chem. Theory Comput. 13, 425 (2017).
-   
-   """)
-</code></pre>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.outputs.addHeader', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.outputs.addHeader" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">addHeader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   A message informing the user of the Dimer paper he should cite.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">   ;This file has been edited by the Dimerizer tool for the Dimer enhanced sampling method.</span>
+<span class="s2">   ;Please cite the Dimer paper: J. Chem. Theory Comput. 13, 425 (2017).</span>
+<span class="s2">   </span>
+<span class="s2">   &quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1162,7 +1235,7 @@ def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, nato
   
       
   <div class="item">
-    <div class="name def" id="dtools.topology.outputs.addVirtualSites">
+    <div class="name def" id="dimerizer.topology.outputs.addVirtualSites">
     <p>def <span class="ident">addVirtualSites</span>(</p><p>at, nat, atlist)</p>
     </div>
     
@@ -1173,25 +1246,26 @@ def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, nato
 <p>The topology file is passed as argument (at), it is a list. 
 The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] section.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.outputs.addVirtualSites', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.outputs.addVirtualSites" class="source">
-    <pre><code>def addVirtualSites(at,nat, atlist):
-   """
-   Adds the [ virtual_sites2 ] section to a topology file.
-   
-   The topology file is passed as argument (at), it is a list. 
-   The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] section.
-   
-   """
-   at.append("; virtual sites for the center of mass of the dimers")
-   at.append("[ virtual_sites2 ]")
-   offset=len(atlist)
-   for ii,i in enumerate(atlist): 
-      site = ii+nat+offset+1
-      a1 = i+1
-      a2 = ii + nat+1
-      at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.5") 
-</code></pre>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.outputs.addVirtualSites', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.outputs.addVirtualSites" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">addVirtualSites</span><span class="p">(</span><span class="n">at</span><span class="p">,</span><span class="n">nat</span><span class="p">,</span> <span class="n">atlist</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Adds the [ virtual_sites2 ] section to a topology file.</span>
+<span class="sd">   </span>
+<span class="sd">   The topology file is passed as argument (at), it is a list. </span>
+<span class="sd">   The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] section.</span>
+<span class="sd">   </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">at</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;; virtual sites for the center of mass of the dimers&quot;</span><span class="p">)</span>
+   <span class="n">at</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;[ virtual_sites2 ]&quot;</span><span class="p">)</span>
+   <span class="n">offset</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">atlist</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">ii</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">atlist</span><span class="p">):</span> 
+      <span class="n">site</span> <span class="o">=</span> <span class="n">ii</span><span class="o">+</span><span class="n">nat</span><span class="o">+</span><span class="n">offset</span><span class="o">+</span><span class="mi">1</span>
+      <span class="n">a1</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+      <span class="n">a2</span> <span class="o">=</span> <span class="n">ii</span> <span class="o">+</span> <span class="n">nat</span><span class="o">+</span><span class="mi">1</span>
+      <span class="n">at</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">site</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  1  0.5&quot;</span><span class="p">)</span> 
+</pre></div>
+
   </div>
 </div>
 
@@ -1199,7 +1273,7 @@ The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] 
   
       
   <div class="item">
-    <div class="name def" id="dtools.topology.outputs.classical">
+    <div class="name def" id="dimerizer.topology.outputs.classical">
     <p>def <span class="ident">classical</span>(</p><p>out_file, olist, atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist)</p>
     </div>
     
@@ -1209,16 +1283,17 @@ The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] 
     <div class="desc"><p>From a standard Gromacs topology create the dimer .top file for the classical replica.</p>
 <p>This is handled by the previous function "dimer" with de.ClassicalExtList passed as argument.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.outputs.classical', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.outputs.classical" class="source">
-    <pre><code>def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist):
-   """
-   From a standard Gromacs topology create the dimer .top file for the classical replica.
-    
-   This is handled by the previous function "dimer" with de.ClassicalExtList passed as argument.
-   """
-   dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ClassicalExtList, vsites=True)
-</code></pre>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.outputs.classical', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.outputs.classical" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">classical</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">olist</span><span class="p">,</span><span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   From a standard Gromacs topology create the dimer .top file for the classical replica.</span>
+<span class="sd">    </span>
+<span class="sd">   This is handled by the previous function &quot;dimer&quot; with de.ClassicalExtList passed as argument.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">dimer</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">olist</span><span class="p">,</span><span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="n">extendlist</span><span class="o">=</span><span class="n">de</span><span class="o">.</span><span class="n">ClassicalExtList</span><span class="p">,</span> <span class="n">vsites</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 
@@ -1226,93 +1301,94 @@ The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] 
   
       
   <div class="item">
-    <div class="name def" id="dtools.topology.outputs.dimer">
-    <p>def <span class="ident">dimer</span>(</p><p>out_file, olist, atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=&lt;function ExtendedList at 0x7f9695818050&gt;, vsites=True)</p>
+    <div class="name def" id="dimerizer.topology.outputs.dimer">
+    <p>def <span class="ident">dimer</span>(</p><p>out_file, olist, atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=&lt;function ExtendedList at 0x7f95747bd410&gt;, vsites=True)</p>
     </div>
     
 
     
   
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.outputs.dimer', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.outputs.dimer" class="source">
-    <pre><code>def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ExtendedList, vsites=True):
-   f = open(out_file,'w+')
-   """
-   From a standard Gromacs topology create the dimer .top file
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.outputs.dimer', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.outputs.dimer" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">dimer</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">olist</span><span class="p">,</span><span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="n">extendlist</span><span class="o">=</span><span class="n">de</span><span class="o">.</span><span class="n">ExtendedList</span><span class="p">,</span> <span class="n">vsites</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+   <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span><span class="s1">&#39;w+&#39;</span><span class="p">)</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   From a standard Gromacs topology create the dimer .top file</span>
+<span class="sd">   </span>
+<span class="sd">   Each section to be modified is processed with the dimer_extenders module (entering as a function named &#39;extendlist&#39; that </span>
+<span class="sd">   points to the right function of the module). In the case of the [ pairs ] section, if </span>
+<span class="sd">   a classical replica is being built, the list is doubled to take into account that the provided pairs table </span>
+<span class="sd">   contains a halved interaction potential.</span>
+<span class="sd">   </span>
+<span class="sd">   The second half of this function creates the new .top file. This file is obtained with insertions from the original .top file, so </span>
+<span class="sd">   that only the necessary parts are modified. To do this one needs to insert the modified sections in place of the old ones and this is done by </span>
+<span class="sd">   writing the new file line by line and keeping track of the line numbering in order to find the correspondence with each section. </span>
+<span class="sd">   To do this, each section is stored in a list called &quot;shiftex&quot; made by elements containing the list of the lines to be written </span>
+<span class="sd">   for that modified section, its beginning and end points in the original file and a flag used to avoid multiple insertions. </span>
+<span class="sd">   For convenience this list is sorted so that the entry point of each section is in increasing order.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   Each section to be modified is processed with the dimer_extenders module (entering as a function named 'extendlist' that 
-   points to the right function of the module). In the case of the [ pairs ] section, if 
-   a classical replica is being built, the list is doubled to take into account that the provided pairs table 
-   contains a halved interaction potential.
+   <span class="n">addHeader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">extendlist</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;ClassicalExtList&quot;</span><span class="p">:</span>
+      <span class="n">ext_atoms</span> <span class="o">=</span> <span class="n">de</span><span class="o">.</span><span class="n">atomsExtendedList</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span><span class="n">atlist</span><span class="p">,</span><span class="n">vsites</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">ext_atoms</span> <span class="o">=</span> <span class="n">de</span><span class="o">.</span><span class="n">atomsExtendedList</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">natoms</span><span class="p">,</span><span class="n">atlist</span><span class="p">,</span><span class="n">vsites</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
    
-   The second half of this function creates the new .top file. This file is obtained with insertions from the original .top file, so 
-   that only the necessary parts are modified. To do this one needs to insert the modified sections in place of the old ones and this is done by 
-   writing the new file line by line and keeping track of the line numbering in order to find the correspondence with each section. 
-   To do this, each section is stored in a list called "shiftex" made by elements containing the list of the lines to be written 
-   for that modified section, its beginning and end points in the original file and a flag used to avoid multiple insertions. 
-   For convenience this list is sorted so that the entry point of each section is in increasing order.
-   """
+   <span class="k">if</span> <span class="n">vsites</span><span class="p">:</span>
+      <span class="n">addVirtualSites</span><span class="p">(</span><span class="n">ext_atoms</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">)</span>
    
-   addHeader(f)
-   if extendlist.__name__ == "ClassicalExtList":
-      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,True)
-   else:
-      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,False)
-   
-   if vsites:
-      addVirtualSites(ext_atoms,natoms, atlist)
-   
-   ext_bonds = extendlist(bonds,natoms, atlist, 2)
-   ext_pairs = extendlist(pairs,natoms, atlist, 2)
-   if extendlist.__name__ == "ClassicalExtList":
-      ext_pairs[0] = ext_pairs[0] + ext_pairs[0]   # with VSITES tablep is halved
+   <span class="n">ext_bonds</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">bonds</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="n">ext_pairs</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">extendlist</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;ClassicalExtList&quot;</span><span class="p">:</span>
+      <span class="n">ext_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ext_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ext_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># with VSITES tablep is halved</span>
       
-   ext_angles = extendlist(angles,natoms, atlist, 3)
-   ext_dihedrals = extendlist(dihedrals,natoms, atlist, 4)
+   <span class="n">ext_angles</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+   <span class="n">ext_dihedrals</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">dihedrals</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
    
-   ext_cmap = extendlist(cmap,natoms, atlist, 5)
+   <span class="n">ext_cmap</span> <span class="o">=</span> <span class="n">extendlist</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span><span class="n">natoms</span><span class="p">,</span> <span class="n">atlist</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
    
-   shiftex=[]
-   
-   
-   shiftex.append([ext_atoms,atoms[1][0],False])
+   <span class="n">shiftex</span><span class="o">=</span><span class="p">[]</span>
    
    
-   for ee1,ee2 in zip(ext_bonds,bonds[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ext_atoms</span><span class="p">,</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="bp">False</span><span class="p">])</span>
+   
+   
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_bonds</span><span class="p">,</span><span class="n">bonds</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
          
-   for ee1,ee2 in zip(ext_pairs,pairs[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_pairs</span><span class="p">,</span><span class="n">pairs</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
       
-   for ee1,ee2 in zip(ext_angles,angles[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_angles</span><span class="p">,</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
       
-   for ee1,ee2 in zip(ext_dihedrals,dihedrals[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_dihedrals</span><span class="p">,</span><span class="n">dihedrals</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
  
-   for ee1,ee2 in zip(ext_cmap,cmap[1]):
-      shiftex.append([ee1,ee2,False])
+   <span class="k">for</span> <span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ext_cmap</span><span class="p">,</span><span class="n">cmap</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+      <span class="n">shiftex</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ee1</span><span class="p">,</span><span class="n">ee2</span><span class="p">,</span><span class="bp">False</span><span class="p">])</span>
  
-   shiftex.sort(key=lambda x: x[1][0])  
+   <span class="n">shiftex</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  
    
    
-   for (i,ln) in enumerate(olist):
-      inj=False
-      for els in shiftex:
-         if i>els[1][0] and i < els[1][1]:
-	    inj=True
-	    if els[2] is False:
-	       els[2]=True
-	       inject_modtop(f,els[0])
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">ln</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">olist</span><span class="p">):</span>
+      <span class="n">inj</span><span class="o">=</span><span class="bp">False</span>
+      <span class="k">for</span> <span class="n">els</span> <span class="ow">in</span> <span class="n">shiftex</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">els</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">els</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+	    <span class="n">inj</span><span class="o">=</span><span class="bp">True</span>
+	    <span class="k">if</span> <span class="n">els</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+	       <span class="n">els</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="bp">True</span>
+	       <span class="n">inject_modtop</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">els</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 	    
-	    break
+	    <span class="k">break</span>
       
-      if inj is False:
-         f.write(ln+"\n")
+      <span class="k">if</span> <span class="n">inj</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-   f.close()	 
-</code></pre>
+   <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>	 
+</pre></div>
+
   </div>
 </div>
 
@@ -1320,7 +1396,7 @@ The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] 
   
       
   <div class="item">
-    <div class="name def" id="dtools.topology.outputs.inject_modtop">
+    <div class="name def" id="dimerizer.topology.outputs.inject_modtop">
     <p>def <span class="ident">inject_modtop</span>(</p><p>f, lns)</p>
     </div>
     
@@ -1329,15 +1405,16 @@ The number of atoms (nat) is all that is needed to build the [ virtual_sites2 ] 
   
     <div class="desc"><p>Utility function that writes a list lns to a file f.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.topology.outputs.inject_modtop', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.topology.outputs.inject_modtop" class="source">
-    <pre><code>def inject_modtop(f,lns):
-   """
-   Utility function that writes a list lns to a file f.
-   """
-   for ln in lns:
-      f.write(ln+"\n")
-</code></pre>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.topology.outputs.inject_modtop', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.topology.outputs.inject_modtop" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">inject_modtop</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">lns</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Utility function that writes a list lns to a file f.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">lns</span><span class="p">:</span>
+      <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 

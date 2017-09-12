@@ -1,6 +1,6 @@
-import dtools.forcefield.basic_parsing_tools as parser
-import dtools.forcefield.write_func as wr
-from dtools.forcefield import basic_manip as manip
+import dimerizer.forcefield.basic_parsing_tools as parser
+import dimerizer.forcefield.write_func as wr
+from dimerizer.forcefield import basic_manip as manip
 
 def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
    """

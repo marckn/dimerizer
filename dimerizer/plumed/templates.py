@@ -1,4 +1,4 @@
-from dtools.alparser import atomlist_backparser as backparser
+from dimerizer.alparser import atomlist_backparser as backparser
 
 def write(sigmas,natoms,atomlist,outdir, allatoms=False, q = 0.5, temp = 300, atoffset=0):
    """

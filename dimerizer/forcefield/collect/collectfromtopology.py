@@ -1,4 +1,4 @@
-import dtools.forcefield.basic_parsing_tools as parser
+import dimerizer.forcefield.basic_parsing_tools as parser
 import basic_func as basic
 
 def collect_tags(fname, atomlist):

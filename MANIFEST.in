@@ -1,0 +1,6 @@
+include README.rst
+include tables/*
+include unmodified_forcefield/*
+include examples/*
+include doc/*
+include env.sh

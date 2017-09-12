@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>dtools.forcefield.write_func API documentation</title>
+    <title>dimerizer.forcefield.write_func API documentation</title>
     <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -851,6 +851,77 @@ table {
 
   </style>
 
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
 
   <style type="text/css">
   
@@ -973,7 +1044,7 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#dtools.forcefield.write_func.sec_to_file">sec_to_file</a></li>
+    <li class="mono"><a href="#dimerizer.forcefield.write_func.sec_to_file">sec_to_file</a></li>
   </ul>
 
     </li>
@@ -990,29 +1061,30 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">dtools.forcefield.write_func</span> module</h1>
+  <h1 class="title"><span class="name">dimerizer.forcefield.write_func</span> module</h1>
   
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.write_func', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.write_func" class="source">
-    <pre><code>def sec_to_file(fhand,secdata):
-   """
-   Write a section to a file.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.write_func', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.write_func" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">sec_to_file</span><span class="p">(</span><span class="n">fhand</span><span class="p">,</span><span class="n">secdata</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Write a section to a file.</span>
+<span class="sd">   </span>
+<span class="sd">   secdata is the section content as returned from get_section(). </span>
+<span class="sd">   It can be a list.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   secdata is the section content as returned from get_section(). 
-   It can be a list.
-   """
-   
-   if not isinstance(secdata,list):
-      secdata=[secdata]
+   <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">secdata</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+      <span class="n">secdata</span><span class="o">=</span><span class="p">[</span><span class="n">secdata</span><span class="p">]</span>
       
-   for dd in secdata:
-      fhand.write("[ "+dd[0]+" ]\n")
-      for ln in dd[1]:
-         fhand.write(ln+"\n")
+   <span class="k">for</span> <span class="n">dd</span> <span class="ow">in</span> <span class="n">secdata</span><span class="p">:</span>
+      <span class="n">fhand</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;[ &quot;</span><span class="o">+</span><span class="n">dd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; ]</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">dd</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+         <span class="n">fhand</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 	 
    
-</code></pre>
+</pre></div>
+
   </div>
 
   </header>
@@ -1022,7 +1094,7 @@ table {
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="dtools.forcefield.write_func.sec_to_file">
+    <div class="name def" id="dimerizer.forcefield.write_func.sec_to_file">
     <p>def <span class="ident">sec_to_file</span>(</p><p>fhand, secdata)</p>
     </div>
     
@@ -1033,24 +1105,25 @@ table {
 <p>secdata is the section content as returned from get_section(). 
 It can be a list.</p></div>
   <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dtools.forcefield.write_func.sec_to_file', this);">Show source &equiv;</a></p>
-  <div id="source-dtools.forcefield.write_func.sec_to_file" class="source">
-    <pre><code>def sec_to_file(fhand,secdata):
-   """
-   Write a section to a file.
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-dimerizer.forcefield.write_func.sec_to_file', this);">Show source &equiv;</a></p>
+  <div id="source-dimerizer.forcefield.write_func.sec_to_file" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">sec_to_file</span><span class="p">(</span><span class="n">fhand</span><span class="p">,</span><span class="n">secdata</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Write a section to a file.</span>
+<span class="sd">   </span>
+<span class="sd">   secdata is the section content as returned from get_section(). </span>
+<span class="sd">   It can be a list.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
    
-   secdata is the section content as returned from get_section(). 
-   It can be a list.
-   """
-   
-   if not isinstance(secdata,list):
-      secdata=[secdata]
+   <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">secdata</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+      <span class="n">secdata</span><span class="o">=</span><span class="p">[</span><span class="n">secdata</span><span class="p">]</span>
       
-   for dd in secdata:
-      fhand.write("[ "+dd[0]+" ]\n")
-      for ln in dd[1]:
-         fhand.write(ln+"\n")
-</code></pre>
+   <span class="k">for</span> <span class="n">dd</span> <span class="ow">in</span> <span class="n">secdata</span><span class="p">:</span>
+      <span class="n">fhand</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;[ &quot;</span><span class="o">+</span><span class="n">dd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; ]</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">ln</span> <span class="ow">in</span> <span class="n">dd</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+         <span class="n">fhand</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ln</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
   </div>
 </div>
 
