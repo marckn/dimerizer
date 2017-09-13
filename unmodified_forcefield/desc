@@ -1,0 +1,8 @@
+These forcefield come directly from the official charmm repository and 
+can be specified to the dimerizer script as base to be modified. 
+Not every file will be modified, only:
+atomtypes
+ff*
+
+these modified files will be placed in the output directory and should be 
+used ONLY for the simulation that is being planned.

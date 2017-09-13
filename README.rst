@@ -15,6 +15,8 @@ the doc folder for the inner workings of the script. A paper will be shortly pub
 how this is done and show some benchmark and new tests of Dimer Metadynamics.
 
 
+This is a python2.7 code, to install it remember to use the correct pip version (i.e. pip2.7).
+
 # Auxiliary scripts
 
 There are also two support scripts that help setting up and controlling 
