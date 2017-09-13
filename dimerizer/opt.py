@@ -47,9 +47,9 @@ def integ(func,rng,npoints):
    return intg*ds
    
 
-def prob(sig1,sig2,q,gamma,N, rng, npoints):
+def prob(sig1,sig2,q,gamma, rng, npoints):
    """
-   Probability two swap between two replicas of non-interacting N dimers with 
+   Probability two swap between two dimers each of a different replica with 
    parameters q, sig1 and sig2. gamma is the boosting factor of metadynamics, 
    rng and npoints are respectively numerical integrations interval and points.
    
@@ -70,7 +70,7 @@ def prob(sig1,sig2,q,gamma,N, rng, npoints):
    Z2 = integ(z2,rng,npoints)
    num = integ(numf, rng,npoints)
 
-   return (num**2/(Z1*Z2))**N
+   return (num**2/(Z1*Z2))
 
 
 def findopt(sigstart,ptarg,q,gamma,N, nsigmaint=20, intres=100, epsend = 0.01, escloop = 200):
@@ -96,21 +96,22 @@ def findopt(sigstart,ptarg,q,gamma,N, nsigmaint=20, intres=100, epsend = 0.01, e
    """
    sigend=2*sigstart
    intpoints=nsigmaint*intres
-   p = prob(sigstart,sigend,q,gamma,N, (0,nsigmaint*sigend), intpoints)
-   while p > ptarg:
+   p = prob(sigstart,sigend,q,gamma, (0,nsigmaint*sigend), intpoints)
+   pntarg=math.pow(ptarg,1.0/N)
+   while p > pntarg:
       sigend = sigend + sigstart
-      p = prob(sigstart,sigend,q,gamma,N, (0,nsigmaint*sigend), intpoints)
-   
+      p = prob(sigstart,sigend,q,gamma, (0,nsigmaint*sigend), intpoints)
+         
    sigint=nsigmaint*sigend
    
    sL=sigstart
    sR=sigend
    sM = (sL+sR)/2
    for i in xrange(escloop):
-      pL = prob(sigstart,sL,q,gamma,N, (0,sigint), intpoints) - ptarg
-      pR = prob(sigstart,sR,q,gamma,N, (0,sigint), intpoints) - ptarg
+      pL = prob(sigstart,sL,q,gamma, (0,sigint), intpoints) - pntarg
+      pR = prob(sigstart,sR,q,gamma, (0,sigint), intpoints) - pntarg
       sM=(sL+sR)/2
-      pM = prob(sigstart,sM,q,gamma,N, (0,sigint), intpoints) - ptarg
+      pM = prob(sigstart,sM,q,gamma, (0,sigint), intpoints) - pntarg
       
       if pL*pM < 0:
          sR=sM
@@ -121,6 +122,6 @@ def findopt(sigstart,ptarg,q,gamma,N, nsigmaint=20, intres=100, epsend = 0.01, e
          break
 
    sM = (sR+sL)/2
-   pM = prob(sigstart,sM,q,gamma,N, (0,sigint), intpoints)
+   pM = prob(sigstart,sM,q,gamma, (0,sigint), intpoints)
    
    return (sM,pM)

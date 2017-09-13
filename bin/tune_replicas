@@ -25,6 +25,7 @@ optional.add_argument('--nsigmaint',type=int,help='Numerical integration range i
 optional.add_argument('--intres',type=int,help='Numerical integration points for each sigma-interval', default=100, required=False)
 optional.add_argument('--epsend',type=float,help='Accuracy of the target probability', default=0.01, required=False)
 optional.add_argument('--escloop',type=int,help='Maximum iterations in the bisection method', default=200, required=False)
+optional.add_argument('-v','--verbose',type=str,help='Verbose output',nargs='?', default="No", required=False)
 
 args = parser.parse_args()
 
@@ -40,6 +41,7 @@ intres = args.intres
 epsend = args.epsend
 escloop = args.escloop
 
+verbose=args.verbose
 
 
 
@@ -48,6 +50,9 @@ dsigmas=[sigstart, sigstart]
 for i in range(nrep-2):
    (nextsig,pexp) = findopt(dsigmas[i+1],ptarg,q,gamma,N,nsigmaint,intres,epsend,escloop)
    dsigmas.append(nextsig)
+   if verbose != "No":
+      lp="{0:d} ) sigma = {1:.6f}  expected probability = {2:.6f}\n".format(i,nextsig,pexp)
+      print lp 
 
 
 print "With ",nrep," replicas, considering also the Boltzmann replica:"
