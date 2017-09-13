@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='dimerizer',
-      version='1.0',
+      version='1.0.1',
       description='The dimerizer script for Dimer simulations in Gromacs',
       long_description=readme(),
       classifiers=[
