@@ -1,6 +1,6 @@
 import re
 
-def ExtendedList(interactions, natoms,atlist, nadding=2):
+def ExtendedList(interactions, natoms,atlist, nadding=2, double_nondimerized=False):          ADD THIS DOUBLE_NONDIMERIZED TO THE OTHER FUNCTIONS
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -10,6 +10,9 @@ def ExtendedList(interactions, natoms,atlist, nadding=2):
    In this function the original list is kept as in the dimerzied topology that would still hold for the first bead of each dimer. 
    Then the list is extended with another copy of the original list where the indices have been translated by natoms to account for the 
    interactions on the second bead of each dimer.
+   
+   In the case of the pair interaction, double_nondimerized is True, that means that the lines involving non dimerized atoms 
+   have to be written twice in order to account for the halving of the pair interactions table.
    """
    
    finlist=[]
@@ -30,6 +33,8 @@ def ExtendedList(interactions, natoms,atlist, nadding=2):
 	       break
 	       
 	 if not isdimerized:
+	    if double_nondimerized:
+	       extlist.append(el)
 	    continue
 	    
 	 addlist=""

@@ -34,7 +34,7 @@ def addHeader(f):
    ;Please cite the Dimer paper: J. Chem. Theory Comput. 13, 425 (2017).
    
    """)
-   
+
 
 def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ExtendedList, vsites=True):
    f = open(out_file,'w+')
@@ -64,9 +64,8 @@ def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, 
       addVirtualSites(ext_atoms,natoms, atlist)
    
    ext_bonds = extendlist(bonds,natoms, atlist, 2)
-   ext_pairs = extendlist(pairs,natoms, atlist, 2)
-   if extendlist.__name__ == "ClassicalExtList":
-      ext_pairs[0] = ext_pairs[0] + ext_pairs[0]   # with VSITES tablep is halved
+   ext_pairs = extendlist(pairs,natoms, atlist, 2,double_nondimerized=True)
+
       
    ext_angles = extendlist(angles,natoms, atlist, 3)
    ext_dihedrals = extendlist(dihedrals,natoms, atlist, 4)
