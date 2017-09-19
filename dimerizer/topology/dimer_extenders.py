@@ -1,6 +1,6 @@
 import re
 
-def ExtendedList(interactions, natoms,atlist, nadding=2, double_nondimerized=False):          ADD THIS DOUBLE_NONDIMERIZED TO THE OTHER FUNCTIONS
+def ExtendedList(interactions, natoms,atlist, nadding=2):
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -11,8 +11,6 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, double_nondimerized=Fal
    Then the list is extended with another copy of the original list where the indices have been translated by natoms to account for the 
    interactions on the second bead of each dimer.
    
-   In the case of the pair interaction, double_nondimerized is True, that means that the lines involving non dimerized atoms 
-   have to be written twice in order to account for the halving of the pair interactions table.
    """
    
    finlist=[]
@@ -33,8 +31,6 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, double_nondimerized=Fal
 	       break
 	       
 	 if not isdimerized:
-	    if double_nondimerized:
-	       extlist.append(el)
 	    continue
 	    
 	 addlist=""
@@ -152,6 +148,7 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2):
    
    In the classical replica the interaction is only on the virtual sites of the dimers, this function 
    simply takes the standard gromacs topology and translates the atom indices by 2N to point to the respective virtual atoms.
+   
    """   
    finlist=[]
       
@@ -171,6 +168,7 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2):
 	 
 	 if not isdimerized:
 	    extlist.append(el)
+	    
 	    continue
 	    
 	 addlist=""
