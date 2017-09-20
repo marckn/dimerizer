@@ -64,7 +64,7 @@ def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, 
       addVirtualSites(ext_atoms,natoms, atlist)
    
    ext_bonds = extendlist(bonds,natoms, atlist, 2)
-   ext_pairs = extendlist(pairs,natoms, atlist, 2)
+   ext_pairs = extendlist(pairs,natoms, atlist, 2,doubleit=True)
 
       
    ext_angles = extendlist(angles,natoms, atlist, 3)

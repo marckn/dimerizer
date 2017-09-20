@@ -1,6 +1,6 @@
 import re
 
-def ExtendedList(interactions, natoms,atlist, nadding=2):
+def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -11,6 +11,8 @@ def ExtendedList(interactions, natoms,atlist, nadding=2):
    Then the list is extended with another copy of the original list where the indices have been translated by natoms to account for the 
    interactions on the second bead of each dimer.
    
+   doubleit is used to double a non-dimerized interaction line. This is because the pair interaction tables 
+   in gromacs is unique and thus we need to pass it halved and take it into account in topology.
    """
    
    finlist=[]
@@ -31,7 +33,11 @@ def ExtendedList(interactions, natoms,atlist, nadding=2):
 	       break
 	       
 	 if not isdimerized:
+	    if doubleit:
+	       extlist.append(el)  #tablep is halved
+	    
 	    continue
+	    
 	    
 	 addlist=""
          for idx in idxs[0:nadding]:
@@ -141,7 +147,7 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
    return extlist   
       
 
-def ClassicalExtList(interactions, natoms,atlist, nadding=2):
+def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
    """
    Builds a section of the topology file with the interactions pointing to the virtual sites of each dimer. 
    This is used for the classical replica.
@@ -149,6 +155,8 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2):
    In the classical replica the interaction is only on the virtual sites of the dimers, this function 
    simply takes the standard gromacs topology and translates the atom indices by 2N to point to the respective virtual atoms.
    
+   doubleit is used to double a non-dimerized interaction line and the virtual site pair interactions. This is because the pair interaction tables 
+   in gromacs is unique and thus we need to pass it halved and take it into account in topology.
    """   
    finlist=[]
       
@@ -168,6 +176,8 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2):
 	 
 	 if not isdimerized:
 	    extlist.append(el)
+	    if doubleit:
+	       extlist.append(el)
 	    
 	    continue
 	    
@@ -183,7 +193,9 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2):
          for v in remlist:
             addlist = addlist + " "+str(v)
 
-         deltalist.append(addlist)  
+         deltalist.append(addlist)
+	 if doubleit:
+	    deltalist.append(addlist)  
 	 
       extlist = extlist + deltalist
       finlist.append(extlist)
