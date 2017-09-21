@@ -23,6 +23,21 @@ def addVirtualSites(at,nat, atlist):
       a1 = i+1
       a2 = ii + nat+1
       at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.5") 
+      
+   offset=offset + len(atlist)
+   for ii,i in enumerate(atlist): 
+      site = ii+nat+offset+1
+      a1 = i+1
+      a2 = ii + nat+1
+      at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.0") 
+
+   offset=offset + len(atlist)
+   for ii,i in enumerate(atlist): 
+      site = ii+nat+offset+1
+      a1 = i+1
+      a2 = ii + nat+1
+      at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  1.0") 
+      
 
 def addHeader(f):
    """

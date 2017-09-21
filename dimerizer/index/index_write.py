@@ -26,13 +26,15 @@ def writeClassical(basedir,natoms,totatoms,atomlist):
    
    ndimers = len(atomlist)
    
-   writeln(f,xrange(0,totatoms+2*ndimers))
+   writeln(f,xrange(0,totatoms+4*ndimers))
       
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
    writeln(f,atomlist) # atomlist is a list of indices and writeln converts it to serials
    writeln(f,range(natoms,natoms+ndimers))
+   writeln(f,range(natoms+2*ndimers,natoms+4*ndimers))
+   
    
    f.write("\n\n")   
    f.write("[ INTF ]\n")
@@ -46,7 +48,7 @@ def writeClassical(basedir,natoms,totatoms,atomlist):
       sc = set(range(0,natoms))
       snon = sc - set(atomlist)
       writeln(f, list(snon))
-      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
+      writeln(f,xrange(natoms+4*ndimers,4*ndimers+totatoms))
  
       f.write("\n")
       
@@ -66,7 +68,7 @@ def writeDimer(basedir,natoms,totatoms,atomlist,nrep=1):
    f.write("[ system ]\n")
    
    ndimers = len(atomlist)
-   writeln(f,xrange(0,totatoms+2*ndimers))
+   writeln(f,xrange(0,totatoms+4*ndimers))
     
    f.write("\n\n")
    
@@ -81,7 +83,8 @@ def writeDimer(basedir,natoms,totatoms,atomlist,nrep=1):
    f.write("\n\n")
    
    f.write("[ NONINT ]\n")
-   writeln(f,xrange(natoms+ndimers,natoms+2*ndimers))
+   writeln(f,xrange(natoms+ndimers,natoms+4*ndimers))
+   
    
    f.write("\n")
 
@@ -92,7 +95,7 @@ def writeDimer(basedir,natoms,totatoms,atomlist,nrep=1):
       sc = set(range(0,natoms))
       snon = sc - set(atomlist)
       writeln(f, list(snon))
-      writeln(f,xrange(natoms+2*ndimers,2*ndimers+totatoms))
+      writeln(f,xrange(natoms+4*ndimers,4*ndimers+totatoms))
    
       f.write("\n")
 

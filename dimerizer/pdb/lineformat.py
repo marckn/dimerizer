@@ -1,6 +1,6 @@
 import re
 # pdb whacky vintage format
-def editline(line, offset, coffset=(0,0,0)):
+def editline(line, newidx, coffset=(0,0,0)):
    """
    Edits a line in a .pdb file respecting the PDB standard
    
@@ -12,14 +12,14 @@ def editline(line, offset, coffset=(0,0,0)):
    Arguments:
    line: String, a line of a .pdb file to be edited
    
-   offset: Integer. The offset the atom index is shifted.
+   newidx: Integer. The new atom index.
    
    coffset: Integer 3-ple. The offset of the coordinate shift in each direction. Only the X direction is implemented.
    
    """
    atmidx=re.findall(r"\b\d+\b",line)[0]   
    
-   atmidx = int(atmidx)+int(offset)
+   atmidx = int(newidx)
    
    atmidx=str(atmidx)
    entryp=11- len(atmidx)  # no need to pad with 0 because we only sum

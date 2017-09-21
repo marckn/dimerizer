@@ -57,6 +57,7 @@ class dimerizer:
       atc=0
       restart=0
       
+      idxcount=int(1)
       for n,ln in enumerate(self.oread.rbuff):
          self.fhand.write(ln+"\n")
 	 if n >= self.entrypoint and atc in self.atomlist:
@@ -64,6 +65,7 @@ class dimerizer:
 	    
 	 if self.oread.isatom(ln):
 	    atc = atc+1
+	    idxcount=idxcount+1
 	    
 	 if atc == self.natoms:
 	    restart=n+1
@@ -72,27 +74,41 @@ class dimerizer:
       
       for i,el in enumerate(basetocopy):
          if self.oread.isatom(el) is True:
-	    el=lineformat.editline(el,self.natoms-self.atomlist[i]+i,(0.002,0,0))
+	    el=lineformat.editline(el,idxcount,(0.002,0,0))
+	    idxcount = idxcount+1
 	    
 	 self.fhand.write(el+"\n")
 	 
       if dovsites:
-         offset=self.natoms+len(self.atomlist)
-	 for i,el in enumerate(basetocopy):
+         for i,el in enumerate(basetocopy):
             if self.oread.isatom(el) is True:
-	       el=lineformat.editline(el,offset-self.atomlist[i]+i,(0.001,0,0))
+	       el=lineformat.editline(el,idxcount,(0.001,0,0))
+	       idxcount = idxcount+1
       	 
 	    self.fhand.write(el+"\n")
 	    
-	 offset = 2*len(self.atomlist)
-      
-      else:
-         offset=len(self.atomlist)	
 	
+      #virtuals to "fix" the PME grid
+      for i,el in enumerate(basetocopy):
+         if self.oread.isatom(el) is True:
+	    el=lineformat.editline(el,idxcount,(0.000,0,0))
+	    idxcount = idxcount+1
+	    
+	 self.fhand.write(el+"\n")
+	
+      for i,el in enumerate(basetocopy):
+         if self.oread.isatom(el) is True:
+	    el=lineformat.editline(el,idxcount,(0.002,0,0))
+	    idxcount = idxcount+1
+	    
+	 self.fhand.write(el+"\n")
+
       for n in range(restart,len(self.oread.rbuff)):
          ln = self.oread.rbuff[n]
 	 if self.oread.isatom(ln) is True:
-	    ln = lineformat.editline(ln,offset)
+	    ln = lineformat.editline(ln,idxcount)
+	    idxcount = idxcount+1
+	    
 	 self.fhand.write(ln+"\n")
       
       self.fhand.close()
