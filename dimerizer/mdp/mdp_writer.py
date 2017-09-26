@@ -1,4 +1,4 @@
-def writeClassical(mdpclean,outdir,mdpf,nondimer):
+def writeClassical(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    """
    Gromacs MDP file for the classical replica.
    
@@ -27,6 +27,10 @@ def writeClassical(mdpclean,outdir,mdpf,nondimer):
    str1=""
    str2=""
    str3=""
+   str4="User"
+   if pme:
+      str4="PME-User"
+      
    if nondimer:
       str1="NONDIM"
       str2="NONDIM NONDIM INTF NONDIM"
@@ -38,16 +42,18 @@ def writeClassical(mdpclean,outdir,mdpf,nondimer):
    integrator=md
    nstcalcenergy=1
    vdw_type=user
-   coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
+   coulombtype=%s  ; can be either User or PME-User. Don't change here unless you also change tables.
+   rcoulomb= %s
+   ew_rtol= %s
    cutoff-scheme=group
    energygrps=NONINT INTF %s
    energygrp_table=INTF INTF %s
    energygrp-excl=NONINT NONINT NONINT INTF %s
-   """ % (str1,str2,str3)
+   """ % (str4,str(rcoulomb),str(ew_rtol),str1,str2,str3)
    f.write(fstr)
 
 
-def writeDimer(mdpclean,outdir,mdpf,nondimer):
+def writeDimer(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    """
    Gromacs MDP file for the delocalized replicas.
    
@@ -74,6 +80,10 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer):
    str1=""
    str2=""
    str3=""
+   str4="User"
+   if pme:
+      str4="PME-User"
+
    if nondimer:
       str1="NONDIM"
       str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
@@ -84,17 +94,19 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer):
    integrator=md
    nstcalcenergy=1
    vdw_type=user
-   coulombtype=PME-User   ; put User if you don't need long-range Coulomb corrections
+   coulombtype=%s  ; can be either User or PME-User. Don't change here unless you also change tables.
+   rcoulomb= %s
+   ew_rtol= %s
    cutoff-scheme=group
    energygrps=INT1 INT2 NONINT %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
    energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 NONINT NONINT %s
-   """ % (str1,str2,str3)
+   """ % (str4,str(rcoulomb),str(ew_rtol),str1,str2,str3)
 
    f.write(fstr)
 
 
-def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
+def writeNoVsites(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    """
    Gromacs MDP file for the Dimer replicas without virtual sites.
    
@@ -116,6 +128,10 @@ def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
       
    str1=""
    str2=""
+   str4="User"
+   if pme:
+      str4="PME-User"
+
    if nondimer:
       str1="NONDIM"
       str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
@@ -126,12 +142,14 @@ def writeNoVsites(mdpclean,outdir,mdpf,nondimer):
    integrator=md
    nstcalcenergy=1
    vdw_type=user
-   coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
+   coulombtype=%s  ; can be either User or PME-User. Don't change here unless you also change tables.
+   rcoulomb= %s
+   ew_rtol= %s
    cutoff-scheme=group
    energygrps=INT1 INT2 %s
    energygrp_table=INT1 INT1 INT2 INT2 %s
    energygrp-excl=INT1 INT2"
-   """ % (str1,str2)
+   """ % (str4,str(rcoulomb),str(ew_rtol),str1,str2)
 
    f.write(fstr)
 

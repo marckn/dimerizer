@@ -21,9 +21,21 @@ parser.add_argument('-q','--q',help='Dimer spring power law (default 0.5)',type=
 parser.add_argument('-t','--temperature',help='Temperature of the simulation (default 300K)',type=float,default=300)
 parser.add_argument('-m','--mdp',help='Gromacs mdp file',type=str)
 parser.add_argument('-d','--dimers',help='List of atoms to dimerize (numbers from 1 to N)',type=str,default="All")
+parser.add_argument('-er','--ewrtol',help='ewald direct/longrange weight ratio (default 1E-5, as in Gromacs)',type=float,default=1E-5)
+parser.add_argument('-rc','--rcoulomb',help='Coulomb short range cutoff (default 1.0)',type=float,default=1.0)
+parser.add_argument('-sc','--scut',help='Short distance cutoff in the tables (default 0.04)',type=float,default=0.04)
+parser.add_argument('-np','--nopme', nargs='?', help='Do not consider PME (default: False)', default=False)
+
+
+
 
 args = parser.parse_args()
 
+
+rcoulomb = args.rcoulomb
+ew_rtol = args.ewrtol
+pme = not args.nopme
+scut = args.scut
 
 
 natoms  = args.N
@@ -87,6 +99,10 @@ else:
    dimerizer.index.index_write.writeNoVsites(outdir,natoms,totatoms,atomlist)
 
 
+# Building tables
+import dimerizer.tables.build
+dimerizer.tables.build.btab(outdir,rcoulomb,ew_rtol, pme, scut)
+
 # Building plumed file(s)
 if not dimsigmas is None:
    import dimerizer.plumed.templates
@@ -95,7 +111,7 @@ if not dimsigmas is None:
 if not mdpfile is None:
    import dimerizer.mdp.editor
    nondimer = not allatoms or len(atomlist) < natoms
-   dimerizer.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer)
+   dimerizer.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer,rcoulomb,ew_rtol,pme)
 
 
 # Editing forcefield
