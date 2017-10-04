@@ -64,6 +64,12 @@ stout=list(stout)[:-1]
 stout="".join(stout)
 print stout
 
+print "\n Format for plread:"
+stout=""
+for s in dsigmas:
+   stout = stout + " {0:.6f} ".format(s)
+
+print stout
 
 
 

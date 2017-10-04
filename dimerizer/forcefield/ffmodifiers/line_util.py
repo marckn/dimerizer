@@ -31,7 +31,7 @@ def dimer_lines(dtype, ntags):
    
    return list(set(pbb))
 
-def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False):
+def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispair=False):
    """
    For every tag combination in tagmod produce the new interaction lines.
    
@@ -47,15 +47,24 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False):
    virtual atoms are considered accordingly.
    """
    lnl=[]
-   for val in values:
-      nvalues=[]+val
+   for cval in values:
+      nvalues=[]+cval
       ln=""
+      allbeads=True
       for i,val in enumerate(tagmod):
          nvalues[i]=nvalues[i]+val
+	 lval=list(val)
+	 sval="".join(lval[-2:])
+	 if not sval == "_B":
+	    allbeads=False
    
+      divide_fac=float(2)
+      if allbeads and ispair:
+         divide_fac=4
+            
       if isinstance(vtohalve,list):
          for vidx in vtohalve:
-            nvalues[vidx]=float(nvalues[vidx])/2
+            nvalues[vidx]=float(nvalues[vidx])/divide_fac
 	 
       if atomtypes:
          if isvirtual:
@@ -74,7 +83,7 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False):
    return lnl
    
    
-def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False):
+def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False,ispair=False):
    """
    From an interaction line determine all the necessary dimerized interactions. 
    If a list is passed, it is considered as a whole block (i.e. dihedral interactions with func=9)
@@ -111,7 +120,7 @@ def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False):
    
     
    for tm in bb:
-      lines=getnewlines(values,tm,vtohalve,atomtypes,isvirtual=False)
+      lines=getnewlines(values,tm,vtohalve,atomtypes,False,ispair)
       dimerized= dimerized+lines
    
    if vsites:

@@ -27,15 +27,21 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
          remlist=idxs[nadding:]
 	 
 	 isdimerized=False
+	 alldimerized=True
+	 
+	 TO BE FIXED HERE: IDENTIFY _B _B AND DOUBLE ONLY THAT
+
 	 for idx in idxs[0:nadding]:
 	    if int(idx)-1 in atlist:
 	       isdimerized=True
-	       break
+	    else:
+	       alldimerized=False
 	       
-	 if not isdimerized:
+	 if alldimerized:
 	    if doubleit:
-	       extlist.append(el)  #tablep is halved
+	       extlist.append(el)  #double bead_bead pair interaction
 	    
+	 if not isdimerized:
 	    continue
 	    
 	    
@@ -81,6 +87,8 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
          data[1]=data[1]+"_B" 
          if classical:
             data[6]=str(0.0)
+	 else:
+	    data[6]= str(float(data[6])/2)
 	
 	
       
@@ -108,6 +116,8 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
       data[1] = data[1]+"_B"
       if classical:
          data[6]=str(0.0)
+      else:
+	    data[6]= str(float(data[6])/2)
       
       data[2]=str(int(data[2])+d2last)
       d22last=int(data[2])
@@ -157,7 +167,7 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
       if classical:
          data[6]=str(0.0)
       else:
-         data[6] = str(-float(data[6]))
+         data[6] = "0.0";str(-float(data[6]))
 	 
       data[2]=str(int(data[2])+d22last)
       data[7]=str(0.0)
@@ -181,7 +191,7 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
       if classical:
          data[6]=str(0.0)
       else:
-         data[6] = str(-float(data[6]))
+         data[6] = "0.0";str(-float(data[6]))
 	 
       data[2]=str(int(data[2])+d22last)
       data[7]=str(0.0)
@@ -226,8 +236,8 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
 	 
 	 if not isdimerized:
 	    extlist.append(el)
-	    if doubleit:
-	       extlist.append(el)
+	    #if doubleit:
+	    #   extlist.append(el)
 	    
 	    continue
 	    

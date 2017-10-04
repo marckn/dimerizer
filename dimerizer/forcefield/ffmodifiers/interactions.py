@@ -1,7 +1,7 @@
 from dimerizer.forcefield import basic_parsing_tools as parser
 from dimerizer.forcefield import basic_manip as manip
 import line_util as line
-def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False):
+def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False,ispair=False):
    """
    Manupulate a section of a topology file adding the dimerized interactions.
    
@@ -24,7 +24,7 @@ def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False):
          continue
 
       ff=map(lambda x: x[1], ff)
-      ltadd=line.dimerize_line(ff,ntags,list_halve,vsites,atomtypes)
+      ltadd=line.dimerize_line(ff,ntags,list_halve,vsites,atomtypes,ispair)
       sec = manip.append_lines(sec,ltadd)
       
       
@@ -63,7 +63,7 @@ def pairmod(sec,ilist,vsites):
    """
    Wrapper for nonbonded pair interactions. See intmod.
    """
-   return intmod(sec,ilist,2,[],vsites)   # NO HALVING HERE
+   return intmod(sec,ilist,2,[4],vsites,ispair=True)   # TREATED DIFFERENTLY
 
 
 def atomtypesmod(sec,ilist,vsites):
