@@ -2,7 +2,7 @@ from dimerizer.forcefield import basic_parsing_tools as parser
 from dimerizer.forcefield import basic_manip as manip
 import line_util as line
 import math
-def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False):
+def intmod(sec,ilist,ntags,list_halve,atomtypes=False):
    """
    Manupulate a section of a topology file adding the dimerized interactions.
    
@@ -26,42 +26,42 @@ def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False):
          continue
 
       ff=map(lambda x: x[1], ff)
-      ltadd=line.dimerize_line(ff,ntags,list_halve,vsites,atomtypes)
+      ltadd=line.dimerize_line(ff,ntags,list_halve,atomtypes)
       sec = manip.append_lines(sec,ltadd)
       
       
    return sec
 
 
-def bondmod(sec,ilist,vsites):
+def bondmod(sec,ilist):
    """
    Wrapper for bonds interactions. See intmod.
    """
-   return intmod(sec,ilist,2,[4],vsites)
+   return intmod(sec,ilist,2,[4])
    
 
-def anglemod(sec,ilist,vsites):
+def anglemod(sec,ilist):
    """
    Wrapper for angle interactions. See intmod.
    """
-   return intmod(sec,ilist,3,[5,7],vsites)
+   return intmod(sec,ilist,3,[5,7])
    
 
-def constraintmod(sec,ilist,vsites):
+def constraintmod(sec,ilist):
    """
    Wrapper for constraints. See intmod.
    """
-   return intmod(sec,ilist,2,[],vsites)
+   return intmod(sec,ilist,2,[])
 
-def dihedralmod(sec,ilist,vsites):
+def dihedralmod(sec,ilist):
    """
    Wrapper for dihedral interactions. See intmod.
    """
    
-   return intmod(sec,ilist,4,[6],vsites)
+   return intmod(sec,ilist,4,[6])
 
 
-def pairmod(sec,secatlist,ilist,vsites):
+def pairmod(sec,secatlist,ilist):
    """
    Wrapper for nonbonded pair interactions. This is treated differently from the other interactions 
    because not all of the entries are in the 1-4 section of ffnonbonded. So, we need also to build them 
@@ -98,15 +98,15 @@ def pairmod(sec,secatlist,ilist,vsites):
          continue
 
       ff=map(lambda x: x[1], ff)
-      ltadd=line.dimerize_line(ff,2,[4],vsites,False,True)
+      ltadd=line.dimerize_line(ff,2,[4],False,True)
       sec = manip.append_lines(sec,ltadd)
       
       
    return sec 
 
 
-def atomtypesmod(sec,ilist,vsites):
+def atomtypesmod(sec,ilist):
    """
    Wrapper for nonbonded atomtypes interactions...
    """
-   return intmod(sec,ilist,1,[],vsites,atomtypes=True) 
+   return intmod(sec,ilist,1,[],atomtypes=True) 

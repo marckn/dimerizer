@@ -2,7 +2,7 @@ import dimerizer.forcefield.basic_parsing_tools as parser
 import dimerizer.forcefield.write_func as wr
 from dimerizer.forcefield import basic_manip as manip
 
-def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
+def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey):
    """
    Given a forcefield file and the atomic tags obtained from the topology file make a new forcefield file 
    with the dimerized interactions.
@@ -24,7 +24,6 @@ def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
    Each entry in the dictionary is a tuple with: the name of the topology section, and the function used to edit the 
    interaction lines in the forcefield files. 
    
-   vsites: is a flag that specifies whether virtual sites need to be added or not.
    
    alldihedrals: every dihedral interaction in the topology has to be considered here, irrespective of the fact that it 
    is being dimerized or not. This is used because the dihedral interactions defined in the forcefield with one or more 
@@ -62,7 +61,7 @@ def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
       
       if key == "atomtypes":
          fproc=readingkey[key][1]
-	 nsec = fproc(csec[0],tags,vsites)
+	 nsec = fproc(csec[0],tags)
 	 
 	 mdsec.append(nsec)
       
@@ -74,9 +73,9 @@ def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
 	    for curr in csec:
 	       if key == "pairtypes":
 	          atsec= parser.get_section(flist,"atomtypes")
-		  ns = fproc(curr,atsec[0],cs[1],vsites)
+		  ns = fproc(curr,atsec[0],cs[1])
 	       else:
-	          ns = fproc(curr,cs[1],vsites)   
+	          ns = fproc(curr,cs[1])   
 	       
 	       nsec.append(ns)
 	    

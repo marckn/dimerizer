@@ -67,7 +67,7 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
    
    
  
-def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
+def atomsExtendedList(atoms,natoms,atomlist, classical=False):
    """
    From the original [ atoms ] section build the dimerzied one.
    
@@ -101,10 +101,7 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
       
       extlist.append(nln)
 	 
-      
-   
-   
-   
+ 
    d22last=int(0)
    ioffset=int(1)
    for ln in atlist:
@@ -128,9 +125,7 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
          nln=nln+"  "+str(rel)
       
       extlist.append(nln)
-   
-   if not vsites:
-      return extlist   
+     
    
    for ln in atlist:
       data = re.findall(r' \S+',ln)
@@ -141,58 +136,8 @@ def atomsExtendedList(atoms,natoms,atomlist,vsites=True, classical=False):
       data[0] = str(ioffset+int(natoms))
       ioffset=ioffset+1
       data[1] = data[1]+"_V"
-      #if not classical:
-      #   data[6]=str(0.0)
-	 
-      data[2]=str(int(data[2])+d22last)
-      data[7]=str(0.0)
-      
-      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
-      
-      for rel in data[8:]:
-         nln=nln+"  "+str(rel)
-      
-      extlist.append(nln)
-
-
-   #adding coulomb shielding
-   for ln in atlist:
-      data = re.findall(r' \S+',ln)
-      
-      if not int(data[0])-1 in atomlist:
-         continue
-	 
-      data[0] = str(ioffset+int(natoms))
-      ioffset=ioffset+1
-      data[1] = data[1]+"_V"
-      if classical:
+      if not classical:
          data[6]=str(0.0)
-      else:
-         data[6] = "0.0";str(-float(data[6]))
-	 
-      data[2]=str(int(data[2])+d22last)
-      data[7]=str(0.0)
-      
-      nln="{0:10s} {1:10s} {2:10s} {3:10s} {4:10s} {5:10s} {6:10s} {7:10s}".format(*data[0:8])
-      
-      for rel in data[8:]:
-         nln=nln+"  "+str(rel)
-      
-      extlist.append(nln)
-
-   for ln in atlist:
-      data = re.findall(r' \S+',ln)
-      
-      if not int(data[0])-1 in atomlist:
-         continue
-	 
-      data[0] = str(ioffset+int(natoms))
-      ioffset=ioffset+1
-      data[1] = data[1]+"_V"
-      if classical:
-         data[6]=str(0.0)
-      else:
-         data[6] = "0.0";str(-float(data[6]))
 	 
       data[2]=str(int(data[2])+d22last)
       data[7]=str(0.0)
@@ -236,10 +181,7 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
 	       break
 	 
 	 if not isdimerized:
-	    extlist.append(el)
-	    #if doubleit:
-	    #   extlist.append(el)
-	    
+	    extlist.append(el)	    
 	    continue
 	    
 	 addlist=""
@@ -255,8 +197,6 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
             addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)
-	 #if doubleit:
-	 #   deltalist.append(addlist)  
 	 
       extlist = extlist + deltalist
       finlist.append(extlist)

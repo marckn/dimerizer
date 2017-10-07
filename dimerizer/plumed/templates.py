@@ -16,7 +16,7 @@ def write(sigmas,natoms,atomlist,outdir, allatoms=False, q = 0.5, temp = 300, at
       
       d1b1=backparser(atomlist)
       d1b2=backparser(atlist2)
-      wholemolrange="1-"+str(natoms+4*len(atomlist))
+      wholemolrange="1-"+str(natoms+2*len(atomlist))
       grps="""
 GROUP ATOMS=%s LABEL=d1b1
 GROUP ATOMS=%s LABEL=d1b2

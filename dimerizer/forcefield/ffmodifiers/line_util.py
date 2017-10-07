@@ -87,7 +87,7 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispa
    return lnl
    
    
-def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False,ispair=False):
+def dimerize_line(values, ntags, vtohalve,atomtypes=False,ispair=False):
    """
    From an interaction line determine all the necessary dimerized interactions. 
    If a list is passed, it is considered as a whole block (i.e. dihedral interactions with func=9)
@@ -127,10 +127,10 @@ def dimerize_line(values, ntags, vtohalve,vsites,atomtypes=False,ispair=False):
       lines=getnewlines(values,tm,vtohalve,atomtypes,False,ispair)
       dimerized= dimerized+lines
    
-   if vsites:
-      for tm in vv:
-         lines=getnewlines(values,tm,None,atomtypes,isvirtual=True)  
-	 dimerized=dimerized+lines
+   
+   for tm in vv:
+      lines=getnewlines(values,tm,None,atomtypes,isvirtual=True)  
+      dimerized=dimerized+lines
       
    return dimerized
 

@@ -23,21 +23,7 @@ def addVirtualSites(at,nat, atlist):
       a1 = i+1
       a2 = ii + nat+1
       at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.5") 
-      
-   offset=offset + len(atlist)
-   for ii,i in enumerate(atlist): 
-      site = ii+nat+offset+1
-      a1 = i+1
-      a2 = ii + nat+1
-      at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  0.0") 
-
-   offset=offset + len(atlist)
-   for ii,i in enumerate(atlist): 
-      site = ii+nat+offset+1
-      a1 = i+1
-      a2 = ii + nat+1
-      at.append("  "+str(site)+"  "+str(a1)+"  "+str(a2)+"  1  1.0") 
-      
+           
 
 def addHeader(f):
    """
@@ -51,7 +37,7 @@ def addHeader(f):
    """)
 
 
-def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ExtendedList, vsites=True):
+def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ExtendedList):
    f = open(out_file,'w+')
    """
    From a standard Gromacs topology create the dimer .top file
@@ -71,12 +57,12 @@ def dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, 
    
    addHeader(f)
    if extendlist.__name__ == "ClassicalExtList":
-      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,True)
+      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,True)
    else:
-      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,vsites,False)
+      ext_atoms = de.atomsExtendedList(atoms, natoms,atlist,False)
    
-   if vsites:
-      addVirtualSites(ext_atoms,natoms, atlist)
+   
+   addVirtualSites(ext_atoms,natoms, atlist)
    
    ext_bonds = extendlist(bonds,natoms, atlist, 2)
    ext_pairs = extendlist(pairs,natoms, atlist, 2,doubleit=True)
@@ -133,6 +119,6 @@ def classical(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, nato
     
    This is handled by the previous function "dimer" with de.ClassicalExtList passed as argument.
    """
-   dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ClassicalExtList, vsites=True)
+   dimer(out_file, olist,atoms, bonds, pairs, angles, dihedrals, cmap, natoms, atlist, extendlist=de.ClassicalExtList)
 	 
 	          

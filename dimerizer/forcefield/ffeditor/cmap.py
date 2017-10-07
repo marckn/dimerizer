@@ -2,7 +2,7 @@ import dimerizer.forcefield.basic_parsing_tools as parser
 import dimerizer.forcefield.ffmodifiers.line_util as permute
 
 import cmaputils
-def edit(fname,outfile,linvolved,vsites):
+def edit(fname,outfile,linvolved):
    """
    Edit the cmap forcefield file. 
    
@@ -40,15 +40,15 @@ def edit(fname,outfile,linvolved,vsites):
 	    
          flist=cmaputils.appendentry(flist,ntag,fnd, halve=True)
       
-      if vsites:
-         ventries=permute.dimer_lines("_V",5)
-         for ltag in ventries:
-	    ntag=[]
-	    for t,suf in zip(entry,ltag):
-	       nl=str(t)+str(suf)
-	       ntag.append(nl)
-	    
-	    flist=cmaputils.appendentry(flist,ntag,fnd,halve=False)
+      
+      ventries=permute.dimer_lines("_V",5)
+      for ltag in ventries:
+         ntag=[]
+         for t,suf in zip(entry,ltag):
+            nl=str(t)+str(suf)
+            ntag.append(nl)
+         
+         flist=cmaputils.appendentry(flist,ntag,fnd,halve=False)
       
 
    # print new file from flist

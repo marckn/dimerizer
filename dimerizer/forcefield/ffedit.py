@@ -4,7 +4,7 @@ import dimerizer.forcefield.ffeditor.cmap as ffcmap
 import dimerizer.forcefield.ffeditor.inter as ffinter
 import dimerizer.forcefield.ffmodifiers.interactions as ffmod
 
-def editdir(topfile,atlist,charmmdir,outdir,vsites):
+def editdir(topfile,atlist,charmmdir,outdir):
    """
    Modify the forcefield accounting for the required topology.
    
@@ -22,9 +22,9 @@ def editdir(topfile,atlist,charmmdir,outdir,vsites):
    tags=list(set(tags))
    
    print "\t ...atomtypes"
-   ffat.edit(charmmdir+"//atomtypes.atp",outdir+"//atomtypes.atp",tags,vsites)
+   ffat.edit(charmmdir+"//atomtypes.atp",outdir+"//atomtypes.atp",tags)
    print "\t ...cmap"
-   ffcmap.edit(charmmdir+"//cmap.itp",outdir+"//cmap.itp",linvolved,vsites)
+   ffcmap.edit(charmmdir+"//cmap.itp",outdir+"//cmap.itp",linvolved)
    
    readingkey={
       "bondtypes"         : (["bonds"],ffmod.bondmod),
@@ -37,11 +37,11 @@ def editdir(topfile,atlist,charmmdir,outdir,vsites):
    
    ddtags = map(lambda x : [x], tags)
    print "\t ...ffbonded"
-   ffinter.editfile(charmmdir+"//ffbonded.itp",outdir+"//ffbonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffbonded.itp",outdir+"//ffbonded.itp",ddtags,linvolved,alldihedrals,readingkey)
    print "\t ...ffnonbonded"
-   ffinter.editfile(charmmdir+"//ffnonbonded.itp",outdir+"//ffnonbonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffnonbonded.itp",outdir+"//ffnonbonded.itp",ddtags,linvolved,alldihedrals,readingkey)
    print "\t ...ffnabonded"
-   ffinter.editfile(charmmdir+"//ffnabonded.itp",outdir+"//ffnabonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffnabonded.itp",outdir+"//ffnabonded.itp",ddtags,linvolved,alldihedrals,readingkey)
    print "\t ...ffnanonbonded"
-   ffinter.editfile(charmmdir+"//ffnanonbonded.itp",outdir+"//ffnanonbonded.itp",ddtags,linvolved,alldihedrals,readingkey,vsites)
+   ffinter.editfile(charmmdir+"//ffnanonbonded.itp",outdir+"//ffnanonbonded.itp",ddtags,linvolved,alldihedrals,readingkey)
    print "Done."

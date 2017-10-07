@@ -41,11 +41,10 @@ class dimerizer:
       	    
       
 		    
-   def buildConfig(self,dovsites):
+   def buildConfig(self):
       """
       Writes a new pdb containing the dimerized configuration.
    
-      This method supports an output dimer configuration with or without virtual sites (dovsites).
       The lines are added sequentially, starting from the unmodified first bead, then adding 
       lines for the second bead with indices shifted by N and X-coordinate by 0.002 and finally, 
       if requested, the virtual sites with indices shifted by 2N and placed at the center of mass of each dimer. 
@@ -79,36 +78,20 @@ class dimerizer:
 	    
 	 self.fhand.write(el+"\n")
 	 
-      if dovsites:
-         for i,el in enumerate(basetocopy):
-            if self.oread.isatom(el) is True:
-	       el=lineformat.editline(el,idxcount,(0.001,0,0))
-	       idxcount = idxcount+1
+      
+      for i,el in enumerate(basetocopy):
+         if self.oread.isatom(el) is True:
+	    el=lineformat.editline(el,idxcount,(0.001,0,0))
+	    idxcount = idxcount+1
       	 
-	    self.fhand.write(el+"\n")
-	    
-	
-      #virtuals to "fix" the PME grid
-      for i,el in enumerate(basetocopy):
-         if self.oread.isatom(el) is True:
-	    el=lineformat.editline(el,idxcount,(0.000,0,0))
-	    idxcount = idxcount+1
-	    
 	 self.fhand.write(el+"\n")
-	
-      for i,el in enumerate(basetocopy):
-         if self.oread.isatom(el) is True:
-	    el=lineformat.editline(el,idxcount,(0.002,0,0))
-	    idxcount = idxcount+1
 	    
-	 self.fhand.write(el+"\n")
-
       for n in range(restart,len(self.oread.rbuff)):
          ln = self.oread.rbuff[n]
 	 if self.oread.isatom(ln) is True:
 	    ln = lineformat.editline(ln,idxcount)
 	    idxcount = idxcount+1
-	    
+	
 	 self.fhand.write(ln+"\n")
-      
+
       self.fhand.close()

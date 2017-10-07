@@ -12,8 +12,7 @@ requiredNamed = parser.add_argument_group('mandatory arguments:')
 requiredNamed.add_argument('-c','--config',type=str, help='PDB file',required=True)
 requiredNamed.add_argument('-p','--topology',type=str,help='Topology file',required=True)
 requiredNamed.add_argument('-ff','--forcefield',type=str,help="Forcefield directory",required=True)
-parser.add_argument('-nvs','--novsites',help='Don\'t build the classical replica (and no virtual sites as well)', \
-                     nargs='?', default=False)
+
 		     
 parser.add_argument('-pl','--plumed',type=str, nargs='+', help='Dimer strenghts for each replica')
 parser.add_argument('-o','--outdir',help='Output directory (default .)', default='.')
@@ -44,10 +43,7 @@ topfile = args.topology
 q = args.q
 temp = args.temperature
 mdpfile = args.mdp
-if args.novsites is False:
-   vsites    = True
-else:
-   vsites = False
+
 
 dimsigmas = args.plumed
 outdir    = args.outdir
@@ -70,7 +66,7 @@ import dimerizer.pdb.pdb_write
 pdbout = outdir+"dconfig.pdb"
 ppdb = dimerizer.pdb.pdb_read.parse_pdb(pdbfile)
 pdbf = dimerizer.pdb.pdb_write.dimerizer(ppdb,pdbout,atomlist,natoms)
-pdbf.buildConfig(vsites)
+pdbf.buildConfig()
 totatoms=pdbf.totatoms
 if len(atomlist)==totatoms:
    allatoms=True
@@ -83,20 +79,18 @@ import dimerizer.topology.topol_write
 topout = outdir+"dtopology.top"
 ptop = dimerizer.topology.topol_read.parse_topol(topfile)
 ftop = dimerizer.topology.topol_write.dimerizer(ptop,natoms,atomlist,topout)
-if vsites:
-   ftop.buildClassical()
-   ftop.buildDimer(1)
-else:
-   ftop.buildDimer(virtualsites=False)
+
+ftop.buildClassical()
+ftop.buildDimer(1)
+
 
 # Building index file(s)
 import dimerizer.index.index_write
 
-if vsites:
-   dimerizer.index.index_write.writeClassical(outdir,natoms,totatoms,atomlist)
-   dimerizer.index.index_write.writeDimer(outdir,natoms,totatoms,atomlist)
-else:
-   dimerizer.index.index_write.writeNoVsites(outdir,natoms,totatoms,atomlist)
+
+dimerizer.index.index_write.writeClassical(outdir,natoms,totatoms,atomlist)
+dimerizer.index.index_write.writeDimer(outdir,natoms,totatoms,atomlist)
+
 
 
 # Building tables
@@ -111,9 +105,9 @@ if not dimsigmas is None:
 if not mdpfile is None:
    import dimerizer.mdp.editor
    nondimer = not allatoms or len(atomlist) < natoms
-   dimerizer.mdp.editor.editfile(mdpfile,outdir,vsites,nondimer,rcoulomb,ew_rtol,pme)
+   dimerizer.mdp.editor.editfile(mdpfile,outdir,nondimer,rcoulomb,ew_rtol,pme)
 
 
 # Editing forcefield
 import dimerizer.forcefield.ffedit as ffedit
-ffedit.editdir(topfile,atomlist,ffdir,outdir,vsites)
+ffedit.editdir(topfile,atomlist,ffdir,outdir)

@@ -1,7 +1,7 @@
 import dimerizer.forcefield.basic_parsing_tools as parser
 import dimerizer.forcefield.basic_manip as manip
 
-def edit(fname,outfile,dtags,vsites):
+def edit(fname,outfile,dtags):
    """
    Read the atomtype file and insert the necessary tags
    """
@@ -18,9 +18,9 @@ def edit(fname,outfile,dtags,vsites):
       else:
          stradd="{0:7s} {1:10f}".format(ctg+"_B",float(tfnd[0][1][1]))
 	 flist.append(stradd)
-	 if vsites:
-	    stradd="{0:7s} {1:10f}".format(ctg+"_V",0.0)
-	    flist.append(stradd)
+	 
+	 stradd="{0:7s} {1:10f}".format(ctg+"_V",0.0)
+	 flist.append(stradd)
 	 
 
    fho = open(outfile,"w+")

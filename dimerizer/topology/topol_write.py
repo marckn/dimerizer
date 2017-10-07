@@ -40,7 +40,7 @@ class dimerizer:
       outputs.classical(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist)
       
    
-   def buildDimer(self, nreplicas=None, virtualsites=True):
+   def buildDimer(self, nreplicas=None):
       """
       Produce a .top file for the dimer delocalized replicas.
       
@@ -68,4 +68,4 @@ class dimerizer:
 
       cmap = self.parser.getKeyword("cmap")
       
-      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist,vsites=virtualsites)
+      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist)
