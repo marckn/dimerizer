@@ -72,7 +72,12 @@ def editfile(fname,fout,tags,linvolved,alldihedrals,readingkey,vsites):
 	    
 	    nsec=[]
 	    for curr in csec:
-	       ns = fproc(curr,cs[1],vsites)   
+	       if key == "pairtypes":
+	          atsec= parser.get_section(flist,"atomtypes")
+		  ns = fproc(curr,atsec[0],cs[1],vsites)
+	       else:
+	          ns = fproc(curr,cs[1],vsites)   
+	       
 	       nsec.append(ns)
 	    
 	    mdsec.append(nsec)	    

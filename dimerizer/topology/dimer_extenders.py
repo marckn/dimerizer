@@ -29,7 +29,6 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
 	 isdimerized=False
 	 alldimerized=True
 	 
-	 TO BE FIXED HERE: IDENTIFY _B _B AND DOUBLE ONLY THAT
 
 	 for idx in idxs[0:nadding]:
 	    if int(idx)-1 in atlist:
@@ -57,7 +56,9 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
          for v in remlist:
             addlist = addlist + " "+str(v)
 
-         deltalist.append(addlist)  
+         deltalist.append(addlist)
+	 if doubleit and alldimerized:
+	    deltalist.append(addlist)  
 	 
       extlist = extlist + deltalist
       finlist.append(extlist)
@@ -254,8 +255,8 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
             addlist = addlist + " "+str(v)
 
          deltalist.append(addlist)
-	 if doubleit:
-	    deltalist.append(addlist)  
+	 #if doubleit:
+	 #   deltalist.append(addlist)  
 	 
       extlist = extlist + deltalist
       finlist.append(extlist)

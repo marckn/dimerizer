@@ -51,14 +51,18 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispa
       nvalues=[]+cval
       ln=""
       allbeads=True
+      onebead=False
       for i,val in enumerate(tagmod):
          nvalues[i]=nvalues[i]+val
-	 lval=list(val)
-	 sval="".join(lval[-2:])
-	 if not sval == "_B":
+	 if not val == "_B":
 	    allbeads=False
+	 else:
+	    onebead=True
    
-      divide_fac=float(2)
+      divide_fac=1
+      if onebead:
+         divide_fac=2
+	 
       if allbeads and ispair:
          divide_fac=4
             

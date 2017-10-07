@@ -1,7 +1,8 @@
 from dimerizer.forcefield import basic_parsing_tools as parser
 from dimerizer.forcefield import basic_manip as manip
 import line_util as line
-def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False,ispair=False):
+import math
+def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False):
    """
    Manupulate a section of a topology file adding the dimerized interactions.
    
@@ -12,19 +13,20 @@ def intmod(sec,ilist,ntags,list_halve,vsites,atomtypes=False,ispair=False):
    ntags is the number of columns representing the atom tags and 
    list_halve is a list containing the column indices of the values to halve 
    where appropriate in the dimerized lines. 
-   This function is meant to be invoked by wrappers for each section that needs to be modified
+   This function is meant to be invoked by wrappers for each section that need to be modified
    """
 
    # get values
    
    for en in ilist:
       ff = manip.find_lines(sec,en)
-      	 
+      
+	
       if len(ff) == 0:
          continue
 
       ff=map(lambda x: x[1], ff)
-      ltadd=line.dimerize_line(ff,ntags,list_halve,vsites,atomtypes,ispair)
+      ltadd=line.dimerize_line(ff,ntags,list_halve,vsites,atomtypes)
       sec = manip.append_lines(sec,ltadd)
       
       
@@ -59,11 +61,48 @@ def dihedralmod(sec,ilist,vsites):
    return intmod(sec,ilist,4,[6],vsites)
 
 
-def pairmod(sec,ilist,vsites):
+def pairmod(sec,secatlist,ilist,vsites):
    """
-   Wrapper for nonbonded pair interactions. See intmod.
+   Wrapper for nonbonded pair interactions. This is treated differently from the other interactions 
+   because not all of the entries are in the 1-4 section of ffnonbonded. So, we need also to build them 
+   with lj combination rules eps = sqrt(eps1ep2) and sigma = (sig1+sig2)/2
+   
    """
-   return intmod(sec,ilist,2,[4],vsites,ispair=True)   # TREATED DIFFERENTLY
+   for en in ilist:
+      ff = manip.find_lines(sec,en)
+      if len(ff) == 0:
+         ff = manip.find_lines(sec,list(reversed(en)))
+	 
+         if len(ff) == 0:
+	    """t
+	    build your 1-4 pair from forcefield params, 
+	    format of ff: [(1471, ['NH1', 'O', '1', '0.262815121852', '0.648182492821'])]
+	    first index (1471 ie) can be ignored
+	    """
+	    atdata1= manip.find_lines(secatlist,[en[0]])
+	    atdata2= manip.find_lines(secatlist,[en[1]])
+	    if len(atdata1) ==0 or len(atdata2) ==0:
+	       continue
+	    
+	    sig1=float(atdata1[0][1][5])
+	    eps1=float(atdata1[0][1][6])
+	    sig2=float(atdata2[0][1][5])
+	    eps2=float(atdata2[0][1][6])
+	    
+	    epsf=math.sqrt(eps1*eps2)
+	    sigf=(sig1+sig2)/2
+	    ldata=[en[0],en[1],'1',sigf,epsf]
+	    ff.append((-1,ldata))
+	    
+      if len(ff) == 0:
+         continue
+
+      ff=map(lambda x: x[1], ff)
+      ltadd=line.dimerize_line(ff,2,[4],vsites,False,True)
+      sec = manip.append_lines(sec,ltadd)
+      
+      
+   return sec 
 
 
 def atomtypesmod(sec,ilist,vsites):
