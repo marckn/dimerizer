@@ -33,7 +33,12 @@ args = parser.parse_args()
 
 rcoulomb = args.rcoulomb
 ew_rtol = args.ewrtol
-pme = not args.nopme
+
+if args.nopme is None:
+   pme = False
+else:
+   pme = True
+
 scut = args.scut
 
 
