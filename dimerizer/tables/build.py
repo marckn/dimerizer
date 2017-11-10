@@ -68,21 +68,20 @@ def btab(outdir,rcoulomb,ew_rtol,usepme,scut=0.04,dx=0.002):
       hdr = 1./(cx**12)
       hpdr =12.0/(cx**13)
       lnpair = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr,gpdr,hdr,hpdr)
-      
+      lnfull = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr,gpdr,hdr,hpdr)
+      lnhalf = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr/2,gpdr/2,hdr/2,hpdr/2)
       if usepme:
+         fdr_bare=1*fdr
+         fpdr_bare=1*fpdr
          fdr = (erfc(beta*cx)-1.0)/cx
 	 term1 = 2*cx*beta*math.exp(-(beta*cx)**2) / math.sqrt(math.pi)
 	 fpdr= (term1 + erfc(beta*cx)-1.0)/cx**2
 	 lnempty = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,-fdr,-fpdr,0,0,0,0)
-	 lnfull = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,0,0,gdr,gpdr,hdr,hpdr)
-	 lndouble = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr/2,gpdr/2,hdr/2,hpdr/2)
-	 lnhalf = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,0,0,gdr/2,gpdr/2,hdr/2,hpdr/2)
+	 lndouble = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr+2*fdr_bare,fpdr+2*fpdr_bare,gdr/2,gpdr/2,hdr/2,hpdr/2)
       else:
          lnempty= "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,0,0,0,0,0,0)
-	 lnfull = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr,gpdr,hdr,hpdr)
 	 lndouble = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,2*fdr,2*fpdr,gdr/2,gpdr/2,hdr/2,hpdr/2)
-	 lnhalf = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr/2,gpdr/2,hdr/2,hpdr/2)
-	  	       
+  	       
    
    
       fpair.write(lnpair)
