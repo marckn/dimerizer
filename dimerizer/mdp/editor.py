@@ -11,7 +11,7 @@ def editfile(mdpf,outdir,allatoms,rcoulomb,ew_rtol,pme):
    outdir: String. The directory for the output.
    allatoms: Flag, True/False. If True it means that solvent is not present and there's no need to define its energy group.
    rcoulomb:  Float. As in Gromacs mpd, the short range coulomb cutoff
-   ew_rtol:   Float. As in Gromacs mpd, the weight ratio between direct and reciprocal terms in PME
+   ew-rtol:   Float. As in Gromacs mpd, the weight ratio between direct and reciprocal terms in PME
    pme:       Flag, True/False. Using PME or not? 
    """
    fn_in = mdpf

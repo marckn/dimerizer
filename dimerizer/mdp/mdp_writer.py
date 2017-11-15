@@ -44,7 +44,7 @@ def writeClassical(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    vdw_type=user
    coulombtype=%s  ; can be either User or PME-User. Don't change here unless you also change tables.
    rcoulomb= %s
-   ew_rtol= %s
+   ew-rtol= %s
    cutoff-scheme=group
    energygrps=NONINT INTF %s
    energygrp_table=INTF INTF %s
@@ -96,7 +96,7 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    vdw_type=user
    coulombtype=%s  ; can be either User or PME-User. Don't change here unless you also change tables.
    rcoulomb= %s
-   ew_rtol= %s
+   ew-rtol= %s
    cutoff-scheme=group
    energygrps=INT1 INT2 NONINT %s
    energygrp_table=INT1 INT1 INT2 INT2 %s

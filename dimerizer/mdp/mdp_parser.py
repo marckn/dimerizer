@@ -10,7 +10,7 @@ def parseandkill(fn_in):
    
    rexp = r".*(vdw_type|vdw\-type|coulombtype|cutoff\-scheme|energygrps|integrator|\
                |energygrp_table|rcoulomb\-switch|rvdw\-switch|nstcalcenergy|energygrp\-excl|\
-	       |rcoulomb|ew_rtol).*"
+	       |rcoulomb|ew-rtol).*"
    reg = re.compile(rexp)
    
    lines=[]
