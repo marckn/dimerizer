@@ -2,7 +2,7 @@ from dimerizer.forcefield import basic_parsing_tools as parser
 from dimerizer.forcefield import basic_manip as manip
 import line_util as line
 import math
-def intmod(sec,ilist,ntags,list_halve,atomtypes=False):
+def intmod(sec,ilist,ntags,list_halve,atomtypes=False,doaltvirtual=False,altvirtualzero=[]):
    """
    Manupulate a section of a topology file adding the dimerized interactions.
    
@@ -14,6 +14,12 @@ def intmod(sec,ilist,ntags,list_halve,atomtypes=False):
    list_halve is a list containing the column indices of the values to halve 
    where appropriate in the dimerized lines. 
    This function is meant to be invoked by wrappers for each section that need to be modified
+   
+   If doaltvirtual is True then the dimerized ff line for the alternate virtual site _F is done too.
+   This alternate virtual site is required for nonclassical replicas in order to handle the PME in a way 
+   that they continously tend to the classical PME energies as replicas -> 0. 
+   This means that some interaction lines of the altvirtual have 0 coefficients, the position of 
+   those coefficients is defined in the altvirtualzero list.
    """
 
    # get values
@@ -26,7 +32,7 @@ def intmod(sec,ilist,ntags,list_halve,atomtypes=False):
          continue
 
       ff=map(lambda x: x[1], ff)
-      ltadd=line.dimerize_line(ff,ntags,list_halve,atomtypes)
+      ltadd=line.dimerize_line(ff,ntags,list_halve,atomtypes,doaltvirtual=doaltvirtual,altvirtualzero=altvirtualzero)
       sec = manip.append_lines(sec,ltadd)
       
       
@@ -37,7 +43,7 @@ def bondmod(sec,ilist):
    """
    Wrapper for bonds interactions. See intmod.
    """
-   return intmod(sec,ilist,2,[4])
+   return intmod(sec,ilist,2,[4],doaltvirtual=True,altvirtualzero=[3,4])
    
 
 def anglemod(sec,ilist):
@@ -109,4 +115,4 @@ def atomtypesmod(sec,ilist):
    """
    Wrapper for nonbonded atomtypes interactions...
    """
-   return intmod(sec,ilist,1,[],atomtypes=True) 
+   return intmod(sec,ilist,1,[],atomtypes=True,doaltvirtual=True) 

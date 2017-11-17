@@ -1,6 +1,6 @@
 import re
 
-def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
+def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False,copyclassical=False):
    """
    Extends a section of the topology file with the interactions pointing to the right beads for 
    a dimer delocalized replica.
@@ -13,6 +13,10 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
    
    doubleit is used to double a non-dimerized interaction line. This is because the pair interaction tables 
    in gromacs is unique and thus we need to pass it halved and take it into account in topology.
+   
+   copyclassical will add interaction lines for the alternate virtual site as if it were the classical replica. This is required 
+   in order to shift the nonbonded interactions to the center of the dimers.
+   
    """
    
    finlist=[]
@@ -59,6 +63,21 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
          deltalist.append(addlist)
 	 if doubleit and alldimerized:
 	    deltalist.append(addlist)  
+	    
+         if copyclassical:
+	    addlist=""
+	    for idx in idxs[0:nadding]:
+               idxp=int(idx)
+	       if int(idx)-1 in atlist:
+	          ipos = atlist.index(int(idx)-1)
+	          idxp = int(ipos) + int(natoms)+len(atlist)+1
+	       
+	       addlist= addlist+"  "+str(idxp)+"   "
+      
+            for v in remlist:
+               addlist = addlist + " "+str(v)
+
+            deltalist.append(addlist)	    
 	 
       extlist = extlist + deltalist
       finlist.append(extlist)
@@ -67,7 +86,7 @@ def ExtendedList(interactions, natoms,atlist, nadding=2, doubleit=False):
    
    
  
-def atomsExtendedList(atoms,natoms,atomlist, classical=False):
+def atomsExtendedList(atoms,natoms,atomlist, classical=False,usepme=False):
    """
    From the original [ atoms ] section build the dimerzied one.
    
@@ -86,7 +105,7 @@ def atomsExtendedList(atoms,natoms,atomlist, classical=False):
        
       if int(data[0])-1 in atomlist:
          data[1]=data[1]+"_B" 
-         if classical:
+         if classical or usepme:
             data[6]=str(0.0)
 	 else:
 	    data[6]= str(float(data[6])/2)
@@ -112,7 +131,7 @@ def atomsExtendedList(atoms,natoms,atomlist, classical=False):
       data[0] = str(ioffset+int(natoms))
       ioffset=ioffset+1
       data[1] = data[1]+"_B"
-      if classical:
+      if classical or usepme:
          data[6]=str(0.0)
       else:
 	    data[6]= str(float(data[6])/2)
@@ -135,8 +154,12 @@ def atomsExtendedList(atoms,natoms,atomlist, classical=False):
 	 
       data[0] = str(ioffset+int(natoms))
       ioffset=ioffset+1
-      data[1] = data[1]+"_V"
-      if not classical:
+      if not usepme:
+         data[1] = data[1]+"_V"
+      else:
+         data[1] = data[1]+"_F"
+      
+      if not classical and not usepme:
          data[6]=str(0.0)
 	 
       data[2]=str(int(data[2])+d22last)
@@ -153,7 +176,7 @@ def atomsExtendedList(atoms,natoms,atomlist, classical=False):
    return extlist   
       
 
-def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
+def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False,copyclassical=False):
    """
    Builds a section of the topology file with the interactions pointing to the virtual sites of each dimer. 
    This is used for the classical replica.
@@ -163,6 +186,8 @@ def ClassicalExtList(interactions, natoms,atlist, nadding=2, doubleit=False):
    
    doubleit is used to double a non-dimerized interaction line and the virtual site pair interactions. This is because the pair interaction tables 
    in gromacs is unique and thus we need to pass it halved and take it into account in topology.
+   
+   copyclassical is a blind flag used for convenience.
    """   
    finlist=[]
       

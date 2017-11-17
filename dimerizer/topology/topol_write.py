@@ -5,12 +5,13 @@ class dimerizer:
    """
    From a parsed topology file build dimerized versions.
    """
-   def __init__(self,parser, natoms, atomlist,basename, nrep=1):
+   def __init__(self,parser, natoms, atomlist,basename,pme, nrep=1):
       self.parser = parser
       self.natoms=natoms
       self.basename=basename
       self.replicas = nrep
       self.atlist=atomlist
+      self.usepme=pme
       
       
    def buildClassical(self):
@@ -68,4 +69,4 @@ class dimerizer:
 
       cmap = self.parser.getKeyword("cmap")
       
-      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist)
+      outputs.dimer(out_file,self.parser.rbuff,atoms,bonds,pairs,angles,dihedrals,cmap,self.natoms,self.atlist,self.usepme)

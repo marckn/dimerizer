@@ -77,17 +77,30 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    for ln in mdpclean:
       f.write(ln+"\n")
       
-   str1=""
-   str2=""
-   str3=""
+   
+   str1="INT1 INT2 NONINT"
+   
+   if nondimer:
+      str1 = str1 + " NONDIM"
+   
+   if pme:
+      str2="INT1 INT1 INT2 INT2"
+      str3="INT1 INT2 NONINT INT1 NONINT INT2"
+      if nondimer:
+	 str2 = str2+" NONDIM NONDIM INT1 NONDIM INT2 NONDIM NONINT NONINT NONINT NONDIM"
+   
+   else:
+      str2= "INT1 INT1 INT2 INT2"
+      str3= "INT1 INT2 NONINT INT1 NONINT INT2 NONINT NONINT"
+      if nondimer:
+         str2 = str2 + " NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
+	 str3 = str3 + " NONINT NONDIM" 
+   
+   
    str4="User"
    if pme:
       str4="PME-User"
 
-   if nondimer:
-      str1="NONDIM"
-      str2="NONDIM NONDIM INT1 NONDIM INT2 NONDIM"
-      str3="NONINT NONDIM"
       
    fstr="""
    ; lines added by DIMERIZER
@@ -98,9 +111,9 @@ def writeDimer(mdpclean,outdir,mdpf,nondimer,rcoulomb,ew_rtol,pme):
    rcoulomb= %s
    ew-rtol= %s
    cutoff-scheme=group
-   energygrps=INT1 INT2 NONINT %s
-   energygrp_table=INT1 INT1 INT2 INT2 %s
-   energygrp-excl=INT1 INT2 NONINT INT1 NONINT INT2 NONINT NONINT %s
+   energygrps=%s
+   energygrp_table=%s
+   energygrp-excl=%s
    """ % (str4,str(rcoulomb),str(ew_rtol),str1,str2,str3)
 
    f.write(fstr)

@@ -22,6 +22,10 @@ def edit(fname,outfile,dtags):
 	 stradd="{0:7s} {1:10f}".format(ctg+"_V",0.0)
 	 flist.append(stradd)
 	 
+	 stradd="{0:7s} {1:10f}".format(ctg+"_F",0.0)
+	 flist.append(stradd)
+	 
+	 
 
    fho = open(outfile,"w+")
    for ln in flist:

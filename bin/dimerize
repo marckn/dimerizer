@@ -88,7 +88,7 @@ import dimerizer.topology.topol_read
 import dimerizer.topology.topol_write
 topout = outdir+"dtopology.top"
 ptop = dimerizer.topology.topol_read.parse_topol(topfile)
-ftop = dimerizer.topology.topol_write.dimerizer(ptop,natoms,atomlist,topout)
+ftop = dimerizer.topology.topol_write.dimerizer(ptop,natoms,atomlist,topout,pme)
 
 ftop.buildClassical()
 ftop.buildDimer(1)

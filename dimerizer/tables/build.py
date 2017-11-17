@@ -25,9 +25,15 @@ def btab(outdir,rcoulomb,ew_rtol,usepme,scut=0.04,dx=0.002):
 
    names_double=["table_INT1_INT1.xvg","table_INT2_INT2.xvg"]
    
+   
+   names_coulombonly=[]
+   if usepme:
+      names_coulombonly=["table_NONINT_NONINT.xvg", "table_NONINT_NONDIM.xvg", "table_NONDIM_NONINT.xvg"]
+   
    fhalved=[]
    ffull=[]
    fdoubled=[]
+   fcoul=[]
    
    for st in names_half:
       fhalved.append(open(outdir+"/"+st,"w"))
@@ -37,6 +43,9 @@ def btab(outdir,rcoulomb,ew_rtol,usepme,scut=0.04,dx=0.002):
       
    for st in names_double:
       fdoubled.append(open(outdir+"/"+st,"w"))
+   
+   for st in names_coulombonly:
+      fcoul.append(open(outdir+"/"+st,"w"))
    
    fpair =  open(outdir+"/tablep.xvg","w")
    
@@ -57,6 +66,11 @@ def btab(outdir,rcoulomb,ew_rtol,usepme,scut=0.04,dx=0.002):
 	 
 	 for f in fdoubled:
 	    f.write(ln)
+	    
+	 for f in fcoul:
+	    f.write(ln)
+	 
+	 
 	 
          continue
      
@@ -69,6 +83,7 @@ def btab(outdir,rcoulomb,ew_rtol,usepme,scut=0.04,dx=0.002):
       hpdr =12.0/(cx**13)
       lnpair = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr,gpdr,hdr,hpdr)
       lnfull = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr,gpdr,hdr,hpdr)
+      lncoul = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,0,0,0,0)
       lnhalf = "%12.10e   %12.10e %12.10e   %12.10e %12.10e   %12.10e %12.10e\n" % (cx,fdr,fpdr,gdr/2,gpdr/2,hdr/2,hpdr/2)
       if usepme:
          fdr_bare=1*fdr
@@ -94,3 +109,6 @@ def btab(outdir,rcoulomb,ew_rtol,usepme,scut=0.04,dx=0.002):
 	 
       for f in fdoubled:
          f.write(lndouble)
+
+      for f in fcoul:
+         f.write(lncoul)

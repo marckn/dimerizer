@@ -31,7 +31,7 @@ def dimer_lines(dtype, ntags):
    
    return list(set(pbb))
 
-def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispair=False):
+def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispair=False,isaltvirtual=False,altvirtualzero=[]):
    """
    For every tag combination in tagmod produce the new interaction lines.
    
@@ -45,6 +45,9 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispa
    
    This function handles also the [ atomtypes ] section of a forcefield, where 
    virtual atoms are considered accordingly.
+   
+   altvirtual specifies that the line is related to the alternate virtual sites for PME: interaction coefficients 
+   have to be set to 0, the location of these coefficients is given with the altvirtualzero list.
    """
    lnl=[]
    for cval in values:
@@ -73,7 +76,17 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispa
       if atomtypes:
          if isvirtual:
 	    nvalues[2]=0  # zero mass
-	    nvalues[4]="V"   
+	    nvalues[4]="V"
+	 if isaltvirtual:
+	    nvalues[2]=0  # zero mass
+	    nvalues[4]="V"
+	    nvalues[5]=0   # zero LJ parameters
+	    nvalues[6]=0
+	       
+      else:
+         if isaltvirtual:
+	    for i in altvirtualzero:
+	       nvalues[i]=0.0
       
       for i,val in enumerate(nvalues):
          ln=ln+"{"+str(i)+":8s} "
@@ -87,7 +100,7 @@ def getnewlines(values,tagmod,vtohalve=None,atomtypes=False,isvirtual=False,ispa
    return lnl
    
    
-def dimerize_line(values, ntags, vtohalve,atomtypes=False,ispair=False):
+def dimerize_line(values, ntags, vtohalve,atomtypes=False,ispair=False, doaltvirtual=False, altvirtualzero=[]):
    """
    From an interaction line determine all the necessary dimerized interactions. 
    If a list is passed, it is considered as a whole block (i.e. dihedral interactions with func=9)
@@ -95,6 +108,8 @@ def dimerize_line(values, ntags, vtohalve,atomtypes=False,ispair=False):
    Values contains interaction data and ntags is the number of atom tags.
    vtohalve is a list with the indices of values that have teo be halved for the dimerized interactions 
    that require it.
+   
+   doaltvirtual adds a line for the second virtual atom _F, used to deal with PME.
    
    Returns a list containing (only) the new objects.
    """
@@ -132,6 +147,14 @@ def dimerize_line(values, ntags, vtohalve,atomtypes=False,ispair=False):
       lines=getnewlines(values,tm,None,atomtypes,isvirtual=True)  
       dimerized=dimerized+lines
       
+   if doaltvirtual:
+      ff = dimer_lines("_F",ntags)
+      for tm in ff:
+         lines=getnewlines(values,tm,None,atomtypes,isaltvirtual=True,altvirtualzero=altvirtualzero)
+	 dimerized=dimerized+lines
+   
+   
+   
    return dimerized
 
    	 
