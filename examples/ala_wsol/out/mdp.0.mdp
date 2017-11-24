@@ -28,7 +28,6 @@ pbc = xyz
 rlist = 1.0
 ;
 ; electrostatic
-rcoulomb = 1.0
 fourierspacing = 0.12
 ;
 ; vdw
@@ -65,7 +64,9 @@ gen_seed = -1
    integrator=md
    nstcalcenergy=1
    vdw_type=user
-   coulombtype=PME-User  ; put User if you don't need long-range Coulomb corrections
+   coulombtype=PME-User  ; can be either User or PME-User. Don't change here unless you also change tables.
+   rcoulomb= 1.0
+   ew-rtol= 1e-05
    cutoff-scheme=group
    energygrps=NONINT INTF NONDIM
    energygrp_table=INTF INTF NONDIM NONDIM INTF NONDIM
